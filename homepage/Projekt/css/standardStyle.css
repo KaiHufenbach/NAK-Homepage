@@ -1,0 +1,18 @@
+﻿html
+{
+}
+
+body {
+}
+
+/* Definition der Lesezeichen 
+    - Display: Block, damit die Größenangaben richtig interpretiert werden
+    - Realisierung des Mouseovers mit Hilfe von Pseudoformaten
+
+*/
+a.sticky
+{
+    display: block;
+    width: 120px;
+    height: 30px;
+}
