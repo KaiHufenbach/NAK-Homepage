@@ -1,0 +1,50 @@
+﻿html, body {width:100%;}
+
+
+#headline       {}
+
+
+#maincontainer {width:890px;
+                height:350px;
+                background-color:#A3B064;
+                border: dotted 3px #261B1E;
+                float:none;}
+
+#kennzahlenbox {
+                float: left;
+                height:auto;
+                padding-left:10px;
+                padding-right:10px;
+                background-color:#423A39;
+                color:White;
+                border: solid 3px black;
+                
+               }
+               
+#beschreibungsbox {
+                overflow: auto;
+                height:300px;
+                width:700px;
+                background-color:#5E5C4E;
+                color:White;
+                border: solid 3px black;
+                padding-left:10px;
+                padding-right:10px;
+                float:left;
+               }   
+#footer         
+               {
+                border:solid 3px black;
+                padding-left:10px;
+                width:880px;
+                height:40px;
+                background-image:url(footerbg.jpg);
+                }                       
+                
+                
+                
+                
+                
+.menulink {color:#A3B064;}
+
+a:hover {color:#D4FF19;}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="xs\KPI.xsl" ?>
+<KPI xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:schemaLocation="/xs/KPI.xsd">
+  <ID>KPID009VJ</ID>
+  <ALIAS>Risikokapital Gesamt 1.1.</ALIAS>
+  <COMMENT></COMMENT>
+  <TITEL>IRM EPR Kennzahlkatalog</TITEL>
+  <STAND>24.6.11</STAND>
+  <TYPE>Vorjahreswert</TYPE>
+  <RULES>
+  </RULES>
+  <USED>
+    <BY>
+      <ALIAS>Risikokapital Gesamt Durchschnitt</ALIAS>
+      <LINK>KPID009M</LINK>
+    </BY>
+  </USED>
+</KPI>
