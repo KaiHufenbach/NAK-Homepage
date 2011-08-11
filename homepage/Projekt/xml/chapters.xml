@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href=".xsd/KPI.xsl" ?>
+<chapters  xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:schemaLocation="/xsd/chapters.xsd">
+    <chapter nr="1" name="Start"/>
+    <chapter nr="2" name="Steckbrief"/>
+    <chapter nr="3" name="Reiseziel"/>
+    
+    
+</chapters>
