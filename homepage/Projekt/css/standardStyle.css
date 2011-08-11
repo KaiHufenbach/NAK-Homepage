@@ -1,8 +1,20 @@
-﻿html
+﻿* {
+    margin: 0;
+    padding: 0;
+  }
+
+/*
+    Muss Höhe und Breite 100% haben, sonst nicht über ganze Seite (FF 5)
+*/
+html, body
 {
+    height: 100%;
+    width: 100%;
 }
 
-body {
+body 
+{
+    background-image: url('../img/bg.jpg');
 }
 
 /* Definition der Lesezeichen 
@@ -10,9 +22,86 @@ body {
     - Realisierung des Mouseovers mit Hilfe von Pseudoformaten
 
 */
+
+a.sticky, a.rightbend, a.leftbend
+{
+    position:absolute;
+    display: block;   
+}
+
 a.sticky
 {
-    display: block;
-    width: 120px;
-    height: 30px;
+    width: 200px;
+    height: 70px;
+    left: 757px;
+    background: transparent;
+}
+
+#start
+{
+    
+    top: 151px;
+    background:#fff url('../img/nav_start_aktiv.jpg') no-repeat 0 0;
+}
+
+#steckbrief
+{
+    top: 221px;
+}
+
+#steckbrief:hover
+{
+    background:#fff url('../img/nav_steckbrief_hover.jpg')  no-repeat 0 0;
+}
+
+#reiseziel
+{
+    top: 291px;
+}
+
+#reiseziel:hover
+{
+    background:#fff url('../img/nav_reiseziel_hover.jpg')  no-repeat 0 0;
+}
+
+#kultur
+{
+    top: 361px;
+}
+
+#kultur:hover
+{
+    background:#fff url('../img/nav_kultur_hover.jpg')  no-repeat 0 0;
+}
+
+#quiz
+{
+    top: 431px;
+}
+
+#quiz:hover
+{
+    background:#fff url('../img/nav_quiz_hover.jpg')  no-repeat 0 0;
+}
+
+#impressum
+{
+    top: 501px;
+}
+
+#impressum:hover
+{
+    background:#fff url('../img/nav_impressum_hover.jpg')  no-repeat 0 0;
+}
+
+a.rightbend
+{
+    width: 100;
+    height: 169;
+}
+
+a.leftbend
+{
+    width: 128;
+    height: 609;
 }
