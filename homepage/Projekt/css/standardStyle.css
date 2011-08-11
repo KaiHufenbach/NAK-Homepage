@@ -38,6 +38,7 @@ a.sticky
     background: transparent;
 }
 
+    /*|Oliver| Diese ID definiert die Eigenschaften der unteren rechten Ecke*/
 #ecke
 {   
     width: 100px;
@@ -46,12 +47,15 @@ a.sticky
     top: 517px;
     background:#fff url('../img/layout/ecke_klein.jpg') no-repeat 0 0;
     }
+    
+    /*|Oliver| Diese ID definiert die Mouseover-Eigenschaften der unteren rechten Ecke*/
 #ecke:hover
 {
     background:#fff url('../img/layout/ecke_gross.jpg') no-repeat 0 0;
-    }
+}
     
     
+    /*|Oliver| Diese ID definiert die Eigenschaften der aufklappenden Buchseite*/
 #aufklapp
 {   
     width: 128px;
@@ -60,11 +64,11 @@ a.sticky
     top: 78px;
     background:#fff url('../img/layout/aufklapp_klein.jpg') no-repeat 0 0;
 }
+    /*|Oliver| Diese ID definiert die Mouseover-Eigenschaften der aufklappenden Buchseite*/
 #aufklapp:hover
 {
     background:#fff url('../img/layout/aufklapp_gross.jpg') no-repeat 0 0;
     }
-    
     
 #start
 {
@@ -134,26 +138,17 @@ a.sticky
     background:#fff url('../img/layout/nav_impressum_hover.jpg')  no-repeat 0 0;
 }
 
-a.rightbend
-{
-    width: 100;
-    height: 169;
-}
 
-a.leftbend
-{
-    width: 128;
-    height: 609;
-}
-
+    /*|Oliver| Diese ID definiert die Eigenschaften des Logo-Bereichs*/
 #logo
 {   
     width: 554px;
     height: 234px;
     left: 210px;
     top: 50px;
-    }
+}
 
+    /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs*/
 #inhalt 
 {
     position:absolute;
@@ -163,9 +158,9 @@ a.leftbend
     font-family:Courier New;
     text-align:justify;
     font-size:small;
-    
 }
-
+    
+    /*|Oliver| Diese ID definiert die Eigenschaften der linken Seite des Inhaltsbereichs*/
 #inhalt_links
 {   
     position:absolute;
@@ -178,6 +173,7 @@ a.leftbend
     font-weight:bold;
 }
 
+    /*|Oliver| Diese ID definiert die Eigenschaften der rechten Seite des Inhaltsbereichs*/
 #inhalt_rechts
 {   position:absolute;
     width:280px;
