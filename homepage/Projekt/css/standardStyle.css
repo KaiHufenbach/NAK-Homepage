@@ -4,7 +4,7 @@
   }
 
 /*
-    Muss Höhe und Breite 100% haben, sonst nicht über ganze Seite (FF 5)
+    Muss Höhe und Breite 100% haben, sonst nicht über ganze Seite (FF 5, IE8) --> Sonst ist eine Positionierung nicht möglich
 */
 html, body
 {
@@ -15,6 +15,7 @@ html, body
 body 
 {
     background-image: url('../img/layout/bg.jpg');
+    background:#fff url('../img/bg.jpg');
 }
 
 
