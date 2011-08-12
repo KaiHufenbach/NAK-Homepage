@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="xslt/XSLTFile.xslt" ?>
+<page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
+    <pageInfo nr="1" lastPage="true" chapter="Reiseziel" />
+    <left>
+        <picture name="" file=""/>
+        <paragraph>
+            Lorem ipsum dolor sit amet....
+        </paragraph>
+    </left>
+    <right>
+        <paragraph>noch mehr lorem ipsum</paragraph>
+        <picture name="" file=""/>
+    </right>
+</page>

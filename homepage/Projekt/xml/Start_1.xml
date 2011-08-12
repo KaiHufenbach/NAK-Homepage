@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
+<page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
+    <pageInfo nr="1" lastPage="true" chapter="Start" />
+    <left>
+        <paragraph headline="muss nicht" versalien="true">adsfasdf</paragraph>
+        <picture name="text" file="picture.jpg" />
+        <paragraph headline="andere Headline" versalien="false">asdfasdf</paragraph>
+    </left>
+    <right>
+        <paragraph headline="muss nicht" versalien="true">adsfasdf</paragraph>
+        <picture name="text" file="picture.jpg" />
+        <picture name="text" file="picture.jpg" />
+    </right>
+</page>
+    
