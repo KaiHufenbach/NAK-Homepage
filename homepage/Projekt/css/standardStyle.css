@@ -23,12 +23,12 @@ body
     - Display: Block, damit die Größenangaben richtig interpretiert werden
     - Realisierung des Mouseovers mit Hilfe von Pseudoklassen (":hover")
 */
-
-
-a.sticky, #ecke, #aufklapp, #logo
+a.sticky, #ecke, #aufklapp, #logo, #ohneAufklapp
 {
     position:absolute;
-    display: block;   
+    display: block;
+    /* Kai Wird für IE benötigt, da sonst teilweise blauer Rand um divboxen */
+    border: none;  
 }
 a.sticky
 {
@@ -53,15 +53,25 @@ a.sticky
 {
     background:#fff url('../img/layout/ecke_gross.jpg') no-repeat 0 0;
 }
+
+/* Kai | Zusammenfassung der Elemente */    
+#ohneAufklapp, #aufklapp
+{
+    width: 128px;
+    height: 609px;
+    left: 0px;
+    top: 78px;
+}
+
+#ohneAufklapp
+{
+    background:#fff url('../img/layout/aufklapp_ohneknick.jpg') no-repeat 0 0;
+}
     
     
     /*|Oliver| Diese ID definiert die Eigenschaften der aufklappenden Buchseite*/
 #aufklapp
 {   
-    width: 128px;
-    height: 609px;
-    left: 0px;
-    top: 78px;
     background:#fff url('../img/layout/aufklapp_klein.jpg') no-repeat 0 0;
 }
     /*|Oliver| Diese ID definiert die Mouseover-Eigenschaften der aufklappenden Buchseite*/
@@ -69,74 +79,6 @@ a.sticky
 {
     background:#fff url('../img/layout/aufklapp_gross.jpg') no-repeat 0 0;
     }
-    
-#start
-{
-    
-    top: 151px;
-    background:#fff url('../img/layout/nav_start_passiv.jpg') no-repeat 0 0;
-}
-
-#start:hover
-{   
-    background:#fff url('../img/layout/nav_start_hover.jpg') no-repeat 0 0;
-}
-
-
-#steckbrief
-{
-    top: 221px;
-    background:#fff url('../img/layout/nav_steckbrief_passiv.jpg') no-repeat 0 0;
-}
-
-#steckbrief:hover
-{
-    background:#fff url('../img/layout/nav_steckbrief_hover.jpg')  no-repeat 0 0;
-}
-
-#reiseziel
-{
-    top: 291px;
-    background:#fff url('../img/layout/nav_reiseziel_passiv.jpg') no-repeat 0 0;
-}
-
-#reiseziel:hover
-{
-    background:#fff url('../img/layout/nav_reiseziel_hover.jpg')  no-repeat 0 0;
-}
-
-#kultur
-{
-    top: 361px;
-    background:#fff url('../img/layout/nav_kultur_passiv.jpg') no-repeat 0 0;
-}
-
-#kultur:hover
-{
-    background:#fff url('../img/layout/nav_kultur_hover.jpg')  no-repeat 0 0;
-}
-
-#quiz
-{
-    top: 431px;
-    background:#fff url('../img/layout/nav_quiz_passiv.jpg') no-repeat 0 0;
-}
-
-#quiz:hover
-{
-    background:#fff url('../img/layout/nav_quiz_hover.jpg')  no-repeat 0 0;
-}
-
-#impressum
-{
-    top: 501px;
-    background:#fff url('../img/layout/nav_impressum_passiv.jpg') no-repeat 0 0;
-}
-
-#impressum:hover
-{
-    background:#fff url('../img/layout/nav_impressum_hover.jpg')  no-repeat 0 0;
-}
 
 
     /*|Oliver| Diese ID definiert die Eigenschaften des Logo-Bereichs*/
