@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
-    <pageInfo nr="2" lastPage="true" chapter="Reiseziel" typ="normal" />
+    <pageInfo nr="2" lastPage="false" chapter="Reiseziel" typ="normal" />
     <left>
-        <picture name="Strand und Palmen" file="bild1.png"/>
-        <paragraph>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
+        <picture name="Hafen" file="reiseziel_bild_3_klein.jpg"/>
+        <paragraph>Die Bahamas weisen subtropisches Klima auf, da sie durch die Luftsysteme des Nordamerikanischen Kontinents abgekühlt werden. Im Sommer liegt die Durchschnittstemperatur bei ca. 28 °C, im Winter lässt der warme</paragraph>
     </left>
     <right>
-        <paragraph>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
-        <picture name="Die Flagge der Bahamas" file="flagge.png" />
+        <paragraph> Golfstrom (Wassertemperaturen zwischen 24 und 29 °C) die Temperatur selten unter 20 °C sinken. Im Jahresmittel liegt die Temperatur bei 26 °C. Trotzdem können die Temperaturen im Winter gelegentlich bis auf unter 10 °C absinken.</paragraph>
+        <picture name="Tempel" file="reiseziel_bild_4_klein.jpg" />
     </right>
 </page>
     

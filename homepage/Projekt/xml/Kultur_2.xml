@@ -1,14 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
-    <pageInfo nr="1" lastPage="false" chapter="Reiseziel" typ="normal" />
+    <pageInfo nr="2" lastPage="false" chapter="Kultur" typ="normal" />
     <left>
-        <picture name="Strand und Palmen" file="bild1.png"/>
-        <paragraph headline="irgendwas">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
-    </left>
+        <picture name="Junkanoo" file="kultur_bild_3_klein.jpg"/>
+      <paragraph headline="irgendwas">
+        Es wird aber auch ein Gemisch von anderen karibischen Sprachen gesprochen, darunter vor allem Kreole unter den haitianischen Immigranten. Aber viele Bahamesen sprechen ihre eigene Art von Englisch, dass sich manchmal für den Fremden wie eine andere Sprache anhört. 
+    </paragraph>
+        </left>
     <right>
-        <paragraph>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
-        <picture name="Die Flagge der Bahamas" file="flagge.png" />
+        <paragraph>
+          Als Beispiel wird das "th" zum einem "t" und da "h" wird oft ausgelassen wie in "'appy birthday". "W" wird zum "v" und das "s" manchmal zum "z". Die grammatikalische Vergangenheits- und Zukunftsform wird oft ignoriert, da die Bahamesen sowieso nur in der Gegenwart leben. "Vell, dey apparently tink dis a good ting."
+
+          Der fremde Besucher hat sich ein Bild von einem typischen Bahamesen gemacht: nicht so weiß und nicht so schwarz, sondern etwas dazwischen. Es gibt jedoch keinen typischen Bahamesen. es gibt eine reiche Durchmischung zwischen den verschiedenen sozialen Klassen und zwischen Schwarz und Weiß. Viele Einwanderer aus Haiti, West Indische Inseln, Zentral- und Südamerika, Griechenland, China und Syrien haben das bahamesische Leben zusätzlich bereichert.
+        </paragraph>
+        <picture name="Junkanoo Wagen" file="kultur_bild_4_klein.jpg" />
+       
     </right>
 </page>
     

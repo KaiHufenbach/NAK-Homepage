@@ -1,14 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
-    <pageInfo nr="1" lastPage="false" chapter="Reiseziel" typ="normal" />
+    <pageInfo nr="1" lastPage="false" chapter="Kultur" typ="normal" />
     <left>
-        <picture name="Strand und Palmen" file="bild1.png"/>
-        <paragraph headline="irgendwas">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
-    </left>
+        <picture name="Holzschnitzereien" file="kultur_bild_1_klein.jpg"/>
+      <paragraph headline="">
+        Mehr als 340'000 Menschen leben in den Bahamas. Mehr als 80% der Bahamesen leben hauptsächlich in städtischen Gebieten auf den Hauptinseln New Providence und Grand Bahama.</paragraph>
+</left>
     <right>
-        <paragraph>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
-        <picture name="Die Flagge der Bahamas" file="flagge.png" />
+        <paragraph>
+          Die Geschichte der Sklaverei in der Karibik ist verantwortlich, dass mehr als 85% der Bevölkerung eine schwarze Hautfarbe haben und 15% sind weißer Hautfarbe.
+
+          Die Hauptsprache ist Englisch. </paragraph>
+          <picture name="Ein dekorierter Baum" file="kultur_bild_2_klein.jpg" />
     </right>
 </page>
     

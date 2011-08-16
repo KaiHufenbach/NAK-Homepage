@@ -4,7 +4,9 @@
     <pageInfo nr="1" lastPage="true" chapter="Start" typ="normal" />
     <left>
         <picture name="Strand und Palmen" file="bild1.png"/>
-        <paragraph>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
+      <paragraph>
+        Die Bahamas (englisch The Bahamas) sind ein Inselstaat  im Nordatlantik und Teil der Westindischen Inseln. Sie liegen südöstlich der USA sowie nordöstlich von Kuba und werden zu Mittelamerika gezählt. Von den mehr als 700 Bahamainseln sind nur 30 bewohnt. Die Inselgruppe erhielt ihren Namen durch die spanischen Eroberer. Sie nannten die Gewässer um die Inseln Baja Mar (spanisch für ‚flaches Meer‘), woraus später Bahamas wurde.
+      </paragraph>
     </left>
     <right>
         <paragraph>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>

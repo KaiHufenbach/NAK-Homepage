@@ -32,6 +32,8 @@
                 </style>
             </head>
             <body>
+
+
               <div id="navigation">
                 <!-- leider ist hier die Duplette im Code notwendig. <xsl:call-template geht nicht mit select="$..." -->
                 <xsl:for-each select="$chapters/chapters/chapter">
@@ -44,6 +46,8 @@
                 </xsl:for-each>
                 <!-- Ende des Snippets-->
               </div>
+              
+              
              <xsl:if test="$lastPage != 'true'">
               <div id="vorblättern">
                 <xsl:element name="a">
@@ -54,6 +58,9 @@
                 </xsl:element>
               </div>
              </xsl:if>
+
+
+          
 
               <xsl:if test ="$chapter != 'Start'"> 
               <div id="zurückblättern">

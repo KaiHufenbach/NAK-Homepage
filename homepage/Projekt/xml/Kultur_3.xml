@@ -1,14 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
-    <pageInfo nr="1" lastPage="false" chapter="Reiseziel" typ="normal" />
+    <pageInfo nr="3" lastPage="true" chapter="Kultur" typ="normal" />
     <left>
-        <picture name="Strand und Palmen" file="bild1.png"/>
-        <paragraph headline="irgendwas">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
-    </left>
+        <picture name="Junkanoo-Tänzer" file="kultur_bild_5_klein.jpg"/>
+      <paragraph headline="">
+        Die beliebteste Musik unter den Bahamesen ist die Junkanoo Musik. Junkanoo ist aber weit mehr als nur Musik. Erfahren Sie mehr über Junkanoo.
+
+        Die bahamesische Musik beinhaltet auch andere karibische Rhythmen wie Calypso, Trinidad Soca und Jamaika Reggae, sowie von Amerika inspirierte Rap und Hip Hop.
+
+         </paragraph>
+          </left>
     <right>
-        <paragraph>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
-        <picture name="Die Flagge der Bahamas" file="flagge.png" />
+        <paragraph>
+          Eine weiterer typischer bahamesische Musikstil ist der sogenannte Rake 'N' Scrape, welcher seinen Ursprung auf den Cat Islands hat. Diese Musik wird aber auch auf den anderen Inseln praktiziert. Normalerweise schlagen Rake 'N' Scrape Musiker die Goombay Trommel, kratzen an der Zimmermannssäge und spielen Melodien auf der Ziehharmonika.
+          Die schönen Landschaften, die bunten Häuser und die Menschen auf den bahamesischen Inseln haben viele lokale Künstler inspiriert wie Amos Ferguson, Eddie Minnis, Brent Malone und andere. Kunstausstellung von lokalen Künstler werden in verschieden Kunstgalerien in Nassau ausgestellt. Empfehlenswerte Orte um gute lokale Kunst zu finden sind die Andrew Aitken Frame Art Gallery in Madeira St, Palmdale oder die Nassau Glass Company in Mackey St.
+
+          Lokale Kunstausstellungen gibt es auch in der National Art Gallery of The Bahamas in West Hill St, Nassau. 
+
+        </paragraph>
     </right>
 </page>
     

@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
-    <pageInfo nr="1" lastPage="false" chapter="Reiseziel" typ="normal" />
+    <pageInfo nr="3" lastPage="true" chapter="Reiseziel" typ="normal" />
     <left>
-        <picture name="Strand und Palmen" file="bild1.png"/>
-        <paragraph headline="irgendwas">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
+        <picture name="Hotel Atlantic Bahamas" file="reiseziel_bild_5_klein.jpg"/>
+        <paragraph headline="">
+          Größe und Dienstleistungsangebot der Hotels sind sehr unterschiedlich. Luxushotels bieten Gepäck-, Pagen- und Zimmerservice, Sport- und Freizeitprogramm, Geschäfte und Swimmingpools; 
+        </paragraph>
     </left>
     <right>
-        <paragraph>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
-        <picture name="Die Flagge der Bahamas" file="flagge.png" />
+        <paragraph>einige haben Privatstrände und Golf- und Tennisplätze. Der Preis für Doppel- und Einzelzimmer ist oft derselbe. In den kleineren Hotels ist die Atmosphäre ungezwungener, es gibt weniger Freizeitanlagen, aber zumeist einen Speisesaal und eine Bar. Neuere Hotels wie das South Ocean Beach Resort auf der Insel New Providence bieten Sportanlagen und Zimmer mit höchstem Komfort. Im Crystal Palace am Cable Beach fehlt es nicht einmal an Kasino, Fitness-Center und Gourmet-Restaurant. In manchen Hotels ist der Bedienungsservice bereits im Preis inbegriffen.</paragraph>
+        <picture name="Fischerboot" file="reiseziel_bild_6_klein.jpg" />
     </right>
 </page>
     

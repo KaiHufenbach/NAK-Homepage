@@ -3,12 +3,13 @@
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
     <pageInfo nr="1" lastPage="false" chapter="Reiseziel" typ="normal" />
     <left>
-        <picture name="Strand und Palmen" file="bild1.png"/>
-        <paragraph headline="irgendwas">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
+        <picture name="Parlament" file="reiseziel_bild_1_klein.png"/>
+        <paragraph headline="Tourismus">Haupterwerbszweig der Bahamas ist der Tourismus, in dem etwa 60 % der erwerbstätigen Bevölkerung beschäftigt sind. Die Infrastruktur für den Luft- und Seeverkehr ist gut ausgebaut, allerdings gibt es wegen der topographischen </paragraph>
     </left>
     <right>
-        <paragraph>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
-        <picture name="Die Flagge der Bahamas" file="flagge.png" />
+        <paragraph>Bedingungen keine Eisenbahn. Brauchbare Landverkehrswege befinden sich auf New Providence, Grand Bahama und einigen anderen Inseln. Auf den Tourismus hat sich auch der Dreh mehrerer James-Bond-Filme auf den Bahamas günstig ausgewirkt. Die Bahamas beziehungsweise Nassau dienten unter anderem für Casino Royale, Feuerball und dessen 1983 erschienene Neuverfilmung "Sag niemals nie" als Drehorte.
+        </paragraph>
+        <picture name="Strand und Meer" file="reiseziel_bild_2_klein.png" />
     </right>
 </page>
     
