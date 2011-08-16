@@ -17,7 +17,19 @@ body
     background-image: url('../img/layout/bg.jpg');
 }
 
+/* IE Workaround: Text nach außen schieben und die Outline (punkte darunter) entfernen. Stellt zusätzlich barrierefreiheit her.
+   Idee selbst entwickelt und bei: http://www.webmasterpro.de/coding/article/css-verweistexte-von-links-verstecken.html verifiziert.
+ */
+a 
+{
+    text-indent: -9999px;
+}
 
+a:hover, a:focus
+{
+    outline:none;
+}
+/* IE Workaround Ende */
 
 /* Definition der Lesezeichen 
     - Display: Block, damit die Größenangaben richtig interpretiert werden
@@ -26,9 +38,7 @@ body
 a.sticky, #ecke, #aufklapp, #logo, #ohneAufklapp
 {
     position:absolute;
-    display: block;
-    /* Kai Wird für IE benötigt, da sonst teilweise blauer Rand um divboxen */
-    border: none;  
+    display: block; 
 }
 a.sticky
 {
@@ -100,19 +110,23 @@ a.sticky
     font-family:Courier New;
     text-align:justify;
     font-size:small;
+    font-weight:bold;
+}
+
+#inhalt_links, #inhalt_rechts
+{
+    position:absolute;
+    padding-left:10px;
+    padding-right:10px;
 }
     
     /*|Oliver| Diese ID definiert die Eigenschaften der linken Seite des Inhaltsbereichs*/
 #inhalt_links
 {   
-    position:absolute;
     width:190px;
     height:370px;
     top:105px;
     left:0px;
-    padding-left:10px;
-    padding-right:10px;
-    font-weight:bold;
 }
 
     /*|Oliver| Diese ID definiert die Eigenschaften der rechten Seite des Inhaltsbereichs*/
@@ -121,6 +135,9 @@ a.sticky
     width:280px;
     height:430px;
     left:210px;
-    padding-left:10px;
-    padding-right:10px;
+}
+
+#versalien
+{
+    
 }

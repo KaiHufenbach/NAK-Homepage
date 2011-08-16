@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
-    <pageInfo nr="1" lastPage="true" chapter="Start" typ="normal" />
+    <pageInfo nr="2" lastPage="true" chapter="Reiseziel" typ="normal" />
     <left>
         <picture name="Strand und Palmen" file="bild1.png"/>
         <paragraph>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</paragraph>
