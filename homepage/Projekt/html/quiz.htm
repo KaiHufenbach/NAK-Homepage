@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Quiz</title>
+    <script type="text/javascript">
+
+   
+<!--
+        var answers;
+
+        function initialize() {
+            answers = new Array(new question("Lieblingszahl?", "2"), new question("Lieblingsessen?", "Fleisch"));
+        }
+
+
+
+        function question(q, a) {
+            this.question = q;
+            this.answer = a;
+        }
+
+
+        function handIn() {
+            for (var i = 0; i < answers.length; i++) {
+                alert(answers[i].question);
+                alert(document.getElementById(answers[i].question).elements[answers[i].question].value);
+            }
+        }
+
+        /* Reset des Formulars.  */
+        function reset() {
+            document.location = document.location;
+        }
+//-->
+</script>
+</head>
+<body onload="initialize()">
+<!-- Oben in XSLT muss das Attribut Codierung entfernt werden (sonst Probleme im IE) -->
+
+<div class="question" id="Lieblingszahl?">
+<span class="questiontext">Lieblingszahl?</span>
+<!-- Span tut vom Layout her garnichts. -->
+<input type="radio" name="Lieblingszahl?" value="1" /><span class="antwort">1</span><span class="result" id="Lieblingszahl?Result1"></span>
+<input type="radio" name="Lieblingszahl?" value="2" /><span class="antwort">2</span><span class="result" id="Lieblingszahl?Result2"></span>
+<input type="radio" name="Lieblingszahl?" value="3" /><span class="antwort">3</span><span class="result" id="Lieblingszahl?Result3"></span>
+</div>
+
+<div class="question" id="Lieblingsessen?">
+<span class="questiontext">Lieblingsessen?</span>
+<!-- Span tut vom Layout her garnichts. -->
+<input type="radio" name="Lieblingsessen?" value="Pizza" /><span class="antwort">Pizza</span><span class="result" id="LieblingsessenPizza"></span>
+<input type="radio" name="Lieblingsessen?" value="Nudeln" /><span class="antwort">Nudeln</span><span class="result" id="LieblingsessenNudeln"></span>
+<input type="radio" name="Lieblingsessen?" value="Fisch" /><span class="antwort">Fisch</span><span class="result" id="LieblingsessenFisch"></span>
+<input type="radio" name="Lieblingsessen?" value="Fleisch" /><span class="antwort">Fleisch</span><span class="result" id="LieblingsessenFleisch"></span>
+</div>
+
+<div id="quizactions">
+<!-- Images wären an dieser Stelle auch denkbar -->
+<input type="submit" value="abgeben" onclick="handIn()" />
+<input type="submit" value="reset" onclick="reset()"/>
+
+</div>
+
+
+</body>
+</html>
