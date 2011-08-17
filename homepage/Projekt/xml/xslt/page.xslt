@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns="http://www.w3.org/1999/xhtml">
-    <xsl:output method="html" version="1.0" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"/>
+    <!-- encoding="UTF-8"  darf hier nicht stehen, sonst bekommt der IE 8 Umlautprobleme-->
+    <xsl:output method="html" version="1.0" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"/>
     
     <xsl:template match="page">
         <xsl:variable name="chapter" select="pageInfo/@chapter"/>
@@ -50,11 +51,13 @@
               
              <xsl:if test="$lastPage != 'true'">
               <div id="vorblättern">
+                  <!-- Das a Tag benötigt im IE einen Inhalt, sonst wird die Seite falsch dargestellt.-->
                 <xsl:element name="a">
                   <xsl:attribute name="id">ecke</xsl:attribute>
                   <xsl:attribute name="href">
                     <xsl:value-of select="$chapter"/>_<xsl:value-of select="$pagenr + 1"/>.xml
                   </xsl:attribute>
+                  Vorblättern
                 </xsl:element>
               </div>
              </xsl:if>
@@ -73,6 +76,7 @@
                     <xsl:attribute name="href">
                       <xsl:value-of select="$chapter"/>_<xsl:value-of select="$pagenr - 1"/>.xml
                     </xsl:attribute>
+                    Zurückblättern
                   </xsl:element>
                 </xsl:if>
               </div>
@@ -154,7 +158,7 @@
                 </xsl:element>
             </xsl:if>
             <!-- Inhalt des Matches hier ausgeben -->
-            <xsl:value-of select="."/>
+            <xsl:value-of select="." disable-output-escaping="yes"/>
         </xsl:element>
         
        
