@@ -3,16 +3,19 @@
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
     <pageInfo nr="1" lastPage="false" chapter="Kultur" typ="normal" />
     <left>
-        <picture name="Holzschnitzereien" file="kultur_bild_1_klein.jpg"/>
-      <paragraph headline="">
+      <picture name="Holzschnitzereien" file="kultur_bild_1_klein.png"/>
+
+      <paragraph headline="Geschichte">
         Mehr als 340'000 Menschen leben in den Bahamas. Mehr als 80% der Bahamesen leben hauptsächlich in städtischen Gebieten auf den Hauptinseln New Providence und Grand Bahama.</paragraph>
-</left>
+
+       </left>
     <right>
-        <paragraph>
+      <picture name="Ein dekorierter Baum" file="kultur_bild_2_klein.png" />
+
+      <paragraph>
           Die Geschichte der Sklaverei in der Karibik ist verantwortlich, dass mehr als 85% der Bevölkerung eine schwarze Hautfarbe haben und 15% sind weißer Hautfarbe.
 
           Die Hauptsprache ist Englisch. </paragraph>
-          <picture name="Ein dekorierter Baum" file="kultur_bild_2_klein.jpg" />
-    </right>
+       </right>
 </page>
     

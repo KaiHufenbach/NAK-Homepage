@@ -1,30 +1,24 @@
 Wahlspruch: Forward, Upward, Onward, Together
-
 (engl. für „Vorwärts, Aufwärts, Weiter, Gemeinsam“)
-Amtssprache 	Englisch
-Hauptstadt 	Nassau
-Staatsform 	parlamentarische Monarchie
-Staatsoberhaupt 	Königin Elisabeth II.
 
-vertreten durch Generalgouverneur Sir Arthur Alexander Foulkes
-Regierungschef 	Premierminister Hubert Ingraham
-Fläche 	13.940 km²
-Einwohnerzahl 	309.156 (Quelle: CIA 2009)
+Amtssprache 		Englisch
+Hauptstadt 		Nassau
+Staatsform 		Parlamentarische Monarchie
+Staatsoberhaupt 	Königin Elisabeth II. vertreten durch Generalgouverneur Sir Arthur Alexander Foulkes
+Regierungschef 		Premierminister Hubert Ingraham
+Fläche 			13.940 km²
+Einwohnerzahl 		309.156 (Quelle: CIA 2009)
 Bevölkerungsdichte 	21,8 Einwohner pro km²
-Bruttoinlandsprodukt nominal (2007)[1] 	6.586 Mio. US$ (131.)
+Bruttoinlandsprodukt nominal (2007) 	6.586 Mio. US$ (131.)
 Bruttoinlandsprodukt pro Einwohner 	19.781 US$ (34.)
-Human Development Index 	0,784 (43.) [2]
-Währung 	1 Bahama-Dollar = 100 Cents
-1 € = 1,42 BSD
-1 BSD = 0,71 €
-(Stand: 5. August 2011)
-Unabhängigkeit 	am 10. Juli 1973 von Großbritannien
-Nationalhymne 	March On, Bahamaland
-Zeitzone 	EST = UTC-5 (November–März)
+Human Development Index 		0,784 (43.) [2]
+Währung 		1 Bahama-Dollar = 100 Cents
+			1 € = 1,42 BSD
+			1 BSD = 0,71 €
+			(Stand: 5. August 2011)
+Unabhängigkeit 		am 10. Juli 1973 von Großbritannien
+Nationalhymne 		March On, Bahamaland
+Zeitzone 		EST = UTC-5 (November–März)
 
-EDT = UTC-4 (April–Oktober)
 Kfz-Kennzeichen 	BS
-Internet-TLD 	.bs
-Telefonvorwahl 	+1 (242) siehe NANP
-
-Bei Wiki Infos zu den einzelnen Inseln
+Internet-TLD 		.bs

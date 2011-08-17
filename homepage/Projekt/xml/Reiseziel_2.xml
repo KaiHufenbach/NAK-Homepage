@@ -3,12 +3,14 @@
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
     <pageInfo nr="2" lastPage="false" chapter="Reiseziel" typ="normal" />
     <left>
-        <picture name="Hafen" file="reiseziel_bild_3_klein.jpg"/>
-        <paragraph>Die Bahamas weisen subtropisches Klima auf, da sie durch die Luftsysteme des Nordamerikanischen Kontinents abgekühlt werden. Im Sommer liegt die Durchschnittstemperatur bei ca. 28 °C, im Winter lässt der warme</paragraph>
+       
+        <paragraph headline="Klima">Die Bahamas weisen subtropisches Klima auf, da sie durch die Luftsysteme des Nordamerikanischen Kontinents abgekühlt werden. Im Sommer liegt die Durchschnittstemperatur bei ca. 28 °C, im Winter lässt der warme Golfstrom </paragraph>
+      <picture name="Hafen" file="reiseziel_bild_3_klein.png"/>
     </left>
     <right>
-        <paragraph> Golfstrom (Wassertemperaturen zwischen 24 und 29 °C) die Temperatur selten unter 20 °C sinken. Im Jahresmittel liegt die Temperatur bei 26 °C. Trotzdem können die Temperaturen im Winter gelegentlich bis auf unter 10 °C absinken.</paragraph>
-        <picture name="Tempel" file="reiseziel_bild_4_klein.jpg" />
+      <picture name="Tempel" file="reiseziel_bild_4_klein.png" />
+        <paragraph>  (Wassertemperaturen zwischen 24 und 29 °C) die Temperatur selten unter 20 °C sinken. Im Jahresmittel liegt die Temperatur bei 26 °C. Trotzdem können die Temperaturen im Winter gelegentlich bis auf unter 10 °C absinken.</paragraph>
+     
     </right>
 </page>
     
