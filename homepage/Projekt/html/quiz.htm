@@ -23,10 +23,15 @@
                 var elem = document.createElement("div");
                 elem.setAttribute("class", "question");
                 //MD5 wird an dieser Stelle verwendet, um den Fragetext ohne Sonderzeichen einzufügen
-                elem.setAttribute("id", MD5(answers[i].question));
+                elem.setAttribute("id", hash(answers[i].question));
                 document.getElementsByTagName("body")[0].appendChild(elem);
             }
-            
+
+        }
+
+        //Somit wird verhindert, dass ein MD5 hash mit einer Zahl anfängt
+        function hash(string) {
+            return 'x' + MD5(string);
         }
 
         //Include Funktion, um weitere Javascripts einbinden zu können, muss noch überarbeitet werden, Quelle: http://xhtmlforum.de/45258-javascripts-einem-javascript-einbinden-include-oder.html
