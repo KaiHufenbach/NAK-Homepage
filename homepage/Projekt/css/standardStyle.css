@@ -113,7 +113,7 @@ a.sticky
     font-weight:bold;
 }
 
-#inhalt_links, #inhalt_rechts
+#inhalt_links, #inhalt_rechts, 
 {
     position:absolute;
     padding-left:10px;
