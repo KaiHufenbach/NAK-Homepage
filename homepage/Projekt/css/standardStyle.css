@@ -101,7 +101,7 @@ a.sticky
 }
 
     /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs*/
-#inhalt 
+#inhalt, #quiz_inhalt 
 {
     position:absolute;
     width: 510px;
@@ -113,7 +113,13 @@ a.sticky
     font-weight:bold;
 }
 
-#inhalt_links, #inhalt_rechts, 
+#quiz_inhalt
+{
+    top:150px;
+    width: 520px;
+}
+
+#inhalt_links, #inhalt_rechts
 {
     position:absolute;
     padding-left:10px;
@@ -135,6 +141,77 @@ a.sticky
     width:280px;
     height:430px;
     left:210px;
+}
+
+
+    /*|Oliver| Diese Class definiert die Eigenschaften der Tabellenelemente, die eine Frage enthalten.*/
+.frage
+{
+    font-weight:bold;
+    font-size:large;
+    width:520px;
+}
+
+/*|Oliver| Diese Class definiert die Eigenschaften der Tabellenelemente, die eine Antwort enthalten.*/
+.antwort
+{
+   padding-left:0px;
+}
+
+/*|Oliver| Diese Class definiert die Eigenschaften der Radiobuttons*/
+.radiobutton
+{
+    background: url('../img/layout/kaestchen_normal.png') no-repeat 0 0;
+    width:20px;
+    height:20px;
+    
+    
+}
+
+/*|Oliver| Diese Class definiert die Hover-Eigenschaften der Radiobuttons*/
+.radiobutton:hover
+{
+    background: url('../img/layout/kaestchen_mouseover.png') no-repeat 0 0;
+}
+
+/*|Oliver| Diese Class definiert die Eigenschaften des Abschicken-Buttons*/
+#abschicken
+{
+    background: url('../img/layout/abschicken.png') no-repeat 0 0;
+    width:130px;
+    height:30px;
+    margin-left:190px;
+    
+}
+
+/*|Oliver| Diese Class definiert die Hover-Eigenschaften des Abschicken-Buttons*/
+#abschicken:hover
+{
+    background: url('../img/layout/abschicken_mouseover.png') no-repeat 0 0;
+}
+
+
+/*|Oliver| Diese Class definiert die Eigenschaften des Abschicken-Buttons*/
+#zuruecksetzen
+{
+    background: url('../img/layout/zuruecksetzen.png') no-repeat 0 0;
+    width:130px;
+    height:30px;
+}
+
+/*|Oliver| Diese Class definiert die Hover-Eigenschaften des Abschicken-Buttons*/
+#zuruecksetzen:hover
+{
+    background: url('../img/layout/zuruecksetzen_mouseover.png') no-repeat 0 0;
+}
+
+/*|Oliver| Diese Class definiert die Eigenschaften des Quiz-Auswertungsbereichs*/
+#auswertung
+{
+    background-color:white;
+    width:490px;
+    height:100px;
+    
 }
 
 #versalien
