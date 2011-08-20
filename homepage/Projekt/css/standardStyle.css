@@ -35,7 +35,7 @@ a:hover, a:focus
     - Display: Block, damit die Größenangaben richtig interpretiert werden
     - Realisierung des Mouseovers mit Hilfe von Pseudoklassen (":hover")
 */
-a.sticky, #ecke, #aufklapp, #logo, #ohneAufklapp
+a.sticky, #ecke, #start_ecke, #aufklapp, #logo, #ohneAufklapp
 {
     position:absolute;
     display: block; 
@@ -62,6 +62,21 @@ a.sticky
 #ecke:hover
 {
     background:#fff url('../img/layout/ecke_gross.jpg') no-repeat 0 0;
+}
+
+#start_ecke
+{   
+    width: 96px;
+    height: 151px;
+    left: 712px;
+    top: 536px;
+    background:url('../img/layout/starteckeklein.png') no-repeat 0 0;
+    }
+    
+    /*|Oliver| Diese ID definiert die Mouseover-Eigenschaften der unteren rechten Ecke*/
+#start_ecke:hover
+{
+    background:url('../img/layout/startecke.png') no-repeat 0 0;
 }
 
 /* Kai | Zusammenfassung der Elemente */    
@@ -99,6 +114,19 @@ a.sticky
     left: 210px;
     top: 50px;
 }
+
+#logo_start
+
+{
+    width: 626px;
+    height: 616px;
+    left: 180px;
+    top: 70px;
+    background: url('../img/layout/logo_start.png') no-repeat 0 0;
+    
+    position:absolute;
+}
+    
 
     /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs*/
 #inhalt, #quiz_inhalt 
