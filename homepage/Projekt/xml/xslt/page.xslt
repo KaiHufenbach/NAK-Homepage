@@ -19,7 +19,6 @@
                 </title>
                 <style type="text/css" media="screen">
                   @import"../css/standardStyle.css";
-                  <!--body{background-image: url('../../img/<xsl:value-of select="test/@name"/>.jpg');}-->
                   <!-- leider ist hier die Duplette im Code notwendig. <xsl:call-template geht nicht mit select="$..." -->
                   <xsl:for-each select="$chapters/chapters/chapter">
                     <xsl:if test="@name = $chapter">
@@ -31,9 +30,66 @@
                   </xsl:for-each>
                   <!-- Ende des Snippets-->
                 </style>
-            </head>
-            <body>
 
+                <xsl:if test="$type = 'quiz'">
+                    <script type="text/javascript">
+
+                        <xsl:text disable-output-escaping="yes">
+                        //Somit wird Loadingproblemen aus dem Weg gegangen, ein Import von Hand erzeugt Probleme im Firefox 5.0.1 -> onLoad() steht MD5 sonst nicht zur Verfügung
+                        //ist Javascript nicht aktiviert, wird nichts eingefügt
+                        include("../js/quiz.js");
+                        include("../js/md5.js");
+
+                        //Include Funktion, um weitere Javascripts einbinden zu können, muss noch überarbeitet werden, Quelle: http://xhtmlforum.de/45258-javascripts-einem-javascript-einbinden-include-oder.html
+                        function include(file) {
+                        var script = document.createElement('script');
+                        var type = document.createAttribute('type');
+                        type.nodeValue = 'text/javascript';
+                        script.setAttributeNode(type);
+                        var source = document.createAttribute('src');
+                        source.nodeValue = file;
+                        script.setAttributeNode(source);
+                        var head = document.getElementsByTagName('head')[0];
+                        head.appendChild(script);
+                        }
+
+                        //Objekt, dass eine Frage repräsentiert
+                        //Parameter:
+                        //question - Frage
+                        //answer - die Korrekte Antwort
+                        //options - Array der Antwortmöglichkeiten
+                        //picture - Name eines anzuzeigenden Bildes
+                        //Dieses Objekt muss ebenfalls hier stehen, da es sonst nicht geladen werden kann
+                        function question(question, answer, options, picture) {
+                        this.question = question;
+                        this.answer = answer;
+                        this.picture = picture;
+                        this.options = options;
+                        }
+                        
+                        //Repräsentiert ein Bild
+                        function Picture(graphic, text) {
+                            this.graphic = graphic;
+                            this.text = text;
+                        }
+                        </xsl:text>
+
+                        //Wird via XSLT gesetzt werden
+                        var amountOfQuestions =  <xsl:value-of select="quizOptions/@questions"/>;
+                        <!-- Muss hier leider in eine Zeile geschrieben werden, damit der Javascript Interpreter damit klar kommt. -->
+                        var questionPool = new Array(<xsl:for-each select="question">new question("<xsl:value-of select="@question"/>",<xsl:for-each select="option"><xsl:if test="@rightAnswer = 'true'">"<xsl:value-of select="."/>",</xsl:if></xsl:for-each>new Array(<xsl:for-each select="option">"<xsl:value-of select="."/>"<xsl:if test="position()!=last()">,</xsl:if></xsl:for-each>)<xsl:for-each select="picture">, new Picture("<xsl:value-of select="@file"/>","<xsl:value-of select="@name"/>")</xsl:for-each>)<xsl:if test="position()!=last()">,</xsl:if></xsl:for-each>);
+                    </script>
+                    
+                </xsl:if>
+                
+            </head>
+
+            
+            
+            <xsl:element name="body">
+                <xsl:if test="$type ='quiz'">
+                    <xsl:attribute name="onload">initialize()</xsl:attribute>
+                </xsl:if>
 
               <div id="navigation">
                 <!-- leider ist hier die Duplette im Code notwendig. <xsl:call-template geht nicht mit select="$..." -->
@@ -94,15 +150,17 @@
                 </xsl:element>
               </div>
               
-              <div id="inhalt">
+              
                   
                 <xsl:if test="$type = 'normal'">
+                    <div id="inhalt">
                   <xsl:call-template name="normal"/>
+                    </div>
                 </xsl:if>
- 
-                
-              </div>
-            </body>
+
+
+
+            </xsl:element>
         </html>
 
     </xsl:template>
@@ -131,6 +189,11 @@
       <xsl:if test="$id = @nr">#<xsl:value-of select="@name"/>Active{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_aktiv.jpg'); top: <xsl:value-of select="81+(70*@nr)"/>px ;}</xsl:if>
     </xsl:for-each>
   </xsl:template>
+
+    <!-- Template für das Quiz (es erzeugt KEINEN HTML Content, sondern befüllt lediglich ein Javascript) -->
+    <xsl:template name="quiz">
+        
+    </xsl:template>
 
   <!-- Template für Content-Type Normal -->
   <xsl:template name="normal">

@@ -1,14 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
-    <pageInfo nr="1" lastPage="true" chapter="Quiz" typ="normal" />
-    <left>
-       
-        <paragraph headline=""></paragraph>
-          
-        </left>
-    <right>
-      <paragraph></paragraph>
-    </right>
+    <pageInfo nr="1" lastPage="true" chapter="Quiz" typ="quiz" />
+    <quizOptions questions="3">
+        <rank from="0" to="2">
+            <picture file="" name=""/>
+        </rank>
+        <rank from="3" to="4">
+            <picture file="" name=""/>
+        </rank>
+    </quizOptions>
+    <question question="Wie heißt der Bürgermeister von Wesel?">
+        <picture name="testbld" file="bild.jpg"/>
+        <option >Detlef</option>
+        <option rightAnswer="true">Esel</option>
+        <option >Egon</option>
+    </question>
+
+    <question question="Wie heißt der Bürgermeister von Hamburg?">
+        <picture name="testbld" file="bild.jpg"/>
+        <option >Dieter</option>
+        <option rightAnswer="true">Quack</option>
+        <option >Egon</option>
+    </question>
+
+    <question question="Wie heißt der Bürgermeister von Tackatucka?">
+        <option >Hein</option>
+        <option rightAnswer="true">Blöd</option>
+        <option >Egon</option>
+    </question>
 </page>
     

@@ -159,13 +159,30 @@ a.sticky
 }
 
 /*|Oliver| Diese Class definiert die Eigenschaften der Radiobuttons*/
+.radiobutton, .radiobutton_active
+{
+    width:20px;
+    height:20px;   
+}
+
 .radiobutton
 {
     background: url('../img/layout/kaestchen_normal.png') no-repeat 0 0;
-    width:20px;
-    height:20px;
-    
-    
+}
+
+.radiobutton_active
+{
+    background: url('../img/layout/kaestchen_angekreuzt.png') no-repeat 0 0;   
+}
+
+.result
+{
+    width:40px;
+}
+
+.frageBild
+{
+    width:120px;   
 }
 
 /*|Oliver| Diese Class definiert die Hover-Eigenschaften der Radiobuttons*/

@@ -1,38 +1,15 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Quiz</title>
-    <script type="text/javascript" >
+    <script type="text/javascript">
 
    
 <!--
         //Somit wird Loadingproblemen aus dem Weg gegangen, ein Import von Hand erzeugt Probleme im Firefox 5.0.1 --> onLoad() steht MD5 sonst nicht zur Verfügung
         //ist Javascript nicht aktiviert, wird nichts eingefügt
+        include("../js/quiz.js");
         include("../js/md5.js");
-
-        var answers;
-        var correct;
-
-        function initialize() {
-            //Einfügen erfolgt hier via XSLT, der Rest ist generisch
-            answers = new Array(new question("Lieblingszahl", "2"), new question("Lieblingsessen", "Fleisch"));
-            correct = 0;
-
-
-            for (var i = 0; i < answers.length; i++) {
-                var elem = document.createElement("div");
-                elem.setAttribute("class", "question");
-                //MD5 wird an dieser Stelle verwendet, um den Fragetext ohne Sonderzeichen einzufügen
-                elem.setAttribute("id", hash(answers[i].question));
-                document.getElementsByTagName("body")[0].appendChild(elem);
-            }
-
-        }
-
-        //Somit wird verhindert, dass ein MD5 hash mit einer Zahl anfängt
-        function hash(string) {
-            return 'x' + MD5(string);
-        }
 
         //Include Funktion, um weitere Javascripts einbinden zu können, muss noch überarbeitet werden, Quelle: http://xhtmlforum.de/45258-javascripts-einem-javascript-einbinden-include-oder.html
         function include(file) {
@@ -47,77 +24,54 @@
             head.appendChild(script);
         }
 
-
-        //Key-Value Pair, das eine Frage und deren Antwort repräsentiert
-        function question(q, a) {
-            this.question = q;
-            this.answer = a;
+        //Objekt, dass eine Frage repräsentiert
+        //Parameter:
+        //question - Frage
+        //answer - die Korrekte Antwort
+        //options - Array der Antwortmöglichkeiten
+        //picture - Name eines anzuzeigenden Bildes
+        //Dieses Objekt muss ebenfalls hier stehen, da es sonst nicht geladen werden kann
+        function question(question, answer, options, picture) {
+            this.question = question;
+            this.answer = answer;
+            this.picture = picture;
+            this.options = options;
         }
 
-
-        //Wertet die Antworten generisch anhand von 'answers' aus
-        function handIn() {
-            alert(MD5("test"));
-            for (var i = 0; i < answers.length; i++) {
-                var radios = document.getElementById(answers[i].question).getElementsByTagName("input");
-                for (var j = 0; j < radios.length; j++) {
-                    if (radios[j].checked) {
-                        correctQuestion(new question(answers[i].question, radios[j].value), radios[j].value == answers[i].answer);
-                    }
-                } 
-            }
-        }
-
-        //Um die Symbole richtig setzen zu können, wird die Frage und die angekreuzte Antwort, sowie deren Richtigkeit übergeben
-        //Frage + Antwort wird für den Zugriff auf die ID der Tabelle benötigt
-        function correctQuestion(q, tf) {
-            alert(q.answer + tf);
-            if (tf) {
-                alert(tf);
-                correct++;
-                document.getElementById(q.question + q.answer).appendChild(document.createTextNode("OK"));
-            } else {
-                document.getElementById(q.question + q.answer).appendChild(document.createTextNode("X"));
-            }
-            
-        }
-
-        /* Reset des Formulars.  */
-        function reset() {
-            document.location = document.location;
-        }
+        //Muss via XSLT gesetzt werden
+        var amountOfQuestions = 3;
+        var questionPool = new Array(new question("Staatsoberhaupt der Bahamas?", "Der Pabst", new Array("Der Pabst", "Die Queen", "André Kowalk")), new question("Ramalam Ding Dong?", "Fleisch", new Array("Junkanoo Karneval", "Ramalam Ding Dong", "Reenacting Fear and Loathing")));
 //-->
-</script>
-
-
+    </script>
 </head>
 <body onload="initialize()">
-<!-- Oben in XSLT muss das Attribut Codierung entfernt werden (sonst Probleme im IE) -->
-
-<div class="question" id="Lieblingszahl">
-<span class="questiontext">Lieblingszahl?</span>
-<!-- Span tut vom Layout her garnichts (außer CSS natürlich) -->
-<input type="radio" name="Lieblingszahl" value="1" /><span class="antwort">1</span><span class="result" id="Lieblingszahl1"></span>
-<input type="radio" name="Lieblingszahl" value="2" /><span class="antwort">2</span><span class="result" id="Lieblingszahl2"></span>
-<input type="radio" name="Lieblingszahl" value="3" /><span class="antwort">3</span><span class="result" id="Lieblingszahl3"></span>
-</div>
-
-<div class="question" id="Lieblingsessen">
-<span class="questiontext">Lieblingsessen?</span>
-<!-- Span tut vom Layout her garnichts. -->
-<input type="radio" name="Lieblingsessen" value="Pizza" /><span class="antwort">Pizza</span><span class="result" id="LieblingsessenPizza"></span>
-<input type="radio" name="Lieblingsessen" value="Nudeln" /><span class="antwort">Nudeln</span><span class="result" id="LieblingsessenNudeln"></span>
-<input type="radio" name="Lieblingsessen" value="Fisch" /><span class="antwort">Fisch</span><span class="result" id="LieblingsessenFisch"></span>
-<input type="radio" name="Lieblingsessen" value="Fleisch" /><span class="antwort">Fleisch</span><span class="result" id="LieblingsessenFleisch"></span>
-</div>
-
-<div id="quizactions">
-<!-- Images wären an dieser Stelle auch denkbar -->
-<input type="submit" value="abgeben" onclick="handIn()" />
-<input type="submit" value="reset" onclick="reset()"/>
-
-</div>
-
-
+    <!-- Oben in XSLT muss das Attribut Codierung entfernt werden (sonst Probleme im IE) -->
+    <div class="question" id="Lieblingszahl">
+        <span class="questiontext">Lieblingszahl?</span>
+        <!-- Span tut vom Layout her garnichts (außer CSS natürlich) -->
+        <input type="radio" name="Lieblingszahl" value="1" /><span class="antwort">1</span><span
+            class="result" id="Lieblingszahl1"></span>
+        <input type="radio" name="Lieblingszahl" value="2" /><span class="antwort">2</span><span
+            class="result" id="Lieblingszahl2"></span>
+        <input type="radio" name="Lieblingszahl" value="3" /><span class="antwort">3</span><span
+            class="result" id="Lieblingszahl3"></span>
+    </div>
+    <div class="question" id="Lieblingsessen">
+        <span class="questiontext">Lieblingsessen?</span>
+        <!-- Span tut vom Layout her garnichts. -->
+        <input type="radio" name="Lieblingsessen" value="Pizza" /><span class="antwort">Pizza</span><span
+            class="result" id="LieblingsessenPizza"></span>
+        <input type="radio" name="Lieblingsessen" value="Nudeln" /><span class="antwort">Nudeln</span><span
+            class="result" id="LieblingsessenNudeln"></span>
+        <input type="radio" name="Lieblingsessen" value="Fisch" /><span class="antwort">Fisch</span><span
+            class="result" id="LieblingsessenFisch"></span>
+        <input type="radio" name="Lieblingsessen" value="Fleisch" /><span class="antwort">Fleisch</span><span
+            class="result" id="LieblingsessenFleisch"></span>
+    </div>
+    <div id="quizactions">
+        <!-- Images wären an dieser Stelle auch denkbar -->
+        <input type="submit" value="abgeben" onclick="handIn()" />
+        <input type="submit" value="reset" onclick="reset()" />
+    </div>
 </body>
 </html>
