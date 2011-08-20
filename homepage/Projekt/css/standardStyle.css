@@ -115,6 +115,14 @@ a.sticky
     top: 50px;
 }
 
+#logo_steckbrief
+{   
+    left: 250px;
+    top: 80px;
+    position:absolute;
+}
+
+
 #logo_start
 
 {
@@ -126,10 +134,11 @@ a.sticky
     
     position:absolute;
 }
+
     
 
     /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs*/
-#inhalt, #quiz_inhalt 
+#inhalt, #quiz_inhalt, #inhalt_steckbrief
 {
     position:absolute;
     width: 510px;
@@ -144,6 +153,12 @@ a.sticky
 #quiz_inhalt
 {
     top:150px;
+    width: 520px;
+}
+
+#inhalt_steckbrief
+{
+    top:400px;
     width: 520px;
 }
 
@@ -242,7 +257,29 @@ a.sticky
     
 }
 
+.steckbrief_links
+{   
+    width:250px;
+}
+
+
+#mouseoverkasten
+
+{
+    visibility:hidden;
+}
+
+
+.hoverit:hover
+{
+    background-color:Black;
+    visibility:visible;
+}
+
+
 #versalien
 {
     
 }
+
+
