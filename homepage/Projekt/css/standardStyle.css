@@ -138,7 +138,7 @@ a.sticky
     
 
     /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs*/
-#inhalt, #quiz_inhalt, #inhalt_steckbrief
+#inhalt, #quiz_inhalt
 {
     position:absolute;
     width: 510px;
@@ -156,11 +156,6 @@ a.sticky
     width: 520px;
 }
 
-#inhalt_steckbrief
-{
-    top:400px;
-    width: 520px;
-}
 
 #inhalt_links, #inhalt_rechts
 {
@@ -292,6 +287,79 @@ a.sticky
     background-color:Black;
     visibility:visible;
 }
+
+
+#alleinselnaufderkarte {
+position: relative;
+width: 244px;
+height: 225px;
+background: url('../img/inhalt/steckbrief_karte.png') no-repeat;
+}
+#alleinselnaufderkarte div
+{
+display: block;
+position: absolute;
+}
+#alleinselnaufderkarte a {
+display: block;
+text-indent: 0px;
+/*text-decoration: none;*/
+/*outline: none;*/
+cursor: default;
+}
+#inseluntenlinks
+{
+    width:67px;
+    height:104px;
+    left: 32px;
+    top: 80px;
+    z-index:2;
+    position:absolute;
+}
+#inselobenlinks
+{
+    width:116px;
+    height:85px;
+    left: 22px;
+    top: 12px;
+    z-index:1;
+}
+#inseluntenrechts
+{
+    width:96px;
+    height:123px;
+    left: 133px;
+    top: 84px;
+}
+#inseluntenlinks:hover,{
+    background: url('../img/inhalt/steckbrief_insel_untenlinks.jpg') -0px -0px no-repeat;
+}
+#inselobenlinks:hover {
+    background: url('../img/inhalt/steckbrief_insel_obenlinks.png') -0px -0px no-repeat;
+}
+#inseluntenrechts:hover {
+    background: url('../img/inhalt/steckbrief_insel_untenrechts.jpg') -0px -0px no-repeat;
+}
+
+
+#alleinselnaufderkarte div span {display: none;}
+#alleinselnaufderkarte div:hover span {
+   display: block;
+   position: absolute; 
+   top: 0px; 
+   left: 230px; 
+   width: 158px;
+   padding: 5px; 
+   z-index: 100;
+   color: #000000; 
+   background: #FFFFCC;
+   font: 12px Verdana, sans-serif; 
+   text-align: center;
+   border: 1px dashed black;
+   }
+
+
+
 
 
 #versalien
