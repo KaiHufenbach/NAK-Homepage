@@ -12,6 +12,7 @@
     </quizOptions>
     <question question="Wie heißt der Bürgermeister von Wesel?">
         <picture name="testbld" file="quiz_bild_3.png"/>
+      <!-- <picture name="testbld" file="quiz_bild_1.png"/>-->
         <option >Detlef</option>
         <option rightAnswer="true">Esel</option>
         <option >Egon</option>
