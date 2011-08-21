@@ -88,6 +88,11 @@ a.sticky
     top: 78px;
 }
 
+table *
+{
+    border: solid;   
+}
+
 #ohneAufklapp
 {
     background:#fff url('../img/layout/aufklapp_ohneknick.jpg') no-repeat 0 0;
@@ -138,7 +143,7 @@ a.sticky
     
 
     /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs*/
-#inhalt, #quiz_inhalt, #inhalt_steckbrief
+#inhalt, #quizinhalt, #inhalt_steckbrief
 {
     position:absolute;
     width: 510px;
@@ -150,7 +155,7 @@ a.sticky
     font-weight:bold;
 }
 
-#quiz_inhalt
+#quizinhalt
 {
     top:150px;
     width: 520px;
@@ -220,12 +225,15 @@ a.sticky
 
 .result
 {
+    padding-left:0px;
     width:40px;
+    height:20px;
 }
 
 .frageBild
 {
-    width:120px;   
+    width:120px;  
+    height:120px; 
 }
 
 /*|Oliver| Diese Class definiert die Hover-Eigenschaften der Radiobuttons*/
@@ -263,6 +271,65 @@ a.sticky
 #zuruecksetzen:hover
 {
     background: url('../img/layout/zuruecksetzen_mouseover.png') no-repeat 0 0;
+}
+
+.question_area
+{
+    width:100%;
+    background-color:Gray;
+    height:auto;
+}
+
+.question_text
+{
+    width:100%;
+    background-color:Red;
+    float:left;   
+}
+
+.question_picture
+{
+    width:120px;
+    float:left;
+    background-color:Blue;
+    height:120px;
+}
+
+.question_answer_area
+{
+    float:left;
+    height:40px;
+    width:400px;
+}
+
+.question_answer_text
+{
+    height:100%;
+    float:left;
+    width:340px;
+    background-color:Green;
+    display:table;
+}
+
+.question_answer_box
+{
+    width:20px;
+    height:100%;
+    float:left;
+    background-color:Black;   
+}
+
+.question_answer_result
+{
+    width:40px;
+    height:100%;
+    float:left;
+    background-color:Lime;   
+}
+
+tr
+{
+    height:40px;   
 }
 
 /*|Oliver| Diese Class definiert die Eigenschaften des Quiz-Auswertungsbereichs*/
