@@ -88,10 +88,6 @@ a.sticky
     top: 78px;
 }
 
-table *
-{
-    border: solid;   
-}
 
 #ohneAufklapp
 {
@@ -122,8 +118,8 @@ table *
 
 #logo_steckbrief
 {   
-    left: 250px;
-    top: 80px;
+    left: 492px;
+    top: 68px;
     position:absolute;
 }
 
@@ -327,10 +323,7 @@ table *
     background-color:Lime;   
 }
 
-tr
-{
-    height:40px;   
-}
+
 
 /*|Oliver| Diese Class definiert die Eigenschaften des Quiz-Auswertungsbereichs*/
 #auswertung
@@ -362,9 +355,11 @@ tr
 
 
 #alleinselnaufderkarte {
-position: relative;
-width: 244px;
-height: 225px;
+position: absolute;
+top:-103px;
+left:-47px;
+width: 322px;
+height: 347px;
 background: url('../img/inhalt/steckbrief_karte.png') no-repeat;
 }
 #alleinselnaufderkarte div
@@ -375,16 +370,14 @@ position: absolute;
 #alleinselnaufderkarte a {
 display: block;
 text-indent: 0px;
-/*text-decoration: none;*/
-/*outline: none;*/
 cursor: default;
 }
 #inseluntenlinks
 {
     width:67px;
     height:104px;
-    left: 32px;
-    top: 80px;
+    left: 42px;
+    top: 162px;
     z-index:2;
     position:absolute;
 }
@@ -392,45 +385,88 @@ cursor: default;
 {
     width:116px;
     height:85px;
-    left: 22px;
-    top: 12px;
+    left: 54px;
+    top: 91px;
     z-index:1;
 }
 #inseluntenrechts
 {
     width:96px;
     height:123px;
-    left: 133px;
-    top: 84px;
+    left: 161px;
+    top: 163px;
 }
 #inseluntenlinks:hover {
-    background: url('../img/inhalt/steckbrief_insel_untenlinks.jpg') -0px -0px no-repeat;
+    background: url('../img/inhalt/steckbrief_insel_untenlinks.png') -0px -0px no-repeat;
 }
 #inselobenlinks:hover {
     background: url('../img/inhalt/steckbrief_insel_obenlinks.png') -0px -0px no-repeat;
 }
 #inseluntenrechts:hover {
-    background: url('../img/inhalt/steckbrief_insel_untenrechts.jpg') -0px -0px no-repeat;
+    background: url('../img/inhalt/steckbrief_insel_untenrechts.png') -0px -0px no-repeat;
 }
 
 
-#alleinselnaufderkarte div span {display: none;}
-#alleinselnaufderkarte div:hover span {
+#alleinselnaufderkarte div .infobox{display: none;}
+#alleinselnaufderkarte #inseluntenrechts:hover .infobox{
    display: block;
    position: absolute; 
-   top: 0px; 
-   left: 100px; 
-   width: 158px;
+   top: -76px; 
+   left: 170px; 
+   width: 200px;
    padding: 5px; 
    z-index: 100;
    color: #000000; 
-   background: #FFFFCC;
    font: 12px Verdana, sans-serif; 
-   text-align: center;
-   border: 1px dashed black;
+   }
+   
+#alleinselnaufderkarte #inselobenlinks:hover .infobox{
+   display: block;
+   position: absolute; 
+   top: -4px; 
+   left: 277px; 
+   width: 200px;
+   padding: 5px; 
+   z-index: 100;
+   color: #000000; 
+   font: 12px Verdana, sans-serif; 
+   }
+   
+#alleinselnaufderkarte #inseluntenlinks:hover .infobox{
+   display: block;
+   position: absolute; 
+   top: -75px; 
+   left: 289px; 
+   width: 200px;
+   padding: 5px; 
+   z-index: 100;
+   color: #000000; 
+   font: 12px Verdana, sans-serif; 
    }
 
+.steckbriefhoverinfoboxtabelle 
+{   
+    
+   border-collapse:collapse;
+   width:200px;
+}
+.steckbriefhoverinfoboxtabelle td
+{
+    border-bottom:1px solid black;
+    width:100px;
+}
 
+
+#statische_steckbrieftabelle
+{
+    position:absolute;
+    top:245px;
+    border-collapse:collapse;
+}
+#statische_steckbrieftabelle td
+{
+    border-bottom:1px solid black;
+}
 
 
 
