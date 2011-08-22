@@ -27,8 +27,11 @@ function createElement(name) {
 }
 
 function generateHTML() {
-    
-    var table = createElement("table");
+
+    //Der IE schießt hier den Bock: Kommt ein Table Tag rein, so interpretiert der IE ein tbody hinein
+    //dieses TBody wird benötigt, da sonst die Tabelle nicht richtig als Tabelle interpretiert wird und diese insbesondere bei rowspan verrutscht
+    //Werden die Tags jedoch über Javascript hinzugefügt, so interpretiert der IE das tbody tag nicht hinzu. So nimmt das Unglück seinen Lauf...
+    var table = createElement("tbody");
     for (var i = 0; i < questions.length; i++) {
 
         var tr = createElement("tr");
@@ -90,8 +93,10 @@ function generateHTML() {
         //elem.setAttribute("id", hash(questions[i].question));
     }
 
-    var inhalt = createElement( "div");
-    inhalt.appendChild(table);
+    var inhalt = createElement("div");
+    var tableTag = createElement("table");
+    tableTag.appendChild(table);
+    inhalt.appendChild(tableTag);
     inhalt.setAttribute("id", "quizinhalt");
 
     tr = createElement( "tr");
