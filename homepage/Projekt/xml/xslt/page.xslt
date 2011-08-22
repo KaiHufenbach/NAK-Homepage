@@ -108,6 +108,8 @@
               </div>
              </xsl:if>
 
+               
+
 
           
 
@@ -136,9 +138,28 @@
                   <xsl:attribute name="alt">
                     <xsl:value-of select="$chapter"/>logo
                   </xsl:attribute>
-                  <xsl:attribute name="id">logo</xsl:attribute>
+                  <xsl:attribute name="id">logo<xsl:if test="$type = 'start'">_start</xsl:if>
+              </xsl:attribute>
                 </xsl:element>
               </div>
+
+
+                <!-- Für die Startseite existiert ein Sonderfall: Das Weiterblättern auf das nächste Kapitel ist möglich -->
+                <xsl:if test="$type ='start'">
+                    <div id="vorblättern">
+                        <xsl:element name="a">
+                            <xsl:attribute name="id">ecke</xsl:attribute>
+                            <xsl:attribute name="href">
+                                <xsl:for-each select="$chapters/chapters/chapter">
+                                    <xsl:if test="@nr = 2">
+                                        <xsl:value-of select="@name"/>_1.xml
+                                    </xsl:if>
+                                </xsl:for-each>
+                            </xsl:attribute>
+                            Vorblättern
+                        </xsl:element>
+                    </div>
+                </xsl:if>
               
               
                   
@@ -206,7 +227,8 @@
                 <xsl:attribute name="id">versalien</xsl:attribute>
             </xsl:if>
             <xsl:if test="@headline != ''">
-                <xsl:element name="h1">
+                <xsl:element name="span">
+                    <xsl:attribute name="class">h1</xsl:attribute>
                     <xsl:value-of select="@headline"/>
                 </xsl:element>
             </xsl:if>
