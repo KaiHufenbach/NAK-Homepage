@@ -34,7 +34,7 @@
                 <xsl:if test="$type = 'quiz'">
                     <script type="text/javascript">
                         <!-- Hier folgt kein XHTML, somit ist der Code valide, für Browser, die das nicht verstehen ist der Kommentar gedacht. -->
-                        <xsl:text disable-output-escaping="yes">/* !&lt;[CDATA[ */</xsl:text>  
+                        <xsl:text disable-output-escaping="yes">/* &lt;![CDATA[ */</xsl:text>  
                         <xsl:text disable-output-escaping="yes">
                         //ist Javascript nicht aktiviert, wird nichts eingefügt
                        
