@@ -17,7 +17,7 @@ function initialize() {
 }
 
 function createElement(name) {
-    //Um im richtigen Namespace zu agieren, damit das CSS dokument zieht, ist folgendes notwendig:
+    //Um im richtigen Namespace zu agieren, damit das CSS Dokument zieht, ist folgendes notwendig:
     //Der IE macht nämlich mal wieder alles anders ;-)
     if (navigator.appName == "Microsoft Internet Explorer") {
         return document.createElement(name);
@@ -27,8 +27,11 @@ function createElement(name) {
 }
 
 function generateHTML() {
-    
-    var table = createElement("table");
+
+    //Der IE schießt hier den Bock: Kommt ein Table Tag rein, so interpretiert der IE ein tbody hinein
+    //dieses TBody wird benötigt, da sonst die Tabelle nicht richtig als Tabelle interpretiert wird und diese insbesondere bei rowspan verrutscht
+    //Werden die Tags jedoch über Javascript hinzugefügt, so interpretiert der IE das tbody tag nicht hinzu. So nimmt das Unglück seinen Lauf...
+    var table = createElement("tbody");
     for (var i = 0; i < questions.length; i++) {
 
         var tr = createElement("tr");
@@ -90,8 +93,10 @@ function generateHTML() {
         //elem.setAttribute("id", hash(questions[i].question));
     }
 
-    var inhalt = createElement( "div");
-    inhalt.appendChild(table);
+    var inhalt = createElement("div");
+    var tableTag = createElement("table");
+    tableTag.appendChild(table);
+    inhalt.appendChild(tableTag);
     inhalt.setAttribute("id", "quizinhalt");
 
     tr = createElement( "tr");
@@ -181,6 +186,12 @@ function handIn() {
             correctQuestion(new question(questions[i].question, form.get(i)), form.get(i) == questions[i].answer);
         }
     }
+    alert(correct);
+    for (var i = 0; i < ranks.length; i++) {
+        if (ranks[i].from <= correct && correct <= ranks[i].to) {
+            alert(ranks[i].text);
+        }
+    }
 }
 
 //Prüft ein Array von Radio Inputs
@@ -218,6 +229,7 @@ function Form(size) {
     this.set = set;
     this.reset = reset;
     this.get = get;
+    this.getTicks = getTicks;
 
     for (var i = 0; i < size; i++) {
         this.radios.push(new FormularElement());
@@ -229,6 +241,7 @@ function Form(size) {
         }
     }
 
+    //Setzt im Datenmodell des Bogens
     function set(i, value) {
         this.radios[i].setValue(questions[i].options[value]);
         //setzt den Hintergrund und schaltet über die Klasse den hover Effekt aus.
@@ -241,8 +254,28 @@ function Form(size) {
         //geklickten button setzen:
         document.getElementById(hashValue + (value + '')).setAttribute("class", "radiobutton_active");
 
+        //Ggf. abschicken auf aktiv setzen
+        if (this.getTicks() == questions.length) {
+            document.getElementById("abschicken").setAttribute("class", "aktiv");
+            document.getElementById("abschicken").setAttribute("onclick", "handIn()");
+        } else {
+            document.getElementById("abschicken").setAttribute("class", "passiv");
+            document.getElementById("abschicken").removeAttribute("onclick");
+        }
 
+    }
 
+    //Gibt die Anzahl von Kreuzen im Datenmodell zurück
+    function getTicks() {
+
+        var ticks = 0;
+        for (var i = 0; i < this.radios.length; i++) {
+            if (this.radios[i].value != null) {
+                ticks++;
+            }
+        }
+
+        return ticks;
     }
 
     function get(i) {
@@ -294,11 +327,14 @@ function resetContent() {
     //Correct Zähler zurücksetzen
     corret = 0;
 
-    //View zurücksetzen
+    //View zurücksetzen: Felder
     for (var i = 0; i < questions.length; i++) {
         resetQuestionTicks(i);
         resetResult(i);
     }
+    //AbschickenButton deaktivieren
+    document.getElementById("abschicken").setAttribute("class", "passiv");
+    document.getElementById("abschicken").removeAttribute("onclick");
 }
 
 //Setzt das Formular zurück und gibt neue Fragen
