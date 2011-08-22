@@ -1,77 +1,72 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Quiz</title>
-    <script type="text/javascript">
-
-   
-<!--
-        //Somit wird Loadingproblemen aus dem Weg gegangen, ein Import von Hand erzeugt Probleme im Firefox 5.0.1 --> onLoad() steht MD5 sonst nicht zur Verfügung
-        //ist Javascript nicht aktiviert, wird nichts eingefügt
-        include("../js/quiz.js");
-        include("../js/md5.js");
-
-        //Include Funktion, um weitere Javascripts einbinden zu können, muss noch überarbeitet werden, Quelle: http://xhtmlforum.de/45258-javascripts-einem-javascript-einbinden-include-oder.html
-        function include(file) {
-            var script = document.createElement('script');
-            var type = document.createAttribute('type');
-            type.nodeValue = 'text/javascript';
-            script.setAttributeNode(type);
-            var source = document.createAttribute('src');
-            source.nodeValue = file;
-            script.setAttributeNode(source);
-            var head = document.getElementsByTagName('head')[0];
-            head.appendChild(script);
-        }
-
-        //Objekt, dass eine Frage repräsentiert
-        //Parameter:
-        //question - Frage
-        //answer - die Korrekte Antwort
-        //options - Array der Antwortmöglichkeiten
-        //picture - Name eines anzuzeigenden Bildes
-        //Dieses Objekt muss ebenfalls hier stehen, da es sonst nicht geladen werden kann
-        function question(question, answer, options, picture) {
-            this.question = question;
-            this.answer = answer;
-            this.picture = picture;
-            this.options = options;
-        }
-
-        //Muss via XSLT gesetzt werden
-        var amountOfQuestions = 3;
-        var questionPool = new Array(new question("Staatsoberhaupt der Bahamas?", "Der Pabst", new Array("Der Pabst", "Die Queen", "André Kowalk")), new question("Ramalam Ding Dong?", "Fleisch", new Array("Junkanoo Karneval", "Ramalam Ding Dong", "Reenacting Fear and Loathing")));
-//-->
-    </script>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <!-- <link rel="stylesheet" type="text/css" href="../css/standardStyle.css" media="screen" /> -->
+    <style type="text/css" media="screen">
+        @import "../css/standardStyle.css";
+    </style>
+    <title>Bahamas</title>
 </head>
-<body onload="initialize()">
-    <!-- Oben in XSLT muss das Attribut Codierung entfernt werden (sonst Probleme im IE) -->
-    <div class="question" id="Lieblingszahl">
-        <span class="questiontext">Lieblingszahl?</span>
-        <!-- Span tut vom Layout her garnichts (außer CSS natürlich) -->
-        <input type="radio" name="Lieblingszahl" value="1" /><span class="antwort">1</span><span
-            class="result" id="Lieblingszahl1"></span>
-        <input type="radio" name="Lieblingszahl" value="2" /><span class="antwort">2</span><span
-            class="result" id="Lieblingszahl2"></span>
-        <input type="radio" name="Lieblingszahl" value="3" /><span class="antwort">3</span><span
-            class="result" id="Lieblingszahl3"></span>
+<body>
+    <div id="navigation">
+        <a href="test.htm" class="sticky" id="start"></a><a href="test.htm" class="sticky"
+            id="steckbrief"></a><a href="test.htm" class="sticky" id="reiseziel"></a><a href="test.htm"
+                class="sticky" id="kultur"></a><a href="test.htm" class="sticky" id="quiz">
+        </a><a href="test.htm" class="sticky" id="impressum"></a>
     </div>
-    <div class="question" id="Lieblingsessen">
-        <span class="questiontext">Lieblingsessen?</span>
-        <!-- Span tut vom Layout her garnichts. -->
-        <input type="radio" name="Lieblingsessen" value="Pizza" /><span class="antwort">Pizza</span><span
-            class="result" id="LieblingsessenPizza"></span>
-        <input type="radio" name="Lieblingsessen" value="Nudeln" /><span class="antwort">Nudeln</span><span
-            class="result" id="LieblingsessenNudeln"></span>
-        <input type="radio" name="Lieblingsessen" value="Fisch" /><span class="antwort">Fisch</span><span
-            class="result" id="LieblingsessenFisch"></span>
-        <input type="radio" name="Lieblingsessen" value="Fleisch" /><span class="antwort">Fleisch</span><span
-            class="result" id="LieblingsessenFleisch"></span>
+    
+   
+    <!--Oliver-->
+    <div>
+        <img src="../img/layout/logo_quiz.png" id="logo" alt="Bahamas" />
     </div>
-    <div id="quizactions">
-        <!-- Images wären an dieser Stelle auch denkbar -->
-        <input type="submit" value="abgeben" onclick="handIn()" />
-        <input type="submit" value="reset" onclick="reset()" />
+    
+    <!--Oliver-->
+    <div id="quizinhalt">
+        <div class="question_area">
+            <div class="question_text">Trallefax?</div>
+            <div class="question_picture"><img src="../img/inhalt/quiz_bild_1.png" alt="" class="quizbild" /></div>
+            <div class="question_answer_area">
+                <div class="question_answer_text">a) Blub</div>
+                <div class="question_answer_box"></div>
+                <div class="question_answer_result" ></div>
+            </div>
+            <div class="question_answer_area">
+                <div class="question_answer_text">b) Blub</div>
+                <div class="question_answer_box"></div>
+                <div class="question_answer_result" ></div>
+            </div>
+        </div>
+        <div class="question_area">
+            <div class="question_text">Trallefax?</div>
+            <div class="question_picture"><img src="../img/inhalt/quiz_bild_1.png" alt="" class="quizbild" /></div>
+            <div class="question_answer_area">
+                <div class="question_answer_text">a) Blub</div>
+                <div class="question_answer_box"></div>
+                <div class="question_answer_result" ></div>
+            </div>
+            <div class="question_answer_area">
+                <div class="question_answer_text">b) Blub</div>
+                <div class="question_answer_box"></div>
+                <div class="question_answer_result" ></div>
+            </div>
+            <div class="question_answer_area">
+                <div class="question_answer_text">c) Blub</div>
+                <div class="question_answer_box"></div>
+                <div class="question_answer_result" ></div>
+            </div>
+        </div>
+   
+   <div id="auswertung"></div>
+ 
+ 
+ 
+   
     </div>
+   
+    
+
+    
 </body>
 </html>

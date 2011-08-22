@@ -1,4 +1,5 @@
-﻿var questions;
+﻿/* <![CDATA[ */
+var questions;
 var correct;
 var form;
 
@@ -15,13 +16,23 @@ function initialize() {
     generateHTML();
 }
 
+function createElement(name) {
+    //Um im richtigen Namespace zu agieren, damit das CSS dokument zieht, ist folgendes notwendig:
+    //Der IE macht nämlich mal wieder alles anders ;-)
+    if (navigator.appName == "Microsoft Internet Explorer") {
+        return document.createElement(name);
+    } else {
+        return document.createElementNS("http://www.w3.org/1999/xhtml", name);
+    }
+}
 
 function generateHTML() {
-    var table = document.createElement("table");
+    
+    var table = createElement("table");
     for (var i = 0; i < questions.length; i++) {
 
-        var tr = document.createElement("tr");
-        var td = document.createElement("td");
+        var tr = createElement("tr");
+        var td = createElement("td");
         td.setAttribute("class", "frage");
         td.setAttribute("colspan", "4");
         td.appendChild(document.createTextNode(questions[i].question));
@@ -33,15 +44,15 @@ function generateHTML() {
 
 
         for (var j = 0; j < questions[i].options.length; j++) {
-            tr = document.createElement("tr");
+            tr = createElement( "tr");
             if (firstRun) {
                 firstRun = false;
-                td = document.createElement("td");
+                td = createElement( "td");
                 td.setAttribute("rowspan", "3");
                 td.setAttribute("class", "frageBild");
                 tr.appendChild(td);
                 if (questions[i].picture != null) {
-                    var img = document.createElement("img");
+                    var img = createElement("img");
                     img.setAttribute("src", "../img/inhalt/" + questions[i].picture.graphic);
                     img.setAttribute("alt", questions[i].picture.text);
                     img.setAttribute("class", "quizbild");
@@ -51,21 +62,21 @@ function generateHTML() {
             }
             table.appendChild(tr);
 
-            td = document.createElement("td");
+            td = createElement( "td");
             tr.appendChild(td);
             td.setAttribute("class", "antwort");
             td.appendChild(document.createTextNode(alphabet[j] + ") " + questions[i].options[j]));
 
-            td = document.createElement("td");
+            td = createElement( "td");
             tr.appendChild(td);
-            var radiobutton = document.createElement("div");
+            var radiobutton = createElement( "div");
             radiobutton.setAttribute("class", "radiobutton");
             //Auf diese Weise entsteht eine valide, technisch auswertbare ID
             radiobutton.setAttribute("id", hash(questions[i].question)+(j + ''));
             radiobutton.setAttribute("onclick", "form.set(" + i + "," + j + ")"); 
             td.appendChild(radiobutton);
 
-            td = document.createElement("td");
+            td = createElement( "td");
             td.setAttribute("class", "result");
             td.setAttribute("id",hash(questions[i].question+(questions[i].options[j])));
             tr.appendChild(td);
@@ -79,30 +90,30 @@ function generateHTML() {
         //elem.setAttribute("id", hash(questions[i].question));
     }
 
-    var inhalt = document.createElement("div");
+    var inhalt = createElement( "div");
     inhalt.appendChild(table);
-    inhalt.setAttribute("id", "quiz_inhalt");
+    inhalt.setAttribute("id", "quizinhalt");
 
-     tr = document.createElement("tr");
+    tr = createElement( "tr");
      table.appendChild(tr);
-     td = document.createElement("td");
+     td = createElement( "td");
      tr.appendChild(td);
-     var div = document.createElement("div");
+     var div = createElement( "div");
      div.setAttribute("id", "zuruecksetzen");
-     div.setAttribute("onClick", "resetContent()");
+     div.setAttribute("onclick", "resetContent()");
      td.appendChild(div);
-     td = document.createElement("td");
+     td = createElement( "td");
      td.setAttribute("colspan","3");
      tr.appendChild(td);
-     div = document.createElement("div");
+     div = createElement( "div");
      div.setAttribute("id", "abschicken");
-     div.setAttribute("onClick", "handIn()");
+     div.setAttribute("onclick", "handIn()");
      td.appendChild(div);
 
-    document.getElementsByTagName("body")[0].appendChild(inhalt);
+     document.getElementsByTagName("body")[0].appendChild(inhalt);
 }
 
-//Wählt, wenn mehr als <amountOfQuestions> Fragen vorhanden sind <amountOfQuestions> aus
+//Wählt, wenn mehr als (amountOfQuestions) Fragen vorhanden sind diese Anzahl aus
 function selectQuestions(questionPool) {
     var j = amountOfQuestions;
 
@@ -186,7 +197,7 @@ function searchSelectedOption(radios) {
 //Um die Symbole richtig setzen zu können, wird die Frage und die angekreuzte Antwort, sowie deren Richtigkeit übergeben
 //Frage + Antwort wird für den Zugriff auf die ID der Tabelle benötigt
 function correctQuestion(q, answerCorrect) {
-    var img = document.createElement("img");
+    var img = createElement( "img");
     var elem = document.getElementById(hash(q.question + q.answer));
     if (answerCorrect) {
         correct++;
@@ -294,3 +305,5 @@ function resetContent() {
 function newQuestions() {
     document.location = document.location;
 }
+
+/* ]]> */

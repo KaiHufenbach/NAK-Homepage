@@ -11,7 +11,7 @@
         </rank>
     </quizOptions>
     <question question="Wie heißt der Bürgermeister von Wesel?">
-
+        <picture name="testbld" file="quiz_bild_3.png"/>
       <!-- <picture name="testbld" file="quiz_bild_1.png"/>-->
         <option >Detlef</option>
         <option rightAnswer="true">Esel</option>
@@ -19,14 +19,14 @@
     </question>
 
     <question question="Wie heißt der Bürgermeister von Hamburg?">
-      <!--  <picture name="testbld" file="quiz_bild_2.png"/>-->
+        <picture name="testbld" file="quiz_bild_2.png"/>
         <option >Dieter</option>
         <option rightAnswer="true">Quack</option>
         <option >Egon</option>
     </question>
 
     <question question="Wie heißt der Bürgermeister von Tackatucka?">
-    <!--   <picture name="testbld" file="quiz_bild_3.png"/>-->
+        <picture name="testbld" file="quiz_bild_1.png"/>
         <option >Hein</option>
         <option rightAnswer="true">Blöd</option>
         <option >Egon</option>

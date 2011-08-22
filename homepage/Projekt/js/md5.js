@@ -4,6 +4,7 @@
 *  http://www.webtoolkit.info/
 *
 **/
+/* <![CDATA[ */
 
 var MD5 = function (string) {
 
@@ -205,3 +206,4 @@ var MD5 = function (string) {
 
     return temp.toLowerCase();
 }
+/* ]]> */
