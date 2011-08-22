@@ -331,7 +331,7 @@ cursor: default;
     left: 133px;
     top: 84px;
 }
-#inseluntenlinks:hover,{
+#inseluntenlinks:hover {
     background: url('../img/inhalt/steckbrief_insel_untenlinks.jpg') -0px -0px no-repeat;
 }
 #inselobenlinks:hover {
@@ -347,7 +347,7 @@ cursor: default;
    display: block;
    position: absolute; 
    top: 0px; 
-   left: 230px; 
+   left: 100px; 
    width: 158px;
    padding: 5px; 
    z-index: 100;
