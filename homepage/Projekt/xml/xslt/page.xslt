@@ -58,12 +58,21 @@
                             this.graphic = graphic;
                             this.text = text;
                         }
+
+                        //Repräsentiert einen Rang
+                        function Rank(graphic, text, from, to){
+                            this.graphic = graphic;
+                            this.text = text;
+                            this.from = from;
+                            this.to = to;
+                        }
                         </xsl:text>
 
                         //Wird via XSLT gesetzt werden
                         var amountOfQuestions =  <xsl:value-of select="quizOptions/@questions"/>;
                         <!-- Muss hier leider in eine Zeile geschrieben werden, damit der Javascript Interpreter damit klar kommt. -->
                         var questionPool = new Array(<xsl:for-each select="question">new question("<xsl:value-of select="@question"/>",<xsl:for-each select="option"><xsl:if test="@rightAnswer = 'true'">"<xsl:value-of select="."/>",</xsl:if></xsl:for-each>new Array(<xsl:for-each select="option">"<xsl:value-of select="."/>"<xsl:if test="position()!=last()">,</xsl:if></xsl:for-each>)<xsl:for-each select="picture">, new Picture("<xsl:value-of select="@file"/>","<xsl:value-of select="@name"/>")</xsl:for-each>)<xsl:if test="position()!=last()">,</xsl:if></xsl:for-each>);
+                        var ranks = new Array(<xsl:for-each select="quizOptions/rank">new Rank("<xsl:value-of select="picture/@file"/>","<xsl:value-of select="picture/@name"/>",<xsl:value-of select="@from"/>,<xsl:value-of select="@to"/>)<xsl:if test="position()!=last()">,</xsl:if></xsl:for-each>);
                         <xsl:text disable-output-escaping="yes"> /* ]]&gt; */</xsl:text>
                     </script>
                     <!-- Der IE u. FF5 benötigt ein langgeschriebenes Tag -->
@@ -148,7 +157,7 @@
                 <xsl:if test="$type ='start'">
                     <div id="vorblättern">
                         <xsl:element name="a">
-                            <xsl:attribute name="id">ecke</xsl:attribute>
+                            <xsl:attribute name="id">start_ecke</xsl:attribute>
                             <xsl:attribute name="href">
                                 <xsl:for-each select="$chapters/chapters/chapter">
                                     <xsl:if test="@nr = 2">
