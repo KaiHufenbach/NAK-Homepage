@@ -3,11 +3,14 @@
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
     <pageInfo nr="1" lastPage="true" chapter="Quiz" typ="quiz" />
     <quizOptions questions="3">
-        <rank from="0" to="2">
-            <picture file="test.jpg" name="test1"/>
+        <rank from="0" to="1">
+            <picture file="quiz_handtuchkrieger.png" name="Handtuchkrieger"/>
         </rank>
-        <rank from="3" to="4">
-            <picture file="test2.jpg" name="test2"/>
+        <rank from="2" to="2">
+            <picture file="quiz_tourist.png" name="Tourist"/>
+        </rank>
+        <rank from="3" to="3">
+            <picture file="quiz_einheimischer.png" name="Einheimischer"/>
         </rank>
     </quizOptions>
     <question question="Wie heißt der Bürgermeister von Wesel?">

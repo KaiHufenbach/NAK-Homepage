@@ -51,7 +51,7 @@ function generateHTML() {
             if (firstRun) {
                 firstRun = false;
                 td = createElement( "td");
-                td.setAttribute("rowspan", "3");
+                td.setAttribute("rowspan", " " + questions[i].options.length + " ");
                 td.setAttribute("class", "frageBild");
                 tr.appendChild(td);
                 if (questions[i].picture != null) {
@@ -95,27 +95,36 @@ function generateHTML() {
 
     var inhalt = createElement("div");
     var tableTag = createElement("table");
+    var ergebnis = createElement("div");
+    ergebnis.setAttribute("id", "ergebnis");
+
     tableTag.appendChild(table);
     inhalt.appendChild(tableTag);
+    inhalt.appendChild(ergebnis);
     inhalt.setAttribute("id", "quizinhalt");
 
     tr = createElement( "tr");
-     table.appendChild(tr);
-     td = createElement( "td");
-     tr.appendChild(td);
-     var div = createElement( "div");
-     div.setAttribute("id", "zuruecksetzen");
-     div.setAttribute("onclick", "resetContent()");
-     td.appendChild(div);
-     td = createElement( "td");
-     td.setAttribute("colspan","3");
-     tr.appendChild(td);
-     div = createElement( "div");
-     div.setAttribute("id", "abschicken");
-     div.setAttribute("onclick", "handIn()");
-     td.appendChild(div);
+    table.appendChild(tr);
+    td = createElement("td");
+    td.setAttribute("colspan", "2");
+    tr.appendChild(td);
+    var div = createElement( "div");
+    div.setAttribute("id", "zuruecksetzen");
+    div.setAttribute("onclick", "resetContent()");
+    td.appendChild(div);
+    div = createElement("div");
+    div.setAttribute("id", "neueFragen");
+    div.setAttribute("onclick", "newQuestions()");
+    td.appendChild(div);
+    td = createElement("td");
+    td.setAttribute("colspan", "2");
+    tr.appendChild(td);
+    div = createElement( "div");
+    div.setAttribute("id", "abschicken");
+    div.setAttribute("class", "passiv");
+    td.appendChild(div);
 
-     document.getElementsByTagName("body")[0].appendChild(inhalt);
+    document.getElementsByTagName("body")[0].appendChild(inhalt);
 }
 
 //Wählt, wenn mehr als (amountOfQuestions) Fragen vorhanden sind diese Anzahl aus
@@ -177,19 +186,25 @@ function handIn() {
     correct = 0;
     for (var i = 0; i < questions.length; i++) {
         
-        if (form.get(i) == null) {
-            alert("Bitte alle Felder ausfüllen!");
-            //todo: Bisherige Korrektur entfernen!!
-        } else {
             //Führt die Korrektur der Fragen aus, dabei wird ein question Objekt erzeugt, dass die Frage und die angekreuzte Antwort enthält. Zusätzlich wird übergeben, ob diese Antwort richtig ist.
             resetResult(i);
             correctQuestion(new question(questions[i].question, form.get(i)), form.get(i) == questions[i].answer);
+
         }
-    }
-    alert(correct);
+
     for (var i = 0; i < ranks.length; i++) {
         if (ranks[i].from <= correct && correct <= ranks[i].to) {
-            alert(ranks[i].text);
+            //Ist schon ein Bild vorhanden?
+            var pic = document.getElementById("resultPicture");
+            //Nein?
+            if(pic == null){
+                pic = createElement("img");
+                document.getElementById("ergebnis").appendChild(pic);
+                pic.setAttribute("id", "resultPicture");
+            }
+            //Dann gibt es das spätestens jetzt
+            pic.setAttribute("src", "../img/inhalt/" + ranks[i].graphic);
+            pic.setAttribute("alt", ranks[i].text);
         }
     }
 }
@@ -335,6 +350,11 @@ function resetContent() {
     //AbschickenButton deaktivieren
     document.getElementById("abschicken").setAttribute("class", "passiv");
     document.getElementById("abschicken").removeAttribute("onclick");
+    var resultPic = document.getElementById("resultPicture");
+    if (resultPic != null) {
+        document.getElementById("ergebnis").removeChild(resultPic);
+    }
+    
 }
 
 //Setzt das Formular zurück und gibt neue Fragen
