@@ -354,32 +354,32 @@ a.sticky
 }
 
 
-#alleinselnaufderkarte {
+#alleinselnaufderkarte 
+{
 position: absolute;
-top:-103px;
-left:-47px;
+top:-93px;
+left:-37px;
 width: 322px;
 height: 347px;
-background: url('../img/inhalt/steckbrief_karte.png') no-repeat;
 }
 #alleinselnaufderkarte div
 {
-display: block;
+
 position: absolute;
+
 }
-#alleinselnaufderkarte a {
-display: block;
-text-indent: 0px;
-cursor: default;
-}
+
+
+/*Problem: auf "visibility:hidden" lässt sich nicht hovern!*/
 #inseluntenlinks
 {
     width:67px;
     height:104px;
     left: 42px;
     top: 162px;
-    z-index:2;
+    z-index:0;
     position:absolute;
+    
 }
 #inselobenlinks
 {
@@ -388,6 +388,7 @@ cursor: default;
     left: 54px;
     top: 91px;
     z-index:1;
+    display:block;
 }
 #inseluntenrechts
 {
@@ -396,57 +397,94 @@ cursor: default;
     left: 161px;
     top: 163px;
 }
-#inseluntenlinks:hover {
-    background: url('../img/inhalt/steckbrief_insel_untenlinks.png') -0px -0px no-repeat;
-}
-#inselobenlinks:hover {
-    background: url('../img/inhalt/steckbrief_insel_obenlinks.png') -0px -0px no-repeat;
-}
-#inseluntenrechts:hover {
-    background: url('../img/inhalt/steckbrief_insel_untenrechts.png') -0px -0px no-repeat;
-}
 
 
-#alleinselnaufderkarte div .infobox{display: none;}
-#alleinselnaufderkarte #inseluntenrechts:hover .infobox{
-   display: block;
+
+
+/*|Oliver| Hier werden die Rollover-Bilder auf der Karte eingebunden*/
+#alleinselnaufderkarte div .hoverbild{display: none;}
+
+#alleinselnaufderkarte #inselobenlinks:hover .hoverbild{display: block;}
+#alleinselnaufderkarte #inseluntenrechts:hover .hoverbild{display: block;}
+#alleinselnaufderkarte #inseluntenlinks:hover .hoverbild{display: block;}
+
+
+/*|Oliver| Hier werden die Rollover-BInfokästen auf der Karte eingebunden*/
+#alleinselnaufderkarte div .infobox
+{
+   display: none;                                
+   background: url('../img/layout/steckbrief_tabellenbackground_klein.png') no-repeat 0 0;
    position: absolute; 
-   top: -76px; 
-   left: 170px; 
-   width: 200px;
    padding: 5px; 
    z-index: 100;
    color: #000000; 
    font: 12px Verdana, sans-serif; 
+   width: 200px;
+  
    }
-   
+#alleinselnaufderkarte #inseluntenrechts:hover .infobox
+{
+    display: block; 
+    top: -76px; 
+    left: 170px; 
+}
 #alleinselnaufderkarte #inselobenlinks:hover .infobox{
    display: block;
-   position: absolute; 
    top: -4px; 
    left: 277px; 
-   width: 200px;
-   padding: 5px; 
-   z-index: 100;
-   color: #000000; 
-   font: 12px Verdana, sans-serif; 
    }
-   
 #alleinselnaufderkarte #inseluntenlinks:hover .infobox{
    display: block;
-   position: absolute; 
    top: -75px; 
    left: 289px; 
-   width: 200px;
-   padding: 5px; 
-   z-index: 100;
-   color: #000000; 
-   font: 12px Verdana, sans-serif; 
    }
+   
+   
+  
+#alleinselnaufderkarte .hoverbild_start
+{ 
+    width:200px;
+    height:110px;
+   font-weight:bold;
+   font-size:larger;
+   position: absolute;
+   left:330px;
+   top:90px;
+   display:block;                 
+   background: url('../img/layout/steckbrief_hoverbild_start.png') no-repeat 0 0;}
+   
+
+   
+#filler_obenlinks, #filler_untenlinks, #filler_untenrechts
+{
+    
+   position:absolute;
+   background: url('../img/layout/einpixel.png') no-repeat 0 0;
+}
+   
+#filler_obenlinks
+{
+    width:116px;
+    height:85px;
+}
+#filler_untenlinks
+{
+    width:67px;
+    height:104px;
+}
+#filler_untenrechts
+{
+    width:96px;
+    height:123px;
+}
+
+#filler_obenlinks:hover, #filler_untenlinks:hover, #filler_untenrechts:hover{visibility:hidden;}
+   
+
+
 
 .steckbriefhoverinfoboxtabelle 
 {   
-    
    border-collapse:collapse;
    width:200px;
 }
@@ -458,17 +496,25 @@ cursor: default;
 
 
 #statische_steckbrieftabelle
-{
+{   
+    
     position:absolute;
-    top:245px;
+    top:250px;
     border-collapse:collapse;
+    background: url('../img/layout/steckbrief_tabellenbackground_gross.png') no-repeat 0 0;
+    height:210px;
 }
+
 #statische_steckbrieftabelle td
 {
+    font-weight:bold;
     border-bottom:1px solid black;
 }
 
-
+.steckbriefhoverinfotabelle_ueberschrift
+{
+    font-weight:bold;
+    }
 
 #versalien
 {
