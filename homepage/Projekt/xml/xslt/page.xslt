@@ -259,6 +259,47 @@
         </xsl:element>
     </xsl:template>
 
+    <xsl:template match="table">
+        <xsl:element name="table">
+            <xsl:call-template name="testIDClass"/>
+            <xsl:element name="tbody">
+                <xsl:for-each select="row">
+                    <xsl:element name="tr">
+                        <xsl:call-template name="testIDClass"/>
+                        <xsl:for-each select="column">
+                            <xsl:element name="td">
+                                <xsl:call-template name="testIDClass"/>
+                                <xsl:value-of select="column"/>
+                            </xsl:element>
+                        </xsl:for-each>
+                    </xsl:element>
+                </xsl:for-each>
+            </xsl:element>
+        </xsl:element>
+        
+    </xsl:template>
+
+    <xsl:template name="testIDClass">
+        <xsl:call-template name="testID"/>
+        <xsl:call-template name="testClass"/>
+    </xsl:template>
+    
+    <xsl:template name="testID">
+        <xsl:if test="@id != ''">
+            <xsl:attribute name="id">
+                <xsl:value-of select="@id"/>
+            </xsl:attribute>
+        </xsl:if>
+    </xsl:template>
+        
+    <xsl:template name = "testClass">
+        <xsl:if test="@class != ''">
+            <xsl:attribute name="class">
+                <xsl:value-of select="@class"/>
+            </xsl:attribute>
+        </xsl:if>
+    </xsl:template>
+
   
   <!-- Backup
   <xsl:if test='$id > @nr'>
