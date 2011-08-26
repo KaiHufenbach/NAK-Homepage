@@ -15,6 +15,7 @@
                           <xs:enumeration value="start"/>
                           <xs:enumeration value="quiz"/>
                           <xs:enumeration value="impressum"/>
+                          <xs:enumeration value="overview"/>
                       </xs:restriction>
                   </xs:simpleType>
               </xs:attribute>
@@ -29,6 +30,13 @@
   </xs:element>
 
 
+    <xs:group name="overview">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name ="table"></xs:element>
+        </xs:sequence>
+        
+    </xs:group>
+    
     <xs:group name="quiz">
         <xs:sequence>
             <xs:element minOccurs="1" maxOccurs="1" name="quizOptions">
@@ -91,6 +99,33 @@
             </xs:choice>
         </xs:sequence>
     </xs:group>
+
+    <xs:element name="table">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="row" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="column" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:string" use="optional"/>
+                                            <xs:attribute name="class" type="xs:string" use="optional"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="optional"/>
+                        <xs:attribute name="class" type="xs:string" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="optional"/>
+            <xs:attribute name="class" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
 
     <xs:element name ="paragraph">
         <xs:complexType>
