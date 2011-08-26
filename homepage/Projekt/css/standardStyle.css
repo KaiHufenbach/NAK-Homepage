@@ -29,6 +29,7 @@ a:hover, a:focus
 {
     outline:none;
 }
+
 /* IE Workaround Ende */
 
 /* Definition der Lesezeichen 
@@ -187,15 +188,15 @@ a.sticky
 {
     font-weight:bold;
     font-size:large;
-    width:520px;
+    width:487px;
 }
 
 /*|Oliver| Diese Class definiert die Eigenschaften der Tabellenelemente, die eine Antwort enthalten.*/
 .antwort
 {
-    white-space:nowrap;
+   white-space:nowrap;
    padding-left:0px;
-    
+   width:300px;
 }
 
 /*|Oliver| Diese Class definiert die Eigenschaften der Radiobuttons*/
@@ -218,7 +219,8 @@ a.sticky
 .result
 {
     padding-left:0px;
-    height:20px;
+    height:25px;
+    width:25px;
 }
 
 
@@ -228,60 +230,82 @@ a.sticky
     background: url('../img/layout/kaestchen_mouseover.png') no-repeat 0 0;
 }
 
+
+
+
 /*|Oliver| Diese Class definiert die Eigenschaften des Abschicken-Buttons*/
-#abschicken
+.aktiv, .passiv
 {
-    background: url('../img/layout/abschicken.png') no-repeat 0 0;
     width:130px;
     height:30px;
-    
+    position:absolute;
+    left:330px;
+    top:388px;
+    }
+.passiv 
+{
+    background: url('../img/layout/abschicken_ausgegraut.png') no-repeat 0 0;
+}
+
+.aktiv
+{
+    background: url('../img/layout/abschicken.png') no-repeat 0 0;
 }
 
 /*|Oliver| Diese Class definiert die Hover-Eigenschaften des Abschicken-Buttons*/
-#abschicken:hover
+.aktiv:hover
 {
     background: url('../img/layout/abschicken_mouseover.png') no-repeat 0 0;
+
 }
 
-
-/*|Oliver| Diese Class definiert die Eigenschaften des Abschicken-Buttons*/
+/*|Oliver| Diese Class definiert die Eigenschaften des Zuruecksetzen-Buttons*/
 #zuruecksetzen
 {
     background: url('../img/layout/zuruecksetzen.png') no-repeat 0 0;
     width:130px;
     height:30px;
+    float:left;
 }
 
-/*|Oliver| Diese Class definiert die Hover-Eigenschaften des Abschicken-Buttons*/
+/*|Oliver| Diese Class definiert die Hover-Eigenschaften des Zurücksetzen-Buttons*/
 #zuruecksetzen:hover
 {
     background: url('../img/layout/zuruecksetzen_mouseover.png') no-repeat 0 0;
 }
 
+/*|Oliver| Diese Class definiert die Eigenschaften des Zuruecksetzen-Buttons*/
+#neueFragen
+{
+    background: url('../img/layout/neuefragen.png') no-repeat 0 0;
+    width:130px;
+    height:30px;
+    position:absolute;
+    left:175px;
+    top:390px;
+}
 
-/*|Oliver| Diese Class definiert die Eigenschaften des Quiz-Auswertungsbereichs*/
+/*|Oliver| Diese Class definiert die Hover-Eigenschaften des Zurücksetzen-Buttons*/
+#neueFragen:hover
+{
+    background: url('../img/layout/neuefragen_mouseover.png') no-repeat 0 0;
+}
 
 
+
+
+/*|Oliver| Diese Class definiert die Eigenschaften der linken Seite der Statischen Steckbrieftabelle*/
 .steckbrief_links
 {   
     width:250px;
 }
 
 
-#mouseoverkasten
-
-{
-    visibility:hidden;
-}
 
 
-.hoverit:hover
-{
-    background-color:Black;
-    visibility:visible;
-}
-
-
+/* Diese ID definiert die Eigenschaften des Div-Containers, der das gesamte System für die Mouseover-Karte beinhaltet.
+   In diesem Container gibt es zwei weitere untergeordnete Hierarchiestufen: "InselXYZ" und daruter ".infobox". Dies ist notwendig,
+    damit ein Mouseover über ein "InselXYZ" auch jeweils die ".infobox" mitbeeinflussen kann. */
 #alleinselnaufderkarte 
 {
 position: absolute;
@@ -290,11 +314,10 @@ left:-37px;
 width: 322px;
 height: 347px;
 }
+/*Hier werden die */
 #alleinselnaufderkarte div
 {
-
 position: absolute;
-
 }
 
 
@@ -394,6 +417,7 @@ position: absolute;
 {
     width:116px;
     height:85px;
+    
 }
 #filler_untenlinks
 {
