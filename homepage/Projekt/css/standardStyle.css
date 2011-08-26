@@ -110,18 +110,13 @@ a.sticky
     /*|Oliver| Diese ID definiert die Eigenschaften des Logo-Bereichs*/
 #logo
 {   
-    width: 554px;
-    height: 234px;
-    left: 210px;
-    top: 50px;
+    width: 272px;
+    height: 54px;
+    left: 513px;
+    top: 70px;
 }
 
-#logo_steckbrief
-{   
-    left: 492px;
-    top: 68px;
-    position:absolute;
-}
+
 
 
 #logo_start
@@ -153,7 +148,7 @@ a.sticky
 
 #quizinhalt
 {
-    top:150px;
+    top:120px;
     width: 520px;
 }
 
@@ -187,7 +182,6 @@ a.sticky
     left:210px;
 }
 
-
     /*|Oliver| Diese Class definiert die Eigenschaften der Tabellenelemente, die eine Frage enthalten.*/
 .frage
 {
@@ -199,7 +193,9 @@ a.sticky
 /*|Oliver| Diese Class definiert die Eigenschaften der Tabellenelemente, die eine Antwort enthalten.*/
 .antwort
 {
+    white-space:nowrap;
    padding-left:0px;
+    
 }
 
 /*|Oliver| Diese Class definiert die Eigenschaften der Radiobuttons*/
@@ -222,15 +218,9 @@ a.sticky
 .result
 {
     padding-left:0px;
-    width:40px;
     height:20px;
 }
 
-.frageBild
-{
-    width:120px;  
-    height:120px; 
-}
 
 /*|Oliver| Diese Class definiert die Hover-Eigenschaften der Radiobuttons*/
 .radiobutton:hover
@@ -244,7 +234,6 @@ a.sticky
     background: url('../img/layout/abschicken.png') no-repeat 0 0;
     width:130px;
     height:30px;
-    margin-left:190px;
     
 }
 
@@ -269,70 +258,9 @@ a.sticky
     background: url('../img/layout/zuruecksetzen_mouseover.png') no-repeat 0 0;
 }
 
-.question_area
-{
-    width:100%;
-    background-color:Gray;
-    height:auto;
-}
-
-.question_text
-{
-    width:100%;
-    background-color:Red;
-    float:left;   
-}
-
-.question_picture
-{
-    width:120px;
-    float:left;
-    background-color:Blue;
-    height:120px;
-}
-
-.question_answer_area
-{
-    float:left;
-    height:40px;
-    width:400px;
-}
-
-.question_answer_text
-{
-    height:100%;
-    float:left;
-    width:340px;
-    background-color:Green;
-    display:table;
-}
-
-.question_answer_box
-{
-    width:20px;
-    height:100%;
-    float:left;
-    background-color:Black;   
-}
-
-.question_answer_result
-{
-    width:40px;
-    height:100%;
-    float:left;
-    background-color:Lime;   
-}
-
-
 
 /*|Oliver| Diese Class definiert die Eigenschaften des Quiz-Auswertungsbereichs*/
-#auswertung
-{
-    background-color:white;
-    width:490px;
-    height:100px;
-    
-}
+
 
 .steckbrief_links
 {   

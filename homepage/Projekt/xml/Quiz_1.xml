@@ -13,26 +13,32 @@
             <picture file="quiz_einheimischer.png" name="Einheimischer"/>
         </rank>
     </quizOptions>
-    <question question="Wie heißt der Bürgermeister von Wesel?">
-        <picture name="testbld" file="quiz_bild_3.png"/>
-      <!-- <picture name="testbld" file="quiz_bild_1.png"/>-->
-        <option >Detlef</option>
-        <option rightAnswer="true">Esel</option>
-        <option >Egon</option>
+    <question question="Was machen die da?">
+        <picture name="testbld" file="quiz_bild_2.png"/>
+        <option rightAnswer="true">Junkanoo Karneval</option>
+        <option >Ramalam Ding Dong</option>
+        <option >Reeperbahn Festival</option>
     </question>
 
-    <question question="Wie heißt der Bürgermeister von Hamburg?">
-        <picture name="testbld" file="quiz_bild_2.png"/>
-        <option >Dieter</option>
-        <option rightAnswer="true">Quack</option>
-        <option >Egon</option>
+    <question question="Wie heißt dieses Hotel?">
+        <picture name="testbld" file="quiz_bild_3.png"/>
+        <option >Hotel Atlantis Drama</option>
+        <option rightAnswer="true">Hotel Atlantic Bahamas</option>
+        <option >Hotel Alte Banane</option>
     </question>
 
     <question question="Wie heißt der Bürgermeister von Tackatucka?">
         <picture name="testbld" file="quiz_bild_1.png"/>
         <option >Hein</option>
-        <option rightAnswer="true">Blöd</option>
-        <option >Egon</option>
+        <option >Blöd</option>
+        <option rightAnswer="true">Egon</option>
     </question>
+  
+  <question question="Wer ist das Staatsoberhaupt der Bahamas?">
+    <picture name="testbld" file="quiz_bild_1.png"/>
+    <option rightAnswer="true">Die Queen</option>
+    <option >Der Pabst</option>
+    <option >Der Highlander.</option>
+  </question>
 </page>
     
