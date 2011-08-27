@@ -1,25 +1,29 @@
-﻿* {
+﻿
+    /*|Kai| Diese Angaben gelten für alle Elemente und sind nötig für die richtige Formatierung.*/
+* 
+{
     margin: 0;
     padding: 0;
-  }
-
-/*
-    Muss Höhe und Breite 100% haben, sonst nicht über ganze Seite (FF 5)
-*/
+}
+  
+    /* |Kai| Muss Höhe und Breite 100% haben, sonst nicht über ganze Seite (FF 5)*/
 html, body
 {
     height: 100%;
     width: 100%;
 }
-
+    
+    
+    /* |Oliver| Einbindung des Seitenhintergrundbildes*/
 body 
 {
     background-image: url('../img/layout/bg.jpg');
 }
 
-/* IE Workaround: Text nach außen schieben und die Outline (punkte darunter) entfernen. Stellt zusätzlich barrierefreiheit her.
-   Idee selbst entwickelt und bei: http://www.webmasterpro.de/coding/article/css-verweistexte-von-links-verstecken.html verifiziert.
- */
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+    /* |Kai| IE Workaround: Text nach außen schieben und die Outline (punkte darunter) entfernen. Stellt zusätzlich barrierefreiheit her.
+    Idee selbst entwickelt und bei: http://www.webmasterpro.de/coding/article/css-verweistexte-von-links-verstecken.html verifiziert.
+    */
 a 
 {
     text-indent: -9999px;
@@ -29,13 +33,19 @@ a:hover, a:focus
 {
     outline:none;
 }
+/*------------------------------------------------------------------------------------------------------------------------------------*/
 
-/* IE Workaround Ende */
 
-/* Definition der Lesezeichen 
+
+
+
+
+
+
+/*----------------------------------------------------------------------*/
+    /* Definition der Lesezeichen 
     - Display: Block, damit die Größenangaben richtig interpretiert werden
-    - Realisierung des Mouseovers mit Hilfe von Pseudoklassen (":hover")
-*/
+    - Realisierung des Mouseovers mit Hilfe von Pseudoklassen (":hover")*/
 a.sticky, #ecke, #start_ecke, #aufklapp, #logo, #ohneAufklapp
 {
     position:absolute;
@@ -48,6 +58,12 @@ a.sticky
     left: 757px;
     background: transparent;
 }
+/*----------------------------------------------------------------------*/
+
+
+
+
+
 
     /*|Oliver| Diese ID definiert die Eigenschaften der unteren rechten Ecke*/
 #ecke
@@ -58,13 +74,13 @@ a.sticky
     top: 517px;
     background:#fff url('../img/layout/ecke_klein.jpg') no-repeat 0 0;
     }
-    
     /*|Oliver| Diese ID definiert die Mouseover-Eigenschaften der unteren rechten Ecke*/
 #ecke:hover
 {
     background:#fff url('../img/layout/ecke_gross.jpg') no-repeat 0 0;
 }
-
+    /*|Oliver| Diese ID definiert die Eigenschaften der unteren rechten Ecke auf der Startseite. Diese Ausnahme ist notwendig, da es ansonsten
+    zu Überlappungen käme.*/
 #start_ecke
 {   
     width: 96px;
@@ -72,15 +88,20 @@ a.sticky
     left: 712px;
     top: 536px;
     background:url('../img/layout/starteckeklein.png') no-repeat 0 0;
-    }
-    
-    /*|Oliver| Diese ID definiert die Mouseover-Eigenschaften der unteren rechten Ecke*/
+}
+    /*|Oliver| Diese ID definiert die Mouseover-Eigenschaften der unteren rechten Ecke der Startseite.*/
 #start_ecke:hover
 {
     background:url('../img/layout/startecke.png') no-repeat 0 0;
 }
 
-/* Kai | Zusammenfassung der Elemente */    
+
+
+
+
+
+
+    /* Kai | Zusammenfassung der Aufklapp-Elemente */    
 #ohneAufklapp, #aufklapp
 {
     width: 128px;
@@ -88,24 +109,26 @@ a.sticky
     left: 0px;
     top: 78px;
 }
-
-
+    /* |Oliver | Hier wird die Aufgeklappte linke Seite eingebunden, die keine Ecke zum Blättern hat.*/  
 #ohneAufklapp
 {
     background:#fff url('../img/layout/aufklapp_ohneknick.jpg') no-repeat 0 0;
 }
-    
-    
-    /*|Oliver| Diese ID definiert die Eigenschaften der aufklappenden Buchseite*/
+    /*|Oliver| Diese ID definiert die Eigenschaften der aufklappenden Buchseite MIT Ecke zum Blättern.*/
 #aufklapp
 {   
     background:#fff url('../img/layout/aufklapp_klein.jpg') no-repeat 0 0;
 }
-    /*|Oliver| Diese ID definiert die Mouseover-Eigenschaften der aufklappenden Buchseite*/
+    /*|Oliver| Diese ID definiert die Mouseover-Eigenschaften der aufklappenden Buchseite MIT Ecke zum Blättern.*/
 #aufklapp:hover
 {
     background:#fff url('../img/layout/aufklapp_gross.jpg') no-repeat 0 0;
-    }
+}
+
+
+
+
+
 
 
     /*|Oliver| Diese ID definiert die Eigenschaften des Logo-Bereichs*/
@@ -116,10 +139,7 @@ a.sticky
     left: 513px;
     top: 70px;
 }
-
-
-
-
+    /*|Oliver| Diese ID beinhaltet das Design der Startseite.*/
 #logo_start
 
 {
@@ -128,11 +148,13 @@ a.sticky
     left: 180px;
     top: 70px;
     background: url('../img/layout/logo_start.png') no-repeat 0 0;
-    
     position:absolute;
 }
 
     
+
+
+
 
     /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs*/
 #inhalt, #quizinhalt, #inhalt_steckbrief
@@ -147,41 +169,58 @@ a.sticky
     font-weight:bold;
 }
 
+    /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs der QUIZ-Seite*/
 #quizinhalt
 {
     top:120px;
     width: 520px;
 }
 
+    /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs der QUIZ-Seite*/
 #inhalt_steckbrief
 {
     top:400px;
     width: 520px;
 }
 
+    /*|Oliver| Diese IDs definieren die Eigenschaften des linken- und rechten Inhaltsbereichs der Seiten, auf denen
+    Fließtext in Kombination mit Bildern auftritt: KULTUR, REISEZIEL, IMPRESSUM*/
 #inhalt_links, #inhalt_rechts
 {
     position:absolute;
     padding-left:10px;
     padding-right:10px;
+    top:-30px;
+    height:430px;
 }
-    
-    /*|Oliver| Diese ID definiert die Eigenschaften der linken Seite des Inhaltsbereichs*/
+    /*|Oliver| linke Seite:*/
 #inhalt_links
 {   
     width:190px;
-    height:370px;
-    top:50px;
     left:0px;
 }
-
-    /*|Oliver| Diese ID definiert die Eigenschaften der rechten Seite des Inhaltsbereichs*/
+    /*|Oliver| rechte Seite:*/
 #inhalt_rechts
 {   position:absolute;
     width:280px;
-    height:430px;
     left:210px;
 }
+
+
+
+
+
+    /*|Oliver| Hier werden die Überschriften im Fließtext formatiert*/
+.h1
+{
+    font-size:x-large;
+    display:block;
+}
+
+
+
+
+
 
     /*|Oliver| Diese Class definiert die Eigenschaften der Tabellenelemente, die eine Frage enthalten.*/
 .frage
@@ -190,8 +229,7 @@ a.sticky
     font-size:large;
     width:487px;
 }
-
-/*|Oliver| Diese Class definiert die Eigenschaften der Tabellenelemente, die eine Antwort enthalten.*/
+    /*|Oliver| Diese Class definiert die Eigenschaften der Tabellenelemente, die eine Antwort enthalten.*/
 .antwort
 {
    white-space:nowrap;
@@ -199,49 +237,51 @@ a.sticky
    width:300px;
 }
 
-/*|Oliver| Diese Class definiert die Eigenschaften der Radiobuttons*/
+/*------------------------------------------------------------------------*/
+    /*|Oliver| Diese Classes definieren die Eigenschaften der Radiobuttons*/
 .radiobutton, .radiobutton_active
 {
     width:20px;
     height:20px;   
 }
-
 .radiobutton
 {
     background: url('../img/layout/kaestchen_normal.png') no-repeat 0 0;
 }
-
 .radiobutton_active
 {
     background: url('../img/layout/kaestchen_angekreuzt.png') no-repeat 0 0;   
 }
-
+    /*|Oliver| Diese Class definiert die Hover-Eigenschaften der Radiobuttons*/
+.radiobutton:hover
+{
+    background: url('../img/layout/kaestchen_mouseover.png') no-repeat 0 0;
+}   
+/*-------------------------------------------------------------------------*/
+    
+   
+   
+    /*|Oliver| Diese Class definiert die Eigenschaften der Tabellenelemente, die die Häkchen für "Wahr" oder die Kreuze für "Falsc" enthalten.*/
 .result
 {
-    padding-left:0px;
     height:25px;
     width:25px;
 }
 
 
-/*|Oliver| Diese Class definiert die Hover-Eigenschaften der Radiobuttons*/
-.radiobutton:hover
-{
-    background: url('../img/layout/kaestchen_mouseover.png') no-repeat 0 0;
-}
-
-
-
-
-/*|Oliver| Diese Class definiert die Eigenschaften des Abschicken-Buttons*/
-.aktiv, .passiv
+.aktiv, .passiv, #zuruecksetzen, #neueFragen
 {
     width:130px;
     height:30px;
+}
+/*--------------------------------------------------------------------------------*/
+    /*|Oliver| Diese Classes definieren die Eigenschaften des "Abschicken"-Buttons*/
+.aktiv, .passiv
+{
     position:absolute;
     left:330px;
     top:388px;
-    }
+}
 .passiv 
 {
     background: url('../img/layout/abschicken_ausgegraut.png') no-repeat 0 0;
@@ -251,41 +291,37 @@ a.sticky
 {
     background: url('../img/layout/abschicken.png') no-repeat 0 0;
 }
-
-/*|Oliver| Diese Class definiert die Hover-Eigenschaften des Abschicken-Buttons*/
+    /*|Oliver| Diese Class definiert die Hover-Eigenschaften des "Abschicken"-Buttons*/
 .aktiv:hover
 {
     background: url('../img/layout/abschicken_mouseover.png') no-repeat 0 0;
+}   
+/*--------------------------------------------------------------------------------*/
 
-}
 
-/*|Oliver| Diese Class definiert die Eigenschaften des Zuruecksetzen-Buttons*/
+
+    /*|Oliver| Diese ID definiert die Eigenschaften des "Zuruecksetzen"-Buttons*/
 #zuruecksetzen
 {
     background: url('../img/layout/zuruecksetzen.png') no-repeat 0 0;
-    width:130px;
-    height:30px;
     float:left;
 }
-
-/*|Oliver| Diese Class definiert die Hover-Eigenschaften des Zurücksetzen-Buttons*/
+    /*|Oliver| Diese Class definiert die Hover-Eigenschaften des "Zurücksetzen"-Buttons*/
 #zuruecksetzen:hover
 {
     background: url('../img/layout/zuruecksetzen_mouseover.png') no-repeat 0 0;
 }
 
-/*|Oliver| Diese Class definiert die Eigenschaften des Zuruecksetzen-Buttons*/
+
+    /*|Oliver| Diese Class definiert die Eigenschaften des "Neue Fragen"-Buttons*/
 #neueFragen
 {
     background: url('../img/layout/neuefragen.png') no-repeat 0 0;
-    width:130px;
-    height:30px;
     position:absolute;
     left:175px;
     top:390px;
 }
-
-/*|Oliver| Diese Class definiert die Hover-Eigenschaften des Zurücksetzen-Buttons*/
+    /*|Oliver| Diese Class definiert die Hover-Eigenschaften des Zurücksetzen-Buttons*/
 #neueFragen:hover
 {
     background: url('../img/layout/neuefragen_mouseover.png') no-repeat 0 0;
@@ -294,53 +330,49 @@ a.sticky
 
 
 
-/*|Oliver| Diese Class definiert die Eigenschaften der linken Seite der Statischen Steckbrieftabelle*/
+
+
+
+
+    /*|Oliver| Diese Class definiert die Eigenschaften der linken Seite der statischen Steckbrieftabelle*/
 .steckbrief_links
 {   
     width:250px;
 }
-
-
-
-
-/* Diese ID definiert die Eigenschaften des Div-Containers, der das gesamte System für die Mouseover-Karte beinhaltet.
-   In diesem Container gibt es zwei weitere untergeordnete Hierarchiestufen: "InselXYZ" und daruter ".infobox". Dies ist notwendig,
+    /*|Oliver|
+    Diese ID definiert die Eigenschaften des Div-Containers, der das gesamte System für die Mouseover-Karte beinhaltet.
+    In diesem Container gibt es zwei weitere untergeordnete Hierarchiestufen: "InselXYZ" und daruter ".infobox". Dies ist notwendig,
     damit ein Mouseover über ein "InselXYZ" auch jeweils die ".infobox" mitbeeinflussen kann. */
 #alleinselnaufderkarte 
 {
-position: absolute;
-top:-93px;
-left:-37px;
-width: 322px;
-height: 347px;
+    position: absolute;
+    top:-93px;
+    left:-37px;
+    width: 322px;
+    height: 347px;
 }
-/*Hier werden die */
+    /*|Oliver| Hier werden die Divs, die in dem Div "alleinselnaufderkarte" geschachtelt sind, für Höhen-und Längenformatierung ansprechbar gemacht*/
 #alleinselnaufderkarte div
 {
 position: absolute;
 }
-
-
-/*Problem: auf "visibility:hidden" lässt sich nicht hovern!*/
+    /* |Oliver| generelle Formatierung der Inselgruppe unten links.*/
 #inseluntenlinks
 {
     width:67px;
     height:104px;
     left: 42px;
     top: 162px;
-    z-index:0;
-    position:absolute;
-    
 }
+    /* |Oliver| generelle Formatierung der Inselgruppe oben links.*/
 #inselobenlinks
 {
     width:116px;
     height:85px;
     left: 54px;
     top: 91px;
-    z-index:1;
-    display:block;
 }
+    /* |Oliver| generelle Formatierung der Inselgruppe unten rechts.*/
 #inseluntenrechts
 {
     width:96px;
@@ -348,76 +380,86 @@ position: absolute;
     left: 161px;
     top: 163px;
 }
-
-
-
-
-/*|Oliver| Hier werden die Rollover-Bilder auf der Karte eingebunden*/
+    /*|Oliver| Hier werden die Rollover-Bilderzunächst auf unsichtbar und dann bei Mouseover sichtbar geschaltet.*/
 #alleinselnaufderkarte div .hoverbild{display: none;}
+#alleinselnaufderkarte div:hover .hoverbild{display: block;}
 
-#alleinselnaufderkarte #inselobenlinks:hover .hoverbild{display: block;}
-#alleinselnaufderkarte #inseluntenrechts:hover .hoverbild{display: block;}
-#alleinselnaufderkarte #inseluntenlinks:hover .hoverbild{display: block;}
-
-
-/*|Oliver| Hier werden die Rollover-BInfokästen auf der Karte eingebunden*/
+    /*|Oliver| Hier werden die Rollover-Infokästen auf der Karte eingebunden*/
 #alleinselnaufderkarte div .infobox
 {
    display: none;                                
    background: url('../img/layout/steckbrief_tabellenbackground_klein.png') no-repeat 0 0;
-   position: absolute; 
    padding: 5px; 
-   z-index: 100;
-   color: #000000; 
-   font: 12px Verdana, sans-serif; 
    width: 200px;
-  
-   }
+}
+/*-------------------------------------------------------------------------------*/
+    /*|Oliver| Realisierung des Hover-Effektes "Maus auf Insel macht Box am Rand"*/
+#alleinselnaufderkarte div:hover .infobox{display: block;}
 #alleinselnaufderkarte #inseluntenrechts:hover .infobox
 {
-    display: block; 
-    top: -76px; 
-    left: 170px; 
+   top: -76px; 
+   left: 170px; 
 }
-#alleinselnaufderkarte #inselobenlinks:hover .infobox{
-   display: block;
+#alleinselnaufderkarte #inselobenlinks:hover .infobox
+{
    top: -4px; 
    left: 277px; 
-   }
-#alleinselnaufderkarte #inseluntenlinks:hover .infobox{
-   display: block;
+}
+#alleinselnaufderkarte #inseluntenlinks:hover .infobox
+{
    top: -75px; 
    left: 289px; 
-   }
-   
-   
-  
+}
+/*-------------------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------------------------*/
+    /*|Oliver| Generelle Formatierung der durch Landkarten-Mouseover erzeugten Tabelle*/
+.steckbriefhoverinfoboxtabelle 
+{   
+   border-collapse:collapse;
+   width:200px;
+}
+.steckbriefhoverinfoboxtabelle td
+{
+   border-bottom:1px solid black;
+   width:100px;
+}   
+.steckbriefhoverinfotabelle_ueberschrift
+{
+    font-weight:bold;
+}
+/*------------------------------------------------------------------------------------*/  
+
+
+    /*|Oliver| Hier wird ein Element eingebunden, welches Verschwindet, sobald der User mit der Maus über die Karte lasert*/
 #alleinselnaufderkarte .hoverbild_start
 { 
-    width:200px;
-    height:110px;
-   font-weight:bold;
-   font-size:larger;
-   position: absolute;
+   width:200px;
+   height:110px;
    left:330px;
-   top:90px;
-   display:block;                 
-   background: url('../img/layout/steckbrief_hoverbild_start.png') no-repeat 0 0;}
+   top:90px;              
+   background: url('../img/layout/steckbrief_hoverbild_start.png') no-repeat 0 0;
+}
    
 
-   
+
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+   /*|Oliver|
+    Problem: auf nicht vorhandenen Elementen, z.B. durch "visibility:hidden", lässt sich nicht im Internet-Explorer nicht hovern! 
+    Daher wa ein umfangreicher Workaround nötig:
+    Mithilfe von Filler-IDs, die ein 1x1px großes transparentes PNG-Bild enthalten, wurde ein Schein-Element geschaffen, welches dem IE 
+    signalisiert: "Da ist Content, also kann man da drüber Hovern." Die Größe der Filler entspricht jeweils  der Größe der an anderer Stelle ein-
+    gebundenen Inselgruppen-Bilder (Obenlinks, Untenlinks, Untenrechts). */
 #filler_obenlinks, #filler_untenlinks, #filler_untenrechts
 {
-    
    position:absolute;
    background: url('../img/layout/einpixel.png') no-repeat 0 0;
 }
-   
 #filler_obenlinks
 {
     width:116px;
     height:85px;
-    
 }
 #filler_untenlinks
 {
@@ -429,48 +471,28 @@ position: absolute;
     width:96px;
     height:123px;
 }
-
 #filler_obenlinks:hover, #filler_untenlinks:hover, #filler_untenrechts:hover{visibility:hidden;}
+/*------------------------------------------------------------------------------------------------------------------------------*/
    
 
 
-
-.steckbriefhoverinfoboxtabelle 
-{   
-   border-collapse:collapse;
-   width:200px;
-}
-.steckbriefhoverinfoboxtabelle td
-{
-    border-bottom:1px solid black;
-    width:100px;
-}
-
-
+/*-------------------------------------------------------------------------------------------*/
+    /*|Oliver| Generelle Formatierung der Tabelle in der unteren Hälfte der Steckbrief-Seite.*/
 #statische_steckbrieftabelle
 {   
-    
     position:absolute;
-    top:250px;
     border-collapse:collapse;
     background: url('../img/layout/steckbrief_tabellenbackground_gross.png') no-repeat 0 0;
     height:210px;
+    top:250px;
 }
-
 #statische_steckbrieftabelle td
 {
     font-weight:bold;
     border-bottom:1px solid black;
 }
+/*--------------------------------------------------------------------------------------------*/
 
-.steckbriefhoverinfotabelle_ueberschrift
-{
-    font-weight:bold;
-    }
 
-#versalien
-{
-    
-}
 
 
