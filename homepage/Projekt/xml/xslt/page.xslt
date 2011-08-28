@@ -30,6 +30,10 @@
                   </xsl:for-each>
                   <!-- Ende des Snippets-->
                 </style>
+                
+                <style type="text/css" media="print">
+                    @import"../css/printStyle.css";
+                </style>
 
                 <xsl:if test="$type = 'quiz'">
                     <script type="text/javascript">
@@ -118,10 +122,6 @@
              </xsl:if>
 
                
-
-
-          
-
               <xsl:if test ="$chapter != 'Start'"> 
               <div id="zurückblättern">
                 <xsl:if test="$chapter != 'Start' and $pagenr = 1">
@@ -223,10 +223,17 @@
 
     <!-- Template für den Steckbrief -->
     <xsl:template name ="overview">
+        <xsl:call-template name="overviewPictureArea"/>
         <xsl:call-template name="table">
             <xsl:with-param name="idTable" select="'statische_steckbrieftabelle'"/>
             <xsl:with-param name="idFirstColumn" select="'steckbrief_links'"/>
         </xsl:call-template>
+    </xsl:template>
+
+    <xsl:template name="overviewPictureArea">
+        <div id="alleinselnaufderkarte">
+            <xsl:apply-templates select="standardPicture/*"/>
+        </div>
     </xsl:template>
 
   <!-- Template für Content-Type Normal -->
