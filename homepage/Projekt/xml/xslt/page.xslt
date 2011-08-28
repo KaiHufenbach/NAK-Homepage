@@ -178,6 +178,12 @@
                     </div>
                 </xsl:if>
 
+                <xsl:if test="$type = 'overview'">
+                    <div id="inhalt">
+                        <xsl:call-template name="overview"/>
+                    </div>
+                </xsl:if>
+
 
 
             </xsl:element>
@@ -213,6 +219,14 @@
     <!-- Template für das Quiz (es erzeugt KEINEN HTML Content, sondern befüllt lediglich ein Javascript) -->
     <xsl:template name="quiz">
         
+    </xsl:template>
+
+    <!-- Template für den Steckbrief -->
+    <xsl:template name ="overview">
+        <xsl:call-template name="table">
+            <xsl:with-param name="idTable" select="'statische_steckbrieftabelle'"/>
+            <xsl:with-param name="idFirstColumn" select="'steckbrief_links'"/>
+        </xsl:call-template>
     </xsl:template>
 
   <!-- Template für Content-Type Normal -->
@@ -259,17 +273,39 @@
         </xsl:element>
     </xsl:template>
 
-    <xsl:template match="table">
+    <xsl:template name="table" match="table">
+        <!-- IDs für die Tabelle, erste Reihe, erste Spalte -->
+        <xsl:param name="idTable"/>
+        <xsl:param name="idFirstRow"/>
+        <xsl:param name="idFirstColumn"/>
         <xsl:element name="table">
-            <xsl:call-template name="testIDClass"/>
+            <xsl:if test="$idTable = ''">
+                <!-- Alternativ können diese auch direkt für die jeweiligen Elemente übergeben werden übergeben werden -->
+                <xsl:call-template name="testIDClass"/>
+            </xsl:if>
+            <xsl:if test="$idTable != ''">
+                <xsl:attribute name="id">
+                    <xsl:value-of select="$idTable"/>
+                </xsl:attribute>
+            </xsl:if>
             <xsl:element name="tbody">
-                <xsl:for-each select="row">
+                <xsl:for-each select="table/row">
                     <xsl:element name="tr">
+                        <xsl:if test="$idFirstRow != '' and (position() = 1)">
+                            <xsl:attribute name="id">
+                                <xsl:value-of select="$idFirstRow"/>
+                            </xsl:attribute>
+                        </xsl:if>
                         <xsl:call-template name="testIDClass"/>
                         <xsl:for-each select="column">
                             <xsl:element name="td">
+                                <xsl:if test="$idFirstColumn != '' and (position() = 1)">
+                                    <xsl:attribute name="id">
+                                        <xsl:value-of select="$idFirstColumn"/>
+                                    </xsl:attribute>
+                                </xsl:if>
                                 <xsl:call-template name="testIDClass"/>
-                                <xsl:value-of select="column"/>
+                                <xsl:value-of select="."/>
                             </xsl:element>
                         </xsl:for-each>
                     </xsl:element>

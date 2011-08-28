@@ -1,82 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
-    <pageInfo nr="1" lastPage="true" chapter="Steckbrief" typ="normal" />
-    <left>
-      <picture name="Karte der Bahamas" file="steckbrief_bild_1_klein.jpg"/>
-
-    </left>
-    <right>
-
-
-      <table>
-          <tr>
-            <td>Amtssprache</td>
-            <td>Englisch</td>
-          </tr>
-          <tr>
-            <td>Hauptstadt</td>
-            <td>Nassau</td>
-          </tr>
-          <tr>
-            <td>Staatsform </td>
-            <td>Parlamentarische Monarchie</td>
-          </tr>
-          <tr>
-            <td>Staatsoberhaupt</td>
-            <td>
-              Königin Elisabeth II. <br />vertreten durch Generalgouverneur <br />Sir Arthur Alexander Foulkes
-            </td>
-          </tr>
-          <tr>
-            <td>Regierungschef</td>
-            <td>Premierminister Hubert Ingraham</td>
-          </tr>
-          <tr>
-            <td>Fläche</td>
-            <td>13.940 km²</td>
-          </tr>
-          <tr>
-            <td>Einwohnerzahl</td>
-            <td>309.156 (Quelle: CIA 2009)</td>
-          </tr>
-          <tr>
-            <td>Bevölkerungsdichte</td>
-            <td>21,8 Einwohner pro km²</td>
-          </tr>
-          <tr>
-            <td>Bruttoinlandsprodukt nominal (2007)</td>
-            <td>6.586 Mio. US$ (131.)</td>
-          </tr>
-          <tr>
-            <td>Bruttoinlandsprodukt pro Einwohner</td>
-            <td>19.781 US$ (34.)</td>
-          </tr>
-          <tr>
-            <td>Human Development Index</td>
-            <td>0,784 (43.)</td>
-          </tr>
-          <tr>
-            <td>Währung</td>
-            <td>
-              1 Bahama-Dollar = 100 Cents<br />1 € = 1,42 BSD<br />1 BSD = 0,71 €
-            </td>
-          </tr>
-          <tr>
-            <td>Unabhängigkeit</td>
-            <td>am 10. Juli 1973 von Großbritannien</td>
-          </tr>
-          <tr>
-            <td>Nationalhymne</td>
-            <td>March On, Bahamaland</td>
-          </tr>
-          <tr>
-            <td>Zeitzone</td>
-            <td>EST = UTC-5 (November–März)</td>
-          </tr>
-        </table>
-
-
-    </right>
+    <pageInfo nr="1" lastPage="true" chapter="Steckbrief" typ="overview" />
+    <table>
+        <row>
+            <column>
+                Amtssprache
+            </column>
+            <column>
+                Englisch
+            </column>
+        </row>
+        <row>
+            <column>
+                Hauptstadt
+            </column>
+            <column>
+                Nassau
+            </column>
+        </row>
+        <row>
+            <column>
+                Staatsform
+            </column>
+            <column>
+                Parlamentarische Monarchie
+            </column>
+        </row>
+        <row>
+            <column>
+                Staatsoberhaupt
+            </column>
+            <column>
+                Königin Elisabeth II.
+            </column>
+        </row>
+        <row>
+            <column>
+                Regierungschef
+            </column>
+            <column>
+                Premierminister Hubert Ingraham
+            </column>
+        </row>
+        <row>
+            <column>
+                Fläche
+            </column>
+            <column>
+                13.940 km²
+            </column>
+        </row>
+        <row>
+            <column>
+                Einwohnerzahl
+            </column>
+            <column>
+                309.156 (Quelle: CIA 2009)
+            </column>
+        </row>
+        <row>
+            <column>
+                Bruttoinlandsprodukt
+            </column>
+            <column>
+                19.781 US$ (34.)
+            </column>
+        </row>
+        <row>
+            <column>
+                Nationalhymne
+            </column>
+            <column>
+                March On, Bahamaland
+            </column>
+        </row>
+    </table>
 </page>
     
