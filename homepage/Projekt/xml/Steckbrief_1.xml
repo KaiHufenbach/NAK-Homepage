@@ -2,6 +2,40 @@
 <?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
     <pageInfo nr="1" lastPage="true" chapter="Steckbrief" typ="overview" />
+    <overviewPictureArea>
+        <standardPicture>
+            <picture file="steckbrief_karte.png" name="Inselgruppe der Bahamas"/>
+        </standardPicture>
+        <hoverArea targetx="330" targety="90">
+            <picture file="steckbrief_hoverbild_start.png" name="Für weitere Informationen über die Inselgruppen mit der Maus streichen"/>
+            <hoverPart posx="54" posy="91" sizex="116" sizey="85">
+                <picture file="steckbrief_insel_obenlinks.png" name="hover1"/>
+                <descriptionBox>
+                    <table>
+                        <row>
+                            <column>Grand Bahamas</column>
+                        </row>
+                        <row>
+                            <column>Länge</column>
+                            <column>154km</column>
+                        </row>
+                        <row>
+                            <column>Breite</column>
+                            <column>27km</column>
+                        </row>
+                        <row>
+                            <column>Fläche</column>
+                            <column>1373km²</column>
+                        </row>
+                        <row>
+                            <column>Hauptort</column>
+                            <column>Freeport</column>
+                        </row>
+                    </table>
+                </descriptionBox>
+            </hoverPart>
+        </hoverArea>
+    </overviewPictureArea>
     <table>
         <row>
             <column>

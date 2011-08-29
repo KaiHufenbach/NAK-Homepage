@@ -33,10 +33,56 @@
 
     <xs:group name="overview">
         <xs:sequence>
+            <!-- Bildbereich oberhalb des Steckbriefes -->
+            <xs:element ref="overviewPictureArea" minOccurs="1" maxOccurs="1"/>
+            <!-- Eine Tabelle unten ist Pflicht -->
             <xs:element minOccurs="1" maxOccurs="1" ref="table"/>
         </xs:sequence>
-        
     </xs:group>
+
+    <xs:element name="overviewPictureArea">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="standardPicture" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="picture" minOccurs="1" maxOccurs="1"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="hoverArea" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- Wenn eine Hover Area angegeben wird, muss ein Standard-Bild im Ziel bestimmt werden -->
+                            <xs:element ref="picture" minOccurs="1" maxOccurs="1"/>
+                            <xs:element ref="hoverPart" minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                        <xs:attribute name="targetx" type="xs:int" use="required"/>
+                        <xs:attribute name="targety" type="xs:int" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="hoverPart">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="picture" maxOccurs="1" minOccurs="1"/>
+                <xs:element name="descriptionBox" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:group ref="normalPageContent"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="posx" type="xs:int" use="required"/>
+            <xs:attribute name="posy" type="xs:int" use="required"/>
+            <xs:attribute name="sizex" type="xs:int" use="required"/>
+            <xs:attribute name="sizey" type="xs:int" use="required"/>
+        </xs:complexType>
+    </xs:element>
     
     <xs:group name="quiz">
         <xs:sequence>
@@ -97,6 +143,7 @@
             <xs:choice maxOccurs="unbounded">
                 <xs:element minOccurs="0" maxOccurs="unbounded" ref="paragraph"/>
                 <xs:element minOccurs="0" maxOccurs="unbounded" ref="picture"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="table"/>
             </xs:choice>
         </xs:sequence>
     </xs:group>

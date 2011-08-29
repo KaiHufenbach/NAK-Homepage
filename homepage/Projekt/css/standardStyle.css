@@ -377,7 +377,7 @@
         /*|Oliver| Hier werden die Divs, die in dem Div "alleinselnaufderkarte" geschachtelt sind, für Höhen-und Längenformatierung ansprechbar gemacht*/
     #alleinselnaufderkarte div
     {
-    position: absolute;
+        position: absolute;
     }
     
         /* |Oliver| generelle Formatierung der Inselgruppe unten links.*/
@@ -440,7 +440,7 @@
        left: 289px; 
     }
     /*-------------------------------------------------------------------------------*/
-
+   
 
     /*------------------------------------------------------------------------------------*/
         /*|Oliver| Generelle Formatierung der durch Landkarten-Mouseover erzeugten Tabelle*/
@@ -498,6 +498,17 @@
         height:123px;
     }
     #filler_obenlinks:hover, #filler_untenlinks:hover, #filler_untenrechts:hover{visibility:hidden;}
+    
+    .filler
+    {
+         position:absolute;
+         background:url('../img/layout/einpixel.png') no-repeat 0 0;
+    }
+    
+    .filler:hover
+    {
+         visibility:hidden;     
+    }
     /*------------------------------------------------------------------------------------------------------------------------------*/
        
 

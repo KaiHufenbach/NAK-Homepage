@@ -29,6 +29,11 @@
                     </xsl:if>
                   </xsl:for-each>
                   <!-- Ende des Snippets-->
+                    
+                    <!-- Dynamische Imports für Steckbrief -->
+                    <xsl:if test="$type = 'overview'">
+                        <xsl:call-template name="overviewStyle"/>
+                    </xsl:if>
                 </style>
                 
                 <style type="text/css" media="print">
@@ -224,18 +229,90 @@
     <!-- Template für den Steckbrief -->
     <xsl:template name ="overview">
         <xsl:call-template name="overviewPictureArea"/>
-        <xsl:call-template name="table">
-            <xsl:with-param name="idTable" select="'statische_steckbrieftabelle'"/>
-            <xsl:with-param name="idFirstColumn" select="'steckbrief_links'"/>
-        </xsl:call-template>
+        <xsl:for-each select="table">
+            <xsl:call-template name="table">
+                <xsl:with-param name="idTable" select="'statische_steckbrieftabelle'"/>
+                <xsl:with-param name="idFirstColumn" select="'steckbrief_links'"/>
+            </xsl:call-template>
+        </xsl:for-each>
     </xsl:template>
 
     <xsl:template name="overviewPictureArea">
         <div id="alleinselnaufderkarte">
-            <xsl:apply-templates select="standardPicture/*"/>
+            <xsl:apply-templates select="overviewPictureArea"/>
         </div>
     </xsl:template>
 
+  <xsl:template match="hoverArea">
+      <div class="hoverbild_start">
+          <xsl:apply-templates select="picture"/>
+      </div>
+      <xsl:for-each select="hoverPart">
+          <div>
+              <xsl:variable name="hoverid" select="picture/@name"/>
+              <xsl:attribute name="id">
+                  <xsl:value-of select="$hoverid"/>
+              </xsl:attribute>
+              <div>
+                  <xsl:attribute name="id">
+                      <xsl:value-of select="$hoverid"/>_filler</xsl:attribute>
+                  <xsl:attribute name="class">filler</xsl:attribute>
+              </div>
+                  <!-- Über dieses Konstrukt kann ein bestimmtes Element angefahren werden, da xsl:apply-templates mit with Param nicht funktioniert. Somit ist ein Funktionales Programmieren leider nicht möglich (Die Funktionen bekommen Side-Effects).  -->
+                  <xsl:for-each select="picture">
+                      <xsl:call-template name="picture">
+                          <xsl:with-param name="class">hoverbild</xsl:with-param>
+                      </xsl:call-template>
+                  </xsl:for-each>
+              <div class="infobox">
+                  <!-- Dieses Konstrukt ist ein Workaround für <xsl:apply-templates><xsl:with-param ... -->
+                  <xsl:for-each select ="descriptionBox/*">
+                      <xsl:if test="name() = 'table'">
+                          <xsl:call-template name="table">
+                              <xsl:with-param name="classTable">steckbriefhoverinfoboxtabelle</xsl:with-param>
+                              <xsl:with-param name="classFirstRowFirstColumn">steckbriefhoverinfotabelle_ueberschrift</xsl:with-param>
+                          </xsl:call-template>
+                      </xsl:if>
+                      <xsl:if test="name() = 'picture'">
+                          <xsl:call-template name="picture"/>
+                      </xsl:if>
+                      <xsl:if test="name() = 'paragraph'">
+                          <xsl:call-template name="paragraph"/>
+                      </xsl:if>
+                  </xsl:for-each>
+              </div>
+              
+          </div>
+      </xsl:for-each>
+  </xsl:template>
+
+    <!-- CSS-Stil-Erweiterung für Steckbrief -->
+    <xsl:template name="overviewStyle">
+        <!-- Festlegung des Ziels, um die Zielkoordinaten der Infoboxen anzuzeigen -->
+        <xsl:variable name="targetx" select="overviewPictureArea/hoverArea/@targetx"/>
+        <xsl:variable name="targety" select="overviewPictureArea/hoverArea/@targety"/>
+
+        <xsl:for-each select="overviewPictureArea/hoverArea/hoverPart">
+            #<xsl:value-of select="picture/@name"/>{
+            width: <xsl:value-of select="@sizex"/>px;
+            height: <xsl:value-of select="@sizey"/>px;
+            top: <xsl:value-of select="@posy"/>px;
+            left: <xsl:value-of select="@posx"/>px;
+            }
+
+            #<xsl:value-of select="picture/@name"/>_filler{
+            width: <xsl:value-of select="@sizex"/>px;
+            height: <xsl:value-of select="@sizey"/>px;
+            }
+
+            #alleinselnaufderkarte #<xsl:value-of select="picture/@name"/> .infobox
+            {
+            top: <xsl:value-of select="@posy - $targety - 5"/>px ;
+            left:<xsl:value-of select="$targetx - @posx"/>px;
+            }
+        </xsl:for-each>
+    </xsl:template>
+    
   <!-- Template für Content-Type Normal -->
   <xsl:template name="normal">
      
@@ -250,7 +327,7 @@
     
   </xsl:template>
 
-    <xsl:template match="paragraph" priority="0">
+    <xsl:template match="paragraph" name="paragraph">
         <xsl:element name="p">
             <xsl:attribute name="class">paragraph</xsl:attribute>
             <xsl:if test="@versalien = 'true'">
@@ -269,8 +346,14 @@
        
     </xsl:template>
 
-    <xsl:template match="picture">
+    <xsl:template name="picture" match="picture">
+        <xsl:param name="class"/>
         <xsl:element name="img">
+            <xsl:if test="$class != ''">
+                <xsl:attribute name="class">
+                    <xsl:value-of select="$class"/>
+                </xsl:attribute>
+            </xsl:if>
             <xsl:attribute name ="src">
                 ../img/inhalt/<xsl:value-of select="@file"/>
             </xsl:attribute>
@@ -283,32 +366,69 @@
     <xsl:template name="table" match="table">
         <!-- IDs für die Tabelle, erste Reihe, erste Spalte -->
         <xsl:param name="idTable"/>
+        <xsl:param name="classTable"/>
         <xsl:param name="idFirstRow"/>
+        <xsl:param name="classFirstRow"/>
         <xsl:param name="idFirstColumn"/>
-        <xsl:element name="table">
-            <xsl:if test="$idTable = ''">
-                <!-- Alternativ können diese auch direkt für die jeweiligen Elemente übergeben werden übergeben werden -->
-                <xsl:call-template name="testIDClass"/>
-            </xsl:if>
+        <xsl:param name="classFirstColumn"/>
+        <xsl:param name="classFirstRowFirstColumn"/>
+        
+        <xsl:element name="table">  
+            <!-- Alternativ können diese auch direkt für die jeweiligen Elemente übergeben werden übergeben werden -->
+            <xsl:call-template name="testIDClass"/>
+            <!-- Für späteren Zugriff innerhalb der Children merken -->
+            <xsl:variable name="root" select="."/>
             <xsl:if test="$idTable != ''">
                 <xsl:attribute name="id">
                     <xsl:value-of select="$idTable"/>
                 </xsl:attribute>
             </xsl:if>
+            <xsl:if test="$classTable != ''">
+                <xsl:attribute name="class">
+                    <xsl:value-of select="$classTable"/>
+                </xsl:attribute>
+            </xsl:if>
             <xsl:element name="tbody">
-                <xsl:for-each select="table/row">
+                <xsl:for-each select="./row">
                     <xsl:element name="tr">
                         <xsl:if test="$idFirstRow != '' and (position() = 1)">
                             <xsl:attribute name="id">
                                 <xsl:value-of select="$idFirstRow"/>
                             </xsl:attribute>
                         </xsl:if>
+                        <xsl:if test="$classFirstRow != '' and (position() = 1)">
+                            <xsl:attribute name="class">
+                                <xsl:value-of select="$classFirstRow"/>
+                            </xsl:attribute>
+                        </xsl:if>
                         <xsl:call-template name="testIDClass"/>
+                        <xsl:variable select="." name="parentRow"/>
+                        <xsl:variable select="position()" name="parentRowPosition"/>
                         <xsl:for-each select="column">
                             <xsl:element name="td">
+                                <!-- Sollte eine Zeile nur eine Spalte enthalten, wird ein Colspan gesetzt -->
+                                <xsl:if test="count($parentRow/column) = 1">
+                                    <xsl:for-each select="$root/row">
+                                        <xsl:if test="count(column) != 1">
+                                            <xsl:attribute name="colspan">
+                                                <xsl:value-of select="count(column)"/>
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                    </xsl:for-each>
+                                </xsl:if>
                                 <xsl:if test="$idFirstColumn != '' and (position() = 1)">
                                     <xsl:attribute name="id">
                                         <xsl:value-of select="$idFirstColumn"/>
+                                    </xsl:attribute>
+                                </xsl:if>
+                                <xsl:if test="$classFirstColumn != '' and (position() = 1)">
+                                    <xsl:attribute name="class">
+                                        <xsl:value-of select="$classFirstColumn"/>
+                                    </xsl:attribute>
+                                </xsl:if>
+                                <xsl:if test="$classFirstRowFirstColumn != '' and (position() = 1) and($parentRowPosition = 1)">
+                                    <xsl:attribute name="class">
+                                        <xsl:value-of select="$classFirstRowFirstColumn"/>
                                     </xsl:attribute>
                                 </xsl:if>
                                 <xsl:call-template name="testIDClass"/>
