@@ -22,8 +22,11 @@
         
         /* |Oliver| Einbindung des Seitenhintergrundbildes*/
     body 
-    {
-        background:#000 url('../img/layout/bg.jpg') no-repeat 0 0;
+    { 
+       font:11pt/120% Courier New;
+       background-color: white;
+       background-image: none; 
+       color:black;
     }
 
     /*------------------------------------------------------------------------------------------------------------------------------------*/
@@ -33,11 +36,15 @@
     a 
     {
         text-indent: -9999px;
+        
+        display:none;
     }
 
     a:hover, a:focus
     {
         outline:none;
+        
+        display:none;
     }
     /*------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -51,6 +58,8 @@
     {
         position:absolute;
         display: block; 
+        
+        display:none;
     }
     
     a.sticky
@@ -59,6 +68,7 @@
         height: 70px;
         left: 757px;
         background: transparent;
+        display:none;
     }
     /*----------------------------------------------------------------------*/
 
@@ -71,13 +81,13 @@
         height: 169px;
         left: 708px;
         top: 517px;
-        background:#000 url('../img/layout/ecke_klein.jpg') no-repeat 0 0;
+        display:none;
         }
         /*|Oliver| Diese ID definiert die Mouseover-Eigenschaften der unteren rechten Ecke*/
         
     #ecke:hover
     {
-        background:#000 url('../img/layout/ecke_gross.jpg') no-repeat 0 0;
+        display:none;
     }
         /*|Oliver| Diese ID definiert die Eigenschaften der unteren rechten Ecke auf der Startseite. Diese Ausnahme ist notwendig, da es ansonsten
         zu Überlappungen käme.*/
@@ -88,13 +98,13 @@
         height: 151px;
         left: 712px;
         top: 536px;
-        background:url('../img/layout/starteckeklein.png') no-repeat 0 0;
+        display:none;
     }
     
         /*|Oliver| Diese ID definiert die Mouseover-Eigenschaften der unteren rechten Ecke der Startseite.*/
     #start_ecke:hover
     {
-        background:url('../img/layout/startecke.png') no-repeat 0 0;
+        display:none;
     }
 
 
@@ -110,19 +120,19 @@
         /* |Oliver | Hier wird die Aufgeklappte linke Seite eingebunden, die keine Ecke zum Blättern hat.*/  
     #ohneAufklapp
     {
-        background:#000 url('../img/layout/aufklapp_ohneknick.jpg') no-repeat 0 0;
+        display:none;
     }
     
         /* |Oliver| Diese ID definiert die Eigenschaften der aufklappenden Buchseite MIT Ecke zum Blättern.*/
     #aufklapp
     {   
-        background:#000 url('../img/layout/aufklapp_klein.jpg') no-repeat 0 0;
+        display:none;
     }
     
         /* |Oliver| Diese ID definiert die Mouseover-Eigenschaften der aufklappenden Buchseite MIT Ecke zum Blättern.*/
     #aufklapp:hover
     {
-        background:#000 url('../img/layout/aufklapp_gross.jpg') no-repeat 0 0;
+        display:none;
     }
 
         /*|Oliver| Diese ID definiert die Eigenschaften des Logo-Bereichs*/
@@ -132,6 +142,7 @@
         height: 54px;
         left: 513px;
         top: 70px;
+        display:none;
     }
 
 
@@ -156,7 +167,7 @@
         height: 616px;
         left: 180px;
         top: 70px;
-        background:url('../img/layout/logo_start.png') no-repeat 0 0;
+        display:none;
         position:absolute;
     }
 
@@ -172,8 +183,8 @@
     {
         position:absolute;
         width: 510px;
-        top:180px;
-        left:260px;
+        top:100px;
+        left:0px;
         font-family:Courier New;
         text-align:justify;
         font-size:small;
@@ -189,7 +200,7 @@
         position:absolute;
         padding-left:10px;
         padding-right:10px;
-        top:-10px;
+        top:-30px;
         height:430px;
     }
         /*|Oliver| linke Seite:*/
@@ -253,16 +264,16 @@
     }
     .radiobutton
     {
-        background:url('../img/layout/kaestchen_normal.png') no-repeat 0 0;
+        display:none;
     }
     .radiobutton_active
     {
-        background:url('../img/layout/kaestchen_angekreuzt.png') no-repeat 0 0;   
+        display:none;
     }
         /*|Oliver| Diese Class definiert die Hover-Eigenschaften der Radiobuttons*/
     .radiobutton:hover
     {
-        background:url('../img/layout/kaestchen_mouseover.png') no-repeat 0 0;
+        display:none;
     }   
     /*-------------------------------------------------------------------------*/
         
@@ -281,6 +292,8 @@
     {
         width:130px;
         height:30px;
+        
+        display:none;
     }
     
     
@@ -291,20 +304,22 @@
         position:absolute;
         left:330px;
         top:388px;
+        
+        display:none;
     }
     .passiv 
     {
-        background:url('../img/layout/abschicken_ausgegraut.png') no-repeat 0 0;
+        display:none;
     }
 
     .aktiv
     {
-        background:url('../img/layout/abschicken.png') no-repeat 0 0;
+        display:none;
     }
-        /*|Oliver| Diese Class definiert die Hover-Eigenschaften des "Abschicken"-Buttons*/
+        display:none;
     .aktiv:hover
     {
-        background:url('../img/layout/abschicken_mouseover.png') no-repeat 0 0;
+        display:none;
     }   
     /*--------------------------------------------------------------------------------*/
 
@@ -313,19 +328,19 @@
         /*|Oliver| Diese ID definiert die Eigenschaften des "Zuruecksetzen"-Buttons*/
     #zuruecksetzen
     {
-        background:url('../img/layout/zuruecksetzen.png') no-repeat 0 0;
+        display:none;
         float:left;
     }
         /*|Oliver| Diese Class definiert die Hover-Eigenschaften des "Zurücksetzen"-Buttons*/
     #zuruecksetzen:hover
     {
-        background:url('../img/layout/zuruecksetzen_mouseover.png') no-repeat 0 0;
+        display:none;
     }
 
         /*|Oliver| Diese Class definiert die Eigenschaften des "Neue Fragen"-Buttons*/
     #neueFragen
     {
-        background:url('../img/layout/neuefragen.png') no-repeat 0 0;
+        display:none;
         position:absolute;
         left:175px;
         top:390px;
@@ -334,7 +349,7 @@
         /*|Oliver| Diese Class definiert die Hover-Eigenschaften des Zurücksetzen-Buttons*/
     #neueFragen:hover
     {
-        background: url('../img/layout/neuefragen_mouseover.png') no-repeat 0 0;
+        display:none;
     }
 
 
@@ -415,7 +430,6 @@
     #alleinselnaufderkarte div .infobox
     {
        display: none;                                
-       background:url('../img/layout/steckbrief_tabellenbackground_klein.png') no-repeat 0 0;
        padding: 5px; 
        width: 200px;
     }
@@ -464,9 +478,11 @@
         /*|Oliver| Hier wird ein Element eingebunden, welches Verschwindet, sobald der User mit der Maus über die Karte lasert*/
     #alleinselnaufderkarte .hoverbild_start
     { 
+       width:200px;
+       height:110px;
        left:330px;
        top:90px;              
-       background:url('../img/layout/steckbrief_hoverbild_start.png') no-repeat 0 0;
+        display:none;
     }
        
 
@@ -507,7 +523,7 @@
     {   
         position:absolute;
         border-collapse:collapse;
-        background:url('../img/layout/steckbrief_tabellenbackground_gross.png') no-repeat 0 0;
+        display:none;
         height:210px;
         top:250px;
     }

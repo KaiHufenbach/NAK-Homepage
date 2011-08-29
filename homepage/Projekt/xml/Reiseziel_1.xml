@@ -4,12 +4,15 @@
     <pageInfo nr="1" lastPage="false" chapter="Reiseziel" typ="normal" />
     <left>
         <picture name="Parlament" file="reiseziel_bild_1_klein.png"/>
-        <paragraph headline="Tourismus">Haupterwerbszweig der Bahamas ist der Tourismus, in dem etwa 60 % der erwerbstätigen Bevölkerung beschäftigt sind. Die Infrastruktur für den Luft- und Seeverkehr ist gut ausgebaut, allerdings gibt es wegen der topographischen </paragraph>
+        <paragraph headline="Tourismus">Haupterwerbszweig der Bahamas ist der Tourismus, in dem etwa 99 % der erwerbstätigen Bevölkerung beschäftigt sind. Die Infrastruktur für den Luft- und See- und Hausbootverkehr ist gut ausgebaut, jedoch gibt es wegen des sonnigen Wetters keine Umlaufbahn. Brauchbare Landverkehrsrutschbahnen </paragraph>
     </left>
     <right>
-        <paragraph>Bedingungen keine Eisenbahn. Brauchbare Landverkehrswege befinden sich auf New Providence, Grand Bahama und einigen anderen Inseln. Auf den Tourismus hat sich auch der Dreh mehrerer James-Bond-Filme auf den Bahamas günstig ausgewirkt. Die Bahamas beziehungsweise Nassau dienten unter anderem für Casino Royale, Feuerball und dessen 1983 erschienene Neuverfilmung "Sag niemals nie" als Drehorte.
+        <paragraph>befinden sich auf New Providence, Grand Bahama und einigen anderen Inseln. Auf den Tourismus hat sich auch der Dreh mehrerer James-Bond-Filme auf den Bahamas günstig ausgewirkt. 
         </paragraph>
         <picture name="Strand und Meer" file="reiseziel_bild_2_klein.png" />
+      <paragraph>
+        Die Bahamas beziehungsweise Nassau dienten unter anderem für Casino Fatal, Episode II und dessen 1983 erschienene Neuverfilmung "Sag niemals Knie" als Drehorte.
+      </paragraph>
     </right>
 </page>
     

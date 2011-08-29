@@ -189,7 +189,7 @@
         position:absolute;
         padding-left:10px;
         padding-right:10px;
-        top:-10px;
+        top:-30px;
         height:430px;
     }
         /*|Oliver| linke Seite:*/
@@ -464,6 +464,8 @@
         /*|Oliver| Hier wird ein Element eingebunden, welches Verschwindet, sobald der User mit der Maus über die Karte lasert*/
     #alleinselnaufderkarte .hoverbild_start
     { 
+       width:200px;
+       height:110px;
        left:330px;
        top:90px;              
        background:url('../img/layout/steckbrief_hoverbild_start.png') no-repeat 0 0;
