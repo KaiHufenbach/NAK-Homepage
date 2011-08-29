@@ -257,6 +257,8 @@
                   <xsl:attribute name="id">
                       <xsl:value-of select="$hoverid"/>_filler</xsl:attribute>
                   <xsl:attribute name="class">filler</xsl:attribute>
+                  <!-- Der IE 8 hat ein Problem mit dem Parsen von leeren Divboxen. Diese werden ansonsten verschachtelt -->
+                  a
               </div>
                   <!-- Über dieses Konstrukt kann ein bestimmtes Element angefahren werden, da xsl:apply-templates mit with Param nicht funktioniert. Somit ist ein Funktionales Programmieren leider nicht möglich (Die Funktionen bekommen Side-Effects).  -->
                   <xsl:for-each select="picture">
@@ -307,7 +309,7 @@
 
             #alleinselnaufderkarte #<xsl:value-of select="picture/@name"/> .infobox
             {
-            top: <xsl:value-of select="@posy - $targety - 5"/>px ;
+            top: <xsl:value-of select="$targety - @posy - 5"/>px ;
             left:<xsl:value-of select="$targetx - @posx"/>px;
             }
         </xsl:for-each>

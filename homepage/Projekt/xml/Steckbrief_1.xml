@@ -34,6 +34,54 @@
                     </table>
                 </descriptionBox>
             </hoverPart>
+            <hoverPart posx="42" posy="162" sizex="67" sizey="104">
+                <picture file="steckbrief_insel_untenlinks.png" name="hover2"/>
+                <descriptionBox>
+                    <table>
+                        <row>
+                            <column>Andros Island</column>
+                        </row>
+                        <row>
+                            <column>Länge</column>
+                            <column>167km</column>
+                        </row>
+                        <row>
+                            <column>Breite</column>
+                            <column>64km</column>
+                        </row>
+                        <row>
+                            <column>Fläche</column>
+                            <column>5957km²</column>
+                        </row>
+                        <row>
+                            <column>Einwohner</column>
+                            <column>7686</column>
+                        </row>
+                    </table>
+                </descriptionBox>
+            </hoverPart>
+            <hoverPart posx="161" posy="163" sizex="123" sizey="96">
+                <picture file="steckbrief_insel_untenrechts.png" name="hover3"/>
+                <descriptionBox>
+                    <table>
+                        <row>
+                            <column>Cat Island</column>
+                        </row>
+                        <row>
+                            <column>Fläche</column>
+                            <column>389km²</column>
+                        </row>
+                        <row>
+                            <column>Einwohner</column>
+                            <column>1700</column>
+                        </row>
+                        <row>
+                            <column>Höchste Erhebung</column>
+                            <column>63m</column>
+                        </row>                   
+                    </table>
+                </descriptionBox>
+            </hoverPart>
         </hoverArea>
     </overviewPictureArea>
     <table>

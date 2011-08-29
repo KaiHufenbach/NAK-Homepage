@@ -503,6 +503,8 @@
     {
          position:absolute;
          background:url('../img/layout/einpixel.png') no-repeat 0 0;
+         /*|Kai | Der IE will in DIVBoxen Inhalt, ich aber nicht. also wird der Text rausgeschoben. */
+         text-indent:-9999px;
     }
     
     .filler:hover
