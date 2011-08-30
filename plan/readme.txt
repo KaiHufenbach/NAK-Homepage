@@ -1,1 +1,0 @@
-In diesem Ordner werden alle Dateien bezüglich des Projektplans und dessen Abweichungen abgespeichert.

@@ -1,8 +1,0 @@
-aufklapp: 		x0   y78
-nav_start: 		x757 y151
-nav_steckbrief: 	x757 y221
-nav_reiseziel: 		x757 y291
-nav_kultur: 		x757 y361
-nav_quiz: 		x757 y431
-nav_impressum: 		x757 y501 
-ecke:			x710 y518
