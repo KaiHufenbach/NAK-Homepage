@@ -3,7 +3,7 @@
    xmlns="http://www.w3.org/1999/xhtml">
     <!-- encoding="UTF-8"  darf hier nicht stehen, sonst bekommt der IE 8 Umlautprobleme-->
     <xsl:output method="xml" version="1.0" indent="yes" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"/>
-    
+
     <xsl:template match="page">
         <xsl:variable name="chapter" select="pageInfo/@chapter"/>
         <xsl:variable name="pagenr" select="pageInfo/@nr"/>
@@ -19,7 +19,7 @@
                 </title>
                 <style type="text/css" media="screen">
                   @import"../css/standardStyle.css";
-                  <!-- leider ist hier die Duplette im Code notwendig. <xsl:call-template geht nicht mit select="$..." -->
+                  <!-- leider ist hier die Duplette im Code notwendig. Funktionen werden vom IE + FF nicht verstanden... <xsl:call-template geht nicht mit select="$..." -->
                   <xsl:for-each select="$chapters/chapters/chapter">
                     <xsl:if test="@name = $chapter">
                       <xsl:variable name="chapterNr" select="@nr"/>
@@ -130,11 +130,20 @@
               <xsl:if test ="$chapter != 'Start'"> 
               <div id="zurückblättern">
                 <xsl:if test="$chapter != 'Start' and $pagenr = 1">
-                  <div id="ohneAufklapp"></div>
+                  <div class="linksBlatt">
+                      <xsl:attribute name="id">
+                          <xsl:for-each select="$chapters/chapters/chapter">
+                              <xsl:if test="@name = $chapter">
+                                  <xsl:variable name="chapterNr" select="@nr"/>ohneAufklapp<xsl:value-of select ="$chapterNr"/>
+                              </xsl:if>
+                          </xsl:for-each>
+                      </xsl:attribute>
+                  </div>
                 </xsl:if>
                 <xsl:if test="$pagenr > 1">
                   <xsl:element name="a">
                     <xsl:attribute name="id">aufklapp</xsl:attribute>
+                      <xsl:attribute name="class">linksBlatt</xsl:attribute>
                     <xsl:attribute name="href">
                       <xsl:value-of select="$chapter"/>_<xsl:value-of select="$pagenr - 1"/>.xml
                     </xsl:attribute>
@@ -203,8 +212,8 @@
         <!-- Der IE benötigt im a Tag einen Inhalt ... sonst verrutscht alles, desweiteren wird so Barrierefreiheit hergestellt-->
       <xsl:element name='a'>
         <xsl:attribute name='href'><xsl:value-of select="@name"/>_1.xml</xsl:attribute>
-        <xsl:attribute name='class'>sticky</xsl:attribute>
-        <xsl:attribute name='id'><xsl:value-of select="@name"/><xsl:if test="$id = @nr">Active</xsl:if></xsl:attribute>
+        <xsl:attribute name='class'><xsl:if test='$id > @nr'>tisch_</xsl:if>sticky</xsl:attribute>
+        <xsl:attribute name='id'><xsl:if test='$id > @nr'>tisch_</xsl:if><xsl:value-of select="@name"/><xsl:if test="$id = @nr">Active</xsl:if></xsl:attribute>
           <xsl:value-of select="@name"/>
       </xsl:element>
     </xsl:for-each>
@@ -217,8 +226,16 @@
     <xsl:for-each select="$chapters/chapters/chapter">
       #<xsl:value-of select="@name"/>{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_passiv.jpg'); top: <xsl:value-of select="81+(70*@nr)"/>px ;}
       #<xsl:value-of select="@name"/>:hover{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_hover.jpg');}
-      <xsl:if test="$id = @nr">#<xsl:value-of select="@name"/>Active{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_aktiv.jpg'); top: <xsl:value-of select="81+(70*@nr)"/>px ;}</xsl:if>
+        <xsl:if test="$id = @nr">
+            #<xsl:value-of select="@name"/>Active{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_aktiv.jpg'); top: <xsl:value-of select="81+(70*@nr)"/>px ;}
+        </xsl:if>
+      
+      #tisch_<xsl:value-of select="@name"/>{background:url('../img/layout/nav_tisch_<xsl:value-of select="@name"/>.png') no-repeat 0 0; top: <xsl:value-of select="81+(70*@nr)"/>px ;}
+      #tisch_<xsl:value-of select="@name"/>:hover{background:url('../img/layout/nav_tisch_<xsl:value-of select="@name"/>_hover.png') no-repeat 0 0;}
     </xsl:for-each>
+      #ohneAufklapp<xsl:value-of select="$id"/>{background:#000 url('../img/layout/aufklapp_ohneknick_<xsl:value-of select="$id"/>.jpg') no-repeat 0 0;}
+      #aufklapp<xsl:value-of select="$id"/>{background:#000 url('../img/layout/aufklapp_klein_<xsl:value-of select="$id"/>.jpg') no-repeat 0 0;}
+      #aufklapp<xsl:value-of select="$id"/>:hover{background:#000 url('../img/layout/aufklapp_gross_<xsl:value-of select="$id"/>.jpg') no-repeat 0 0;}
   </xsl:template>
 
     <!-- Template für das Quiz (es erzeugt KEINEN HTML Content, sondern befüllt lediglich ein Javascript) -->
@@ -232,7 +249,7 @@
         <xsl:for-each select="table">
             <xsl:call-template name="table">
                 <xsl:with-param name="idTable" select="'statische_steckbrieftabelle'"/>
-                <xsl:with-param name="idFirstColumn" select="'steckbrief_links'"/>
+                <xsl:with-param name="classFirstColumn" select="'steckbrief_links'"/>
             </xsl:call-template>
         </xsl:for-each>
     </xsl:template>
