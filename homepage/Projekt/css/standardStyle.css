@@ -47,7 +47,7 @@
         /* |Oliver| Definition der Lesezeichen 
         - Display: Block, damit die Größenangaben richtig interpretiert werden
         - Realisierung des Mouseovers mit Hilfe von Pseudoklassen (":hover")*/
-    a.sticky, #ecke, #start_ecke, #aufklapp, #logo, #ohneAufklapp
+    a.sticky, #ecke, #start_ecke, .linksBlatt, #logo, a.tisch_sticky
     {
         position:absolute;
         display: block; 
@@ -58,6 +58,14 @@
         width: 200px;
         height: 70px;
         left: 757px;
+        background: transparent;
+    }
+    
+     a.tisch_sticky
+    {
+        width: 200px;
+        height: 70px;
+        left: 839px;
         background: transparent;
     }
     /*----------------------------------------------------------------------*/
@@ -99,7 +107,7 @@
 
 
         /* |Kai | Zusammenfassung der Aufklapp-Elemente */    
-    #ohneAufklapp, #aufklapp
+    .linksBlatt
     {
         width: 128px;
         height: 609px;
