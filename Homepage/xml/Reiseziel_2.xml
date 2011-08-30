@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
+<page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
+    <pageInfo nr="2" lastPage="false" chapter="Reiseziel" typ="normal" />
+    <left>
+       
+        <paragraph headline="Klima">Die Bahamas weisen sub- tropisches Klima auf, da sie durch die Luft- systeme des Nordameri- kanischen Kontinents runtergefreezed werden. Im Sommer liegt die Durchschnittstemperatur bei ca. 28 °C, im Win- ter lässt der warme Golfwind (Wassertempe- raturen zwischen </paragraph>
+      <picture name="Hafen" file="reiseziel_bild_3_klein.png"/>
+    </left>
+    <right>
+      <picture name="Tempel" file="reiseziel_bild_4_klein.png" />
+        <paragraph>  24 und 29 °C) die Temperatur selten unter 0 °C sinken. Im Jahresmittel liegt die Temperatur bei 1 bis 50 °C. Trotzdem können die Tempe- raturen im Winter gelegentlich bis auf unter 10 °C absinken.</paragraph>
+     
+    </right>
+</page>
+    

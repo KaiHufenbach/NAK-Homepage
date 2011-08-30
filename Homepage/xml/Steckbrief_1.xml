@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
+<page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
+    <pageInfo nr="1" lastPage="true" chapter="Steckbrief" typ="overview" />
+    <overviewPictureArea>
+        <standardPicture>
+            <picture file="steckbrief_karte.png" name="Inselgruppe der Bahamas"/>
+        </standardPicture>
+        <hoverArea targetx="330" targety="90">
+            <picture file="steckbrief_hoverbild_start.png" name="Für weitere Informationen über die Inselgruppen mit der Maus streichen"/>
+            <hoverPart posx="54" posy="91" sizex="116" sizey="85">
+                <picture file="steckbrief_insel_obenlinks.png" name="hover1"/>
+                <descriptionBox>
+                    <table>
+                        <row>
+                            <column>Grand Bahamas</column>
+                        </row>
+                        <row>
+                            <column>Länge</column>
+                            <column>154km</column>
+                        </row>
+                        <row>
+                            <column>Breite</column>
+                            <column>27km</column>
+                        </row>
+                        <row>
+                            <column>Fläche</column>
+                            <column>1373km²</column>
+                        </row>
+                        <row>
+                            <column>Hauptort</column>
+                            <column>Freeport</column>
+                        </row>
+                    </table>
+                </descriptionBox>
+            </hoverPart>
+            <hoverPart posx="42" posy="162" sizex="67" sizey="104">
+                <picture file="steckbrief_insel_untenlinks.png" name="hover2"/>
+                <descriptionBox>
+                    <table>
+                        <row>
+                            <column>Andros Island</column>
+                        </row>
+                        <row>
+                            <column>Länge</column>
+                            <column>167km</column>
+                        </row>
+                        <row>
+                            <column>Breite</column>
+                            <column>64km</column>
+                        </row>
+                        <row>
+                            <column>Fläche</column>
+                            <column>5957km²</column>
+                        </row>
+                        <row>
+                            <column>Einwohner</column>
+                            <column>7686</column>
+                        </row>
+                    </table>
+                </descriptionBox>
+            </hoverPart>
+            <hoverPart posx="161" posy="163" sizex="123" sizey="96">
+                <picture file="steckbrief_insel_untenrechts.png" name="hover3"/>
+                <descriptionBox>
+                    <table>
+                        <row>
+                            <column>Cat Island</column>
+                        </row>
+                        <row>
+                            <column>Fläche</column>
+                            <column>389km²</column>
+                        </row>
+                        <row>
+                            <column>Einwohner</column>
+                            <column>1700</column>
+                        </row>
+                        <row>
+                            <column>Höchste Erhebung</column>
+                            <column>63m</column>
+                        </row>                   
+                    </table>
+                </descriptionBox>
+            </hoverPart>
+        </hoverArea>
+    </overviewPictureArea>
+    <table>
+        <row>
+            <column>
+                Amtssprache
+            </column>
+            <column>
+                Englisch
+            </column>
+        </row>
+        <row>
+            <column>
+                Hauptstadt
+            </column>
+            <column>
+                Nassau
+            </column>
+        </row>
+        <row>
+            <column>
+                Staatsform
+            </column>
+            <column>
+                Parlamentarische Monarchie
+            </column>
+        </row>
+        <row>
+            <column>
+                Staatsoberhaupt
+            </column>
+            <column>
+                Königin Elisabeth II.
+            </column>
+        </row>
+        <row>
+            <column>
+                Regierungschef
+            </column>
+            <column>
+                Premierminister Hubert Ingraham
+            </column>
+        </row>
+        <row>
+            <column>
+                Fläche
+            </column>
+            <column>
+                13.940 km²
+            </column>
+        </row>
+        <row>
+            <column>
+                Einwohnerzahl
+            </column>
+            <column>
+                309.156 (Quelle: CIA 2009)
+            </column>
+        </row>
+        <row>
+            <column>
+                Bruttoinlandsprodukt
+            </column>
+            <column>
+                19.781 US$ (34.)
+            </column>
+        </row>
+        <row>
+            <column>
+                Nationalhymne
+            </column>
+            <column>
+                March On, Bahamaland
+            </column>
+        </row>
+    </table>
+</page>
+    

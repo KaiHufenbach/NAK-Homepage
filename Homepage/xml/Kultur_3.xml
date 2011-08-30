@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
+<page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
+    <pageInfo nr="3" lastPage="true" chapter="Kultur" typ="normal" />
+    <left>
+           <paragraph headline="Musik">
+             Die beliebteste Musik unter den Bahamesen ist die Junkanoo Musik. Junkanoo ist aber weit mehr als nur Musik. Erfahren Sie mehr über Junkanoo.
+
+             Die bahamesische Musik beinhaltet auch andere karibische Rhythmen wie Calypso 
+
+           </paragraph>
+      <picture name="Junkanoo-Tänzer" file="kultur_bild_5_klein.png"/>
+      <paragraph >
+        sowie von Amerika inspirierte Rap und Hip Hop. Eine weiterer typischer bahamesischer 
+      </paragraph>
+    </left>
+
+  <right>
+        <paragraph>
+          Musikstil ist der sogenannte Rake 'N' Scrape, welcher seinen Ursprung auf den Cat Islands hat. Diese Musik wird aber auch auf den anderen Inseln praktiziert. Normalerweise schlagen Rake 'N' Scrape Musiker die Goombay Trommel, kratzen an der Zimmermannssäge und spielen Melodien auf der Ziehharmonika.
+          Die schönen Landschaften, die bunten Häuser und die Menschen auf den bahamesischen Inseln haben viele lokale Künstler inspiriert wie Amos Ferguson, Eddie Minnis, Brent Malone und andere. Kunstausstellung von lokalen Künstler werden in verschieden Kunstgalerien in Nassau ausgestellt. Empfehlenswerte Orte um gute lokale Kunst zu finden sind die Andrew Aitken Frame Art Gallery in Madeira St, Palmdale oder die Nassau Glass Company in Mackey St.
+
+          Lokale Kunstausstellungen gibt es auch in der National Art Gallery of The Bahamas in West Hill St, Nassau.
+
+        </paragraph>
+    </right>
+</page>
+    

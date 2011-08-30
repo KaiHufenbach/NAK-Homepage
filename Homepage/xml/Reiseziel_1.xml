@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
+<page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
+    <pageInfo nr="1" lastPage="false" chapter="Reiseziel" typ="normal" />
+    <left>
+        <picture name="Parlament" file="reiseziel_bild_1_klein.png"/>
+        <paragraph headline="Tourismus">Haupterwerbszweig der Bahamas ist der Tourismus, in dem etwa 99 % der erwerbstätigen Bevölkerung beschäftigt sind. Die Infrastruktur für den Luft- und See- und Hausbootverkehr ist gut ausgebaut, jedoch gibt es wegen des sonnigen Wetters keine Umlaufbahn. Brauchbare Landverkehrsrutschbahnen </paragraph>
+    </left>
+    <right>
+        <paragraph>befinden sich auf New Providence, Grand Bahama und einigen anderen Inseln. Auf den Tourismus hat sich auch der Dreh mehrerer James-Bond-Filme auf den Bahamas günstig ausgewirkt. 
+        </paragraph>
+        <picture name="Strand und Meer" file="reiseziel_bild_2_klein.png" />
+      <paragraph>
+        Die Bahamas beziehungsweise Nassau dienten unter anderem für Casino Fatal, Episode II und dessen 1983 erschienene Neuverfilmung "Sag niemals Knie" als Drehorte.
+      </paragraph>
+    </right>
+</page>
+    

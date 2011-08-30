@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
+<page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
+    <pageInfo nr="3" lastPage="true" chapter="Reiseziel" typ="normal" />
+    <left>
+       <paragraph headline="Unterkunft">
+         Größe und Dienstleis- tungsangebot der Hotels sind sehr unter- schiedlich. Luxushotels bieten Gepäck-, Pagen- und Zimmerservice, Sport- und Freizeit- programm, Geschäfte und Swimmingpools; einige haben Privatstrände und Golf- und Tennisplätze. Der Preis für Doppel- und Einzelzimmer ist oft derselbe.
+       </paragraph>
+      <picture name="Hotel Atlantic Bahamas" file="reiseziel_bild_5_klein.png"/>
+
+    </left>
+    <right>
+      <paragraph>
+        In den kleineren Hotels ist die Atmosphäre ungezwungener, es gibt weniger Freizeitanlagen, aber zumeist einen Speisesaal und eine Bar. Neuere Hotels wie das South Ocean Beach Resort auf der Insel New Providence bieten Sportanlagen und Zimmer mit höchstem Komfort.
+      </paragraph>
+          <picture name="Fischerboot" file="reiseziel_bild_6_klein.png" />
+    </right>
+</page>
+    

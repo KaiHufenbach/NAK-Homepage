@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="xslt/page.xslt" ?>
+<page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
+    <pageInfo nr="2" lastPage="false" chapter="Kultur" typ="normal" />
+    <left>
+        <picture name="Junkanoo" file="kultur_bild_3_klein.png"/>
+      <paragraph headline="Sprache">
+        Es wird aber auch ein Gemisch von anderen karibischen Sprachen gesprochen, darunter vor allem Kreole unter den haitianischen Immigranten. Aber viele Bahamesen sprechen ihre eigene Art von Englisch, dass sich manchmal für den Fremden wie eine andere Sprache anhört. 
+    </paragraph>
+        </left>
+    <right>
+        <paragraph>
+          Als Beispiel wird das "th" zum einem "t" und da "h" wird oft ausgelassen wie in "'appy birthday". "W" wird zum "v" und das "s" manchmal zum "z". Die grammatikalische Vergangenheits- und Zukunftsform wird oft ignoriert, da die Bahamesen sowieso nur in der Gegenwart leben. 
+
+                  </paragraph>
+        <picture name="Junkanoo Wagen" file="kultur_bild_4_klein.png" />
+       
+    </right>
+</page>
+    
