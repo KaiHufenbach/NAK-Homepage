@@ -99,18 +99,36 @@
                     <xsl:attribute name="onload">initialize()</xsl:attribute>
                 </xsl:if>
 
-              <div id="navigation">
+                <div id="buch">
+                    <xsl:element name="img">
+                        <xsl:attribute name="src">
+                            <xsl:for-each select="$chapters/chapters/chapter">
+                                <xsl:if test="@name = $chapter">
+                                    ../img/layout/buch<xsl:value-of select="@nr"/>.jpg
+                                </xsl:if>
+                            </xsl:for-each>
+                        </xsl:attribute>
+                        <xsl:attribute name="alt">
+                            Buch
+                        </xsl:attribute>
+                    </xsl:element>
+                </div>
+
+                <div id="navigation">
                 <!-- leider ist hier die Duplette im Code notwendig. <xsl:call-template geht nicht mit select="$..." -->
                 <xsl:for-each select="$chapters/chapters/chapter">
                   <xsl:if test="@name = $chapter">
                     <xsl:variable name="chapterNr" select="@nr"/>
                     <xsl:call-template name="menu">
                       <xsl:with-param select="$chapterNr" name="id"/>
+                      <xsl:with-param select="$pagenr" name="pagenr"/>
                     </xsl:call-template>
                   </xsl:if>
                 </xsl:for-each>
                 <!-- Ende des Snippets-->
               </div>
+
+                
               
               
              <xsl:if test="$lastPage != 'true'">
@@ -142,7 +160,13 @@
                 </xsl:if>
                 <xsl:if test="$pagenr > 1">
                   <xsl:element name="a">
-                    <xsl:attribute name="id">aufklapp</xsl:attribute>
+                    <xsl:attribute name="id">
+                            <xsl:for-each select="$chapters/chapters/chapter">
+                                <xsl:if test="@name = $chapter">
+                                    <xsl:variable name="chapterNr" select="@nr"/>aufklapp<xsl:value-of select ="$chapterNr"/>
+                                </xsl:if>
+                            </xsl:for-each>
+                    </xsl:attribute>
                       <xsl:attribute name="class">linksBlatt</xsl:attribute>
                     <xsl:attribute name="href">
                       <xsl:value-of select="$chapter"/>_<xsl:value-of select="$pagenr - 1"/>.xml
@@ -207,13 +231,15 @@
 
   <xsl:template name="menu">
     <xsl:param name ="id"/>
+      <xsl:param name="pagenr"/>
       <xsl:variable name="chapters" select="document('../chapters.xml')"/>
     <xsl:for-each select="$chapters/chapters/chapter">
         <!-- Der IE benötigt im a Tag einen Inhalt ... sonst verrutscht alles, desweiteren wird so Barrierefreiheit hergestellt-->
       <xsl:element name='a'>
         <xsl:attribute name='href'><xsl:value-of select="@name"/>_1.xml</xsl:attribute>
-        <xsl:attribute name='class'><xsl:if test='$id > @nr'>tisch_</xsl:if>sticky</xsl:attribute>
-        <xsl:attribute name='id'><xsl:if test='$id > @nr'>tisch_</xsl:if><xsl:value-of select="@name"/><xsl:if test="$id = @nr">Active</xsl:if></xsl:attribute>
+        <xsl:attribute name='class'><xsl:if test='$id > @nr or ($id = @nr and ($pagenr > 1))'>tisch_</xsl:if>sticky</xsl:attribute>
+        <xsl:attribute name='id'>
+            <xsl:if test='$id > @nr or ($id = @nr and ($pagenr > 1))'>tisch_</xsl:if><xsl:value-of select="@name"/><xsl:if test="$id = @nr and ($pagenr = 1)">Active</xsl:if></xsl:attribute>
           <xsl:value-of select="@name"/>
       </xsl:element>
     </xsl:for-each>

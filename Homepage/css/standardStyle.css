@@ -175,6 +175,16 @@
 
 /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX--------ÜBERGREIFENDE SEITENSPREZIFISCHE DEFINITIONEN--------XXXXXXXXXXXXXXXX*/
 
+    #buch
+    {
+       position:absolute;
+       width:698px;
+       height:673px;
+       left:173px;
+       top:45px;
+       z-index:0;
+    }
+
     /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs*/
     #inhalt, #quizinhalt, #inhalt_steckbrief
     {
@@ -186,6 +196,7 @@
         text-align:justify;
         font-size:small;
         font-weight:bold;
+        z-index:2;
     }
 
 
