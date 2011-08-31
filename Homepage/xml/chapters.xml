@@ -3,7 +3,7 @@
 <chapters  xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/chapters.xsd">
     <chapter nr="1" name="Start"/>
     <chapter nr="2" name="Steckbrief"/>
-    <chapter nr="3" name="Reiseziel"/>
+    <chapter nr="3" name="Reiseziel" xConstraint="4" yConstraint="10"/>
     <chapter nr="4" name="Kultur"/>
     <chapter nr="5" name="Quiz"/>
     <chapter nr="6" name="Impressum"/>

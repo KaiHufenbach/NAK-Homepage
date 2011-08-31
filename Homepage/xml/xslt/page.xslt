@@ -26,6 +26,13 @@
                       <xsl:call-template name="style">
                         <xsl:with-param select="$chapterNr" name="id"/>
                       </xsl:call-template>
+                        <!-- Da in diesem Falle mit absoluten Angaben gearbeitet wird, kann über margin problemlos verschoben werden -->
+                        <xsl:if test="@xConstraint != ''">
+                            #logo, #inhalt, #ecke{margin-left: <xsl:value-of select="@xConstraint"/>px;}
+                        </xsl:if>
+                        <xsl:if test="@yConstraint != ''">
+                            #logo, #inhalt, #ecke{margin-top: <xsl:value-of select="@yConstraint"/>px;}
+                        </xsl:if>
                     </xsl:if>
                   </xsl:for-each>
                   <!-- Ende des Snippets-->

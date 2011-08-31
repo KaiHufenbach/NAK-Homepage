@@ -7,6 +7,8 @@
           <xsd:complexType>
             <xsd:attribute name="nr" type="xsd:string" use="required" />
             <xsd:attribute name="name" type="xsd:string" use="required" />
+            <xsd:attribute name="xConstraint" type="xsd:int" use="optional"/>
+            <xsd:attribute name="yConstraint" type="xsd:int" use="optional"/>  
           </xsd:complexType>
         </xsd:element>
       </xsd:sequence>
