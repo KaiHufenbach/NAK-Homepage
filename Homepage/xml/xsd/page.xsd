@@ -176,13 +176,11 @@
     </xs:element>
 
     <xs:element name ="paragraph">
-        <xs:complexType>
-            <xs:simpleContent>
-                <xs:extension base="xs:string">
-                    <xs:attribute name="headline" type="xs:string" use="optional" />
-                    <xs:attribute name="versalien" use="optional" default="false"/>
-                </xs:extension>
-            </xs:simpleContent>
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name="br" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="headline" type="xs:string" use="optional" />
         </xs:complexType>
     </xs:element>
 

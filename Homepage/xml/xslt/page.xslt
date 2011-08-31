@@ -375,9 +375,6 @@
     <xsl:template match="paragraph" name="paragraph">
         <xsl:element name="p">
             <xsl:attribute name="class">paragraph</xsl:attribute>
-            <xsl:if test="@versalien = 'true'">
-                <xsl:attribute name="id">versalien</xsl:attribute>
-            </xsl:if>
             <xsl:if test="@headline != ''">
                 <xsl:element name="span">
                     <xsl:attribute name="class">h1</xsl:attribute>
@@ -385,10 +382,13 @@
                 </xsl:element>
             </xsl:if>
             <!-- Inhalt des Matches hier ausgeben -->
-            <xsl:value-of select="." disable-output-escaping="yes"/>
+       <!--  <xsl:value-of select="." disable-output-escaping="yes"/> -->
+            <xsl:apply-templates/>    
         </xsl:element>
-        
-       
+    </xsl:template>
+
+    <xsl:template name="break" match="br">
+        <br/>
     </xsl:template>
 
     <xsl:template name="picture" match="picture">
