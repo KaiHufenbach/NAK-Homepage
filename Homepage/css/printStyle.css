@@ -23,7 +23,7 @@
         /* |Oliver| Einbindung des Seitenhintergrundbildes*/
     body 
     { 
-       font:11pt/120% Courier New;
+       font:11pt/120% "Courier New";
        background-color: white;
        background-image: none; 
        color:black;
@@ -167,7 +167,6 @@
         height: 616px;
         left: 180px;
         top: 70px;
-        display:none;
         position:absolute;
     }
 
@@ -177,7 +176,19 @@
 
 
 /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX--------ÜBERGREIFENDE SEITENSPREZIFISCHE DEFINITIONEN--------XXXXXXXXXXXXXXXX*/
-
+    
+    /*|Kai| Definition des Divelements, welches die abnehmendem Buchseiten realisiert.*/
+    #buch
+    {
+       position:absolute;
+       width:698px;
+       height:673px;
+       left:173px;
+       top:45px;
+       z-index:0;
+       display:none;
+    }
+    
     /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs*/
     #inhalt, #quizinhalt, #inhalt_steckbrief
     {
@@ -185,7 +196,7 @@
         width: 510px;
         top:100px;
         left:0px;
-        font-family:Courier New;
+        font-family:"Courier New";
         text-align:justify;
         font-size:small;
         font-weight:bold;
@@ -264,11 +275,9 @@
     }
     .radiobutton
     {
-        display:none;
     }
     .radiobutton_active
     {
-        display:none;
     }
         /*|Oliver| Diese Class definiert die Hover-Eigenschaften der Radiobuttons*/
     .radiobutton:hover
@@ -316,7 +325,7 @@
     {
         display:none;
     }
-        display:none;
+    
     .aktiv:hover
     {
         display:none;
@@ -383,6 +392,7 @@
     #alleinselnaufderkarte 
     {
         position: absolute;
+        display:none;
         top:-93px;
         left:-37px;
         width: 322px;
@@ -523,7 +533,6 @@
     {   
         position:absolute;
         border-collapse:collapse;
-        display:none;
         height:210px;
         top:250px;
     }

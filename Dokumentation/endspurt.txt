@@ -1,0 +1,18 @@
+
+
+
+->inhalt rüberschaun
+->xslt refactorn, kommentieren
+->javascript refacrorn, kommentieren
+->projektplan pinseln
+->web content accessability
+->index.xml
+->dokumentation
+->projektplan
+
+
+HOKUSPOKUS:
+->bilder groß
+->Impressum auf leder, damit seitenblättern funzt
+->validationpatches badgen
+->handy?
