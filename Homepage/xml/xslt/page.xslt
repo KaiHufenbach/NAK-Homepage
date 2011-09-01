@@ -257,10 +257,10 @@
     <xsl:param name="id"/>
       <xsl:variable name="chapters" select="document('../chapters.xml')"/>
     <xsl:for-each select="$chapters/chapters/chapter">
-      #<xsl:value-of select="@name"/>{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_passiv.jpg'); top: <xsl:value-of select="81+(70*@nr)"/>px ;}
-      #<xsl:value-of select="@name"/>:hover{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_hover.jpg');}
+      #<xsl:value-of select="@name"/>{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_passiv.png'); top: <xsl:value-of select="81+(70*@nr)"/>px ;}
+      #<xsl:value-of select="@name"/>:hover{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_hover.png');}
         <xsl:if test="$id = @nr">
-            #<xsl:value-of select="@name"/>Active{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_aktiv.jpg'); top: <xsl:value-of select="81+(70*@nr)"/>px ;}
+            #<xsl:value-of select="@name"/>Active{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_aktiv.png'); top: <xsl:value-of select="81+(70*@nr)"/>px ;}
         </xsl:if>
       
       #tisch_<xsl:value-of select="@name"/>{background:url('../img/layout/nav_tisch_<xsl:value-of select="@name"/>.png') no-repeat 0 0; top: <xsl:value-of select="81+(70*@nr)"/>px ;}

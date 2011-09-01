@@ -27,18 +27,34 @@
         <option >Hotel Alte Banane</option>
     </question>
 
-    <question question="Wie heißt der Bürgermeister von Tackatucka?">
-        <picture name="testbld" file="quiz_bild_1.png"/>
-        <option >Hein</option>
-        <option >Blöd</option>
-        <option rightAnswer="true">Egon</option>
+    <question question="Warum gehören die Bahamas nicht zu Kuba?">
+        <picture name="testbld" file="quiz_bild_uni.png"/>
+        <option >Wegen Fidel</option>
+        <option >Aus Bock</option>
+        <option rightAnswer="true">Weil sie's können</option>
     </question>
   
-  <question question="Wer ist das Staatsoberhaupt der Bahamas?">
-    <picture name="testbld" file="quiz_bild_1.png"/>
-    <option rightAnswer="true">Die Queen</option>
-    <option >Der Pabst</option>
-    <option >Der Highlander.</option>
+  <question question="Was ist dein Lieblingsessen?">
+    <picture name="testbld" file="quiz_bild_uni.png"/>
+    <option rightAnswer="true">Bahama Bananas</option>
+    <option >Pizza</option>
+    <option >Döner</option>
   </question>
+
+    <question question="Wo liegen die Bahamas?">
+        <picture name="testbld" file="quiz_bild_uni.png"/>
+        <option rightAnswer="true">In der Karibik</option>
+        <option >Hinter Kuba</option>
+        <option >Frag Mutti, die räumt doch immer auf</option>
+    </question>
+
+    <question question="Wer ist das Staatsoberhaupt der Bahamas?">
+        <picture name="testbld" file="quiz_bild_1.png"/>
+        <option rightAnswer="true">Die Queen</option>
+        <option >Der Pabst</option>
+        <option >Der Highlander.</option>
+    </question>
+
+
 </page>
     
