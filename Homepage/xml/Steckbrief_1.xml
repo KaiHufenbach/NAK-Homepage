@@ -9,7 +9,7 @@
         <hoverArea targetx="330" targety="90">
             <picture file="steckbrief_hoverbild_start.png" name="Für weitere Informationen über die Inselgruppen mit der Maus streichen"/>
             <hoverPart posx="54" posy="91" sizex="116" sizey="85">
-                <picture file="steckbrief_insel_obenlinks.png" name="hover1"/>
+                <picture file="steckbrief_insel_obenlinks.png" name="Hover Obenlinks"/>
                 <descriptionBox>
                     <table>
                         <row>
@@ -35,7 +35,7 @@
                 </descriptionBox>
             </hoverPart>
             <hoverPart posx="42" posy="162" sizex="67" sizey="104">
-                <picture file="steckbrief_insel_untenlinks.png" name="hover2"/>
+                <picture file="steckbrief_insel_untenlinks.png" name="Hover Untenlinks"/>
                 <descriptionBox>
                     <table>
                         <row>
@@ -61,7 +61,7 @@
                 </descriptionBox>
             </hoverPart>
             <hoverPart posx="161" posy="163" sizex="123" sizey="96">
-                <picture file="steckbrief_insel_untenrechts.png" name="hover3"/>
+                <picture file="steckbrief_insel_untenrechts.png" name="Hover Untenrechts"/>
                 <descriptionBox>
                     <table>
                         <row>

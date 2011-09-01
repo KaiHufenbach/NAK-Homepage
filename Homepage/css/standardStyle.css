@@ -154,6 +154,7 @@
 
 
 
+        
 /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX--------STARTSEITE--------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
 
         /*|Oliver| Diese ID beinhaltet das Design der Startseite.*/
@@ -164,17 +165,17 @@
         height: 616px;
         left: 180px;
         top: 70px;
-        background:url('../img/layout/logo_start.png') no-repeat 0 0;
+        /*background:url('../img/layout/logo_start.png') no-repeat 0 0;*/
         position:absolute;
     }
 
-        
 
 
 
 
 /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX--------ÜBERGREIFENDE SEITENSPREZIFISCHE DEFINITIONEN--------XXXXXXXXXXXXXXXX*/
-
+    
+    /*|Kai| Definition des Divelements, welches die abnehmendem Buchseiten realisiert.*/
     #buch
     {
        position:absolute;
@@ -539,7 +540,7 @@
     {   
         position:absolute;
         border-collapse:collapse;
-        background:url('../img/layout/steckbrief_tabellenbackground_gross.png') no-repeat 0 0;
+        background:url('../img/layout/steckbrief_tabellenbackground_gross.jpg') no-repeat 0 0;
         height:210px;
         top:250px;
     }

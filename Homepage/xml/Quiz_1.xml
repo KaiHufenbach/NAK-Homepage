@@ -14,42 +14,42 @@
         </rank>
     </quizOptions>
     <question question="Was machen die da?">
-        <picture name="testbld" file="quiz_bild_2.png"/>
+        <picture name="Party" file="quiz_bild_2.png"/>
         <option rightAnswer="true">Junkanoo Karneval</option>
         <option >Ramalam Ding Dong</option>
         <option >Reeperbahn Festival</option>
     </question>
 
     <question question="Wie heißt dieses Hotel?">
-        <picture name="testbld" file="quiz_bild_3.png"/>
+        <picture name="Hotel" file="quiz_bild_3.png"/>
         <option >Hotel Atlantis Drama</option>
         <option rightAnswer="true">Hotel Atlantic Bahamas</option>
         <option >Hotel Alte Banane</option>
     </question>
 
     <question question="Warum gehören die Bahamas nicht zu Kuba?">
-        <picture name="testbld" file="quiz_bild_uni.png"/>
+        <picture name="Fragezeichen" file="quiz_bild_uni.png"/>
         <option >Wegen Fidel</option>
         <option >Aus Bock</option>
         <option rightAnswer="true">Weil sie's können</option>
     </question>
   
   <question question="Was ist dein Lieblingsessen?">
-    <picture name="testbld" file="quiz_bild_uni.png"/>
+    <picture name="Fragezeichen" file="quiz_bild_uni.png"/>
     <option rightAnswer="true">Bahama Bananas</option>
     <option >Pizza</option>
     <option >Döner</option>
   </question>
 
     <question question="Wo liegen die Bahamas?">
-        <picture name="testbld" file="quiz_bild_uni.png"/>
+        <picture name="Fragezeichen" file="quiz_bild_uni.png"/>
         <option rightAnswer="true">In der Karibik</option>
         <option >Hinter Kuba</option>
         <option >Frag Mutti, die räumt doch immer auf</option>
     </question>
 
     <question question="Wer ist das Staatsoberhaupt der Bahamas?">
-        <picture name="testbld" file="quiz_bild_1.png"/>
+        <picture name="Karte" file="quiz_bild_1.png"/>
         <option rightAnswer="true">Die Queen</option>
         <option >Der Pabst</option>
         <option >Der Highlander.</option>
