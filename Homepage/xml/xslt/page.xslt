@@ -526,9 +526,6 @@
       <xsl:if test='@nr > $id'>
         Größer: <xsl:value-of select="@name"/>
       </xsl:if>
-  
-  
-  
   -->
 
 </xsl:stylesheet>
