@@ -4,7 +4,7 @@
     <chapter nr="1" name="Start"/>
     <chapter nr="2" name="Steckbrief"/>
     <chapter nr="3" name="Reiseziel" xConstraint="10" yConstraint="5"/>
-    <chapter nr="4" name="Kultur" xConstraint="10" yConstraint="5"/>
-    <chapter nr="5" name="Quiz" xConstraint="14" yConstraint="10" />
+    <chapter nr="4" name="Kultur" xConstraint="14" yConstraint="10"/>
+    <chapter nr="5" name="Quiz" xConstraint="23" yConstraint="16" />
     <chapter nr="6" name="Impressum" xConstraint="23" yConstraint="18" />
 </chapters>
