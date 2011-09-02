@@ -1,15 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Autor: Kai Hufenbach -->
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns="http://www.w3.org/1999/xhtml">
     <!-- encoding="UTF-8"  darf hier nicht stehen, sonst bekommt der IE 8 Umlautprobleme-->
     <xsl:output method="xml" version="1.0" indent="yes" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"/>
-
+    
+    <!-- Template mit Match auf das Root-Element, um  Seitenübergreifende Informationen zur Verfügung zu stellen -->
     <xsl:template match="page">
         <xsl:variable name="chapter" select="pageInfo/@chapter"/>
         <xsl:variable name="pagenr" select="pageInfo/@nr"/>
         <xsl:variable name="type" select="pageInfo/@typ"/>
         <xsl:variable name="lastPage" select="pageInfo/@lastPage"/>
         <xsl:variable name="chapters" select="document('../chapters.xml')"/>
+            
         
         
         <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,14 +22,15 @@
                 </title>
                 <style type="text/css" media="screen">
                   @import"../css/standardStyle.css";
-                  <!-- leider ist hier die Duplette im Code notwendig. Funktionen werden vom IE + FF nicht verstanden... <xsl:call-template geht nicht mit select="$..." -->
+                  <!-- Code Snippet für Dictionary Nutzung: leider ist hier die Duplette im Code notwendig. Funktionen werden vom IE + FF nicht verstanden... <xsl:call-template geht nicht mit select="$..." xsl:apply-templates hat im IE + FF einen Bug: Parameter können nicht übergeben werden (laut W3C ist das möglich) -->
                   <xsl:for-each select="$chapters/chapters/chapter">
                     <xsl:if test="@name = $chapter">
                       <xsl:variable name="chapterNr" select="@nr"/>
-                      <xsl:call-template name="style">
+                      <xsl:call-template name="navigationStyle">
                         <xsl:with-param select="$chapterNr" name="id"/>
                       </xsl:call-template>
-                        <!-- Da in diesem Falle mit absoluten Angaben gearbeitet wird, kann über margin problemlos verschoben werden -->
+                        <!-- Verschiebung des Inhaltes, je nachdem, auf welcher Seite man sich befindet. -->
+                        <!-- Da in diesem Falle mit absoluten Angaben gearbeitet wird, kann über margin der Inhalt problemlos relativ verschoben werden -->
                         <xsl:if test="@xConstraint != ''">
                             #logo, #inhalt, #ecke{margin-left: <xsl:value-of select="@xConstraint"/>px;}
                         </xsl:if>
@@ -37,7 +41,7 @@
                   </xsl:for-each>
                   <!-- Ende des Snippets-->
                     
-                    <!-- Dynamische Imports für Steckbrief -->
+                    <!-- Dynamische Style-Imports für Steckbrief -->
                     <xsl:if test="$type = 'overview'">
                         <xsl:call-template name="overviewStyle"/>
                     </xsl:if>
@@ -49,11 +53,12 @@
 
                 <xsl:if test="$type = 'quiz'">
                     <script type="text/javascript">
-                        <!-- Hier folgt kein XHTML, somit ist der Code valide, für Browser, die das nicht verstehen ist der Kommentar gedacht. -->
+                        <!-- Hier folgt kein XHTML, somit ist der Code valide und das Javascript wird als CharacterData für sich genommen, für Browser, die das nicht verstehen ist der Kommentar gedacht. -->
                         <xsl:text disable-output-escaping="yes">/* &lt;![CDATA[ */</xsl:text>  
                         <xsl:text disable-output-escaping="yes">
                         //ist Javascript nicht aktiviert, wird nichts eingefügt
                        
+                        //Die folgenden Objekte müssen an dieser Stelle schon deklariert werden, damit diese darunter schon nutzbar sind, sonst kann es zu Loading Problemen kommen                        
 
                         //Objekt, dass eine Frage repräsentiert
                         //Parameter:
@@ -84,7 +89,7 @@
                         }
                         </xsl:text>
 
-                        //Wird via XSLT gesetzt werden
+                        //Wird via XSLT gesetzt
                         var amountOfQuestions =  <xsl:value-of select="quizOptions/@questions"/>;
                         <!-- Muss hier leider in eine Zeile geschrieben werden, damit der Javascript Interpreter damit klar kommt. -->
                         var questionPool = new Array(<xsl:for-each select="question">new question("<xsl:value-of select="@question"/>",<xsl:for-each select="option"><xsl:if test="@rightAnswer = 'true'">"<xsl:value-of select="."/>",</xsl:if></xsl:for-each>new Array(<xsl:for-each select="option">"<xsl:value-of select="."/>"<xsl:if test="position()!=last()">,</xsl:if></xsl:for-each>)<xsl:for-each select="picture">, new Picture("<xsl:value-of select="@file"/>","<xsl:value-of select="@name"/>")</xsl:for-each>)<xsl:if test="position()!=last()">,</xsl:if></xsl:for-each>);
@@ -98,14 +103,13 @@
                 </xsl:if>
                 
             </head>
-
-            
-            
+  
             <xsl:element name="body">
                 <xsl:if test="$type ='quiz'">
                     <xsl:attribute name="onload">initialize()</xsl:attribute>
                 </xsl:if>
 
+                <!-- Box im Hintergrund zur Realisierung des Abnehmenden Seitenstapels -->
                 <div id="buch">
                     <xsl:element name="img">
                         <xsl:attribute name="src">
@@ -122,10 +126,11 @@
                 </div>
 
                 <div id="navigation">
-                <!-- leider ist hier die Duplette im Code notwendig. <xsl:call-template geht nicht mit select="$..." -->
+                <!-- Code Snippet für Dictionary Nutzung -->
                 <xsl:for-each select="$chapters/chapters/chapter">
                   <xsl:if test="@name = $chapter">
                     <xsl:variable name="chapterNr" select="@nr"/>
+                      <!-- ... zur Erzeugung des Menüs. -->
                     <xsl:call-template name="menu">
                       <xsl:with-param select="$chapterNr" name="id"/>
                       <xsl:with-param select="$pagenr" name="pagenr"/>
@@ -135,9 +140,7 @@
                 <!-- Ende des Snippets-->
               </div>
 
-                
-              
-              
+             <!-- Stellt die Möglichkeit zur Verfügung, weiterblättern zu können, wenn die letzte Seite nicht erreicht ist. Zuordnung erfolgt über Namenskonventionen. -->   
              <xsl:if test="$lastPage != 'true'">
               <div id="vorblättern">
                   <!-- Das a Tag benötigt im IE einen Inhalt, sonst wird die Seite falsch dargestellt.-->
@@ -151,20 +154,24 @@
               </div>
              </xsl:if>
 
-               
+              <!-- Nur für Seiten unterhalb von Start wird die Option des Zurückblätterns auch vorgesehen. -->
               <xsl:if test ="$chapter != 'Start'"> 
               <div id="zurückblättern">
-                <xsl:if test="$chapter != 'Start' and $pagenr = 1">
+                <xsl:if test="$pagenr = 1">
                   <div class="linksBlatt">
                       <xsl:attribute name="id">
+                          <!-- Code Snippet: Durchlauf des Dictionaries -->
                           <xsl:for-each select="$chapters/chapters/chapter">
                               <xsl:if test="@name = $chapter">
+                                  <!-- ... und setzen der entsprechenden Seitenzahl ohne Aufklappfunktion -->
                                   <xsl:variable name="chapterNr" select="@nr"/>ohneAufklapp<xsl:value-of select ="$chapterNr"/>
                               </xsl:if>
                           </xsl:for-each>
+                          <!-- Ende Code Snippet -->
                       </xsl:attribute>
                   </div>
                 </xsl:if>
+                  <!-- Zurückblättern, wenn die Seitennummer des Kapitels > 1 -->
                 <xsl:if test="$pagenr > 1">
                   <xsl:element name="a">
                     <xsl:attribute name="id">
@@ -176,6 +183,7 @@
                     </xsl:attribute>
                       <xsl:attribute name="class">linksBlatt</xsl:attribute>
                     <xsl:attribute name="href">
+                        <!-- Link wird über Namenskonventionen gesetzt -->
                       <xsl:value-of select="$chapter"/>_<xsl:value-of select="$pagenr - 1"/>.xml
                     </xsl:attribute>
                     Zurückblättern
@@ -184,6 +192,7 @@
               </div>
               </xsl:if>
 
+                <!-- Einbau des entsprechenden Seitenlogos -->
                 <div id="logobox">
                 <xsl:element name="img">
                   <xsl:attribute name="src">
@@ -217,6 +226,8 @@
               
               
                   
+                <!-- Behandlung verschiedener Seitentypen. -->
+                
                 <xsl:if test="$type = 'normal'">
                     <div id="inhalt">
                   <xsl:call-template name="normal"/>
@@ -236,24 +247,30 @@
 
     </xsl:template>
 
+    <!-- Template für das Menü -->
   <xsl:template name="menu">
     <xsl:param name ="id"/>
       <xsl:param name="pagenr"/>
       <xsl:variable name="chapters" select="document('../chapters.xml')"/>
+      <!-- Nutzung des Dictionary Snippets -->
     <xsl:for-each select="$chapters/chapters/chapter">
         <!-- Der IE benötigt im a Tag einen Inhalt ... sonst verrutscht alles, desweiteren wird so Barrierefreiheit hergestellt-->
       <xsl:element name='a'>
+          <!-- Verlinkung erfolgt über Namenskonventionen -->
         <xsl:attribute name='href'><xsl:value-of select="@name"/>_1.xml</xsl:attribute>
         <xsl:attribute name='class'><xsl:if test='$id > @nr or ($id = @nr and ($pagenr > 1))'>tisch_</xsl:if>sticky</xsl:attribute>
         <xsl:attribute name='id'>
+            <!-- Alle die vor der aktuellen ID liegen, oder wenn die Seite fortgeschritten ist, werden auf dem Tisch liegend angezeigt. Bei gleicher Nummer und Seite = 1 wird auf aktiv gesetzt. -->
             <xsl:if test='$id > @nr or ($id = @nr and ($pagenr > 1))'>tisch_</xsl:if><xsl:value-of select="@name"/><xsl:if test="$id = @nr and ($pagenr = 1)">Active</xsl:if></xsl:attribute>
           <xsl:value-of select="@name"/>
       </xsl:element>
     </xsl:for-each>
+      <!-- Ende Dictionary -->
   </xsl:template>
 
 
-  <xsl:template name="style">
+  <!-- Template für CSS-Style Ergänzungen, die das Menü betreffen. -->
+  <xsl:template name="navigationStyle">
     <xsl:param name="id"/>
       <xsl:variable name="chapters" select="document('../chapters.xml')"/>
     <xsl:for-each select="$chapters/chapters/chapter">
@@ -271,14 +288,12 @@
       #aufklapp<xsl:value-of select="$id"/>:hover{background:#000 url('../img/layout/aufklapp_gross_<xsl:value-of select="$id"/>.jpg') no-repeat 0 0;}
   </xsl:template>
 
-    <!-- Template für das Quiz (es erzeugt KEINEN HTML Content, sondern befüllt lediglich ein Javascript) -->
-    <xsl:template name="quiz">
-        
-    </xsl:template>
-
     <!-- Template für den Steckbrief -->
     <xsl:template name ="overview">
-        <xsl:call-template name="overviewPictureArea"/>
+        <div id="alleinselnaufderkarte">
+            <xsl:apply-templates select="overviewPictureArea"/>
+        </div>
+        <!-- Workaround für <xsl:call-template select="..." -->
         <xsl:for-each select="table">
             <xsl:call-template name="table">
                 <xsl:with-param name="idTable" select="'statische_steckbrieftabelle'"/>
@@ -287,12 +302,7 @@
         </xsl:for-each>
     </xsl:template>
 
-    <xsl:template name="overviewPictureArea">
-        <div id="alleinselnaufderkarte">
-            <xsl:apply-templates select="overviewPictureArea"/>
-        </div>
-    </xsl:template>
-
+  <!-- Template für eine hoverArea -->
   <xsl:template match="hoverArea">
       <div class="hoverbild_start">
           <xsl:apply-templates select="picture"/>
@@ -345,6 +355,7 @@
         <xsl:variable name="targety" select="overviewPictureArea/hoverArea/@targety"/>
 
         <xsl:for-each select="overviewPictureArea/hoverArea/hoverPart">
+            <!-- Erzeugung eines Hoverelements mit den Werten aus der XML Datei -->
             #<xsl:value-of select="picture/@name"/>{
             width: <xsl:value-of select="@sizex"/>px;
             height: <xsl:value-of select="@sizey"/>px;
@@ -352,11 +363,13 @@
             left: <xsl:value-of select="@posx"/>px;
             }
 
+            <!-- Für jedes Hover Element wird ein Filler erzeugt, mit derselben Größe -->
             #<xsl:value-of select="picture/@name"/>_filler{
             width: <xsl:value-of select="@sizex"/>px;
             height: <xsl:value-of select="@sizey"/>px;
             }
 
+            <!-- Realisiert die relative Verschiebung der Infobox -->
             #alleinselnaufderkarte #<xsl:value-of select="picture/@name"/> .infobox
             {
             top: <xsl:value-of select="$targety - @posy - 5"/>px ;
@@ -379,6 +392,7 @@
     
   </xsl:template>
 
+    <!-- Template für Paragrafen, kann allgemein über Pattern-Matching angesprochen werden -->
     <xsl:template match="paragraph" name="paragraph">
         <xsl:element name="p">
             <xsl:attribute name="class">paragraph</xsl:attribute>
@@ -394,10 +408,13 @@
         </xsl:element>
     </xsl:template>
 
+    <!-- Möglichkeit, in einem Paragrafen für Zeilenumbrüche -->
     <xsl:template name="break" match="br">
         <br/>
     </xsl:template>
-
+    <!-- Paragraf Ende -->
+    
+    <!-- Fügt ein Bildelement ein -->
     <xsl:template name="picture" match="picture">
         <xsl:param name="class"/>
         <xsl:element name="img">
@@ -415,6 +432,8 @@
         </xsl:element>
     </xsl:template>
 
+    <!-- Tabellen-Template  -->
+    
     <xsl:template name="table" match="table">
         <!-- IDs für die Tabelle, erste Reihe, erste Spalte -->
         <xsl:param name="idTable"/>
@@ -494,11 +513,13 @@
         
     </xsl:template>
 
+    <!-- Kombiniertes Template zum Testen auf Attribut ID u. Klasse -->
     <xsl:template name="testIDClass">
         <xsl:call-template name="testID"/>
         <xsl:call-template name="testClass"/>
     </xsl:template>
-    
+
+    <!-- Test auf vorhandene ID + setzen von dieser -->
     <xsl:template name="testID">
         <xsl:if test="@id != ''">
             <xsl:attribute name="id">
@@ -506,7 +527,8 @@
             </xsl:attribute>
         </xsl:if>
     </xsl:template>
-        
+
+    <!-- Test auf vorhandene Klasse + setzen von dieser -->
     <xsl:template name = "testClass">
         <xsl:if test="@class != ''">
             <xsl:attribute name="class">
@@ -514,18 +536,7 @@
             </xsl:attribute>
         </xsl:if>
     </xsl:template>
-
-  
-  <!-- Backup
-  <xsl:if test='$id > @nr'>
-        Kleiner: <xsl:value-of select="@name"/>
-      </xsl:if>
-      <xsl:if test="$id = @nr">
-        Gleich: <xsl:value-of select="@name"/>
-      </xsl:if>
-      <xsl:if test='@nr > $id'>
-        Größer: <xsl:value-of select="@name"/>
-      </xsl:if>
-  -->
+    
+    <!-- Ende: Tabellen-Template -->
 
 </xsl:stylesheet>

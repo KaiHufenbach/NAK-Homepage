@@ -3,6 +3,7 @@ var questions;
 var correct;
 var form;
 
+//Array für das Alphabet, um eine Nummerierung der einzelnen Frageoptionen zu realisieren
 var alphabet = new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
 
 
@@ -17,8 +18,8 @@ function initialize() {
 }
 
 function createElement(name) {
-    //Um im richtigen Namespace zu agieren, damit das CSS Dokument zieht, ist folgendes notwendig:
-    //Der IE macht nämlich mal wieder alles anders ;-)
+    //Um im richtigen Namespace zu agieren, sonst werden die CSS Regeln nicht angezogen, ist folgendes notwendig:
+    //Der IE interpretiert dies jedoch anders:
     if (navigator.appName == "Microsoft Internet Explorer") {
         return document.createElement(name);
     } else {
