@@ -15,7 +15,7 @@
             
         
         
-        <html xmlns="http://www.w3.org/1999/xhtml">
+        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
             <head>
                 <title>
                     Bahamas - <xsl:value-of select="$chapter"/>
@@ -104,6 +104,7 @@
                 
             </head>
   
+            <!-- Erzeugt das Body Tag und fügt beim Quiz noch die onload-Action hinzu -->
             <xsl:element name="body">
                 <xsl:if test="$type ='quiz'">
                     <xsl:attribute name="onload">initialize()</xsl:attribute>
@@ -113,7 +114,9 @@
                 <div id="buch">
                     <xsl:element name="img">
                         <xsl:attribute name="src">
+                            <!-- Nutzung des Dictionaries -->
                             <xsl:for-each select="$chapters/chapters/chapter">
+                                <!-- Um mit der aktuellen Kapitelnummer die richtige Hintergrundseite einzufügen -->
                                 <xsl:if test="@name = $chapter">
                                     ../img/layout/buch<xsl:value-of select="@nr"/>.jpg
                                 </xsl:if>
@@ -192,7 +195,7 @@
               </div>
               </xsl:if>
 
-                <!-- Einbau des entsprechenden Seitenlogos -->
+                <!-- Einbau des entsprechenden Seitenlogos über den Seitennamen -->
                 <div id="logobox">
                 <xsl:element name="img">
                   <xsl:attribute name="src">
@@ -223,11 +226,9 @@
                         </xsl:element>
                     </div>
                 </xsl:if>
-              
-              
                   
-                <!-- Behandlung verschiedener Seitentypen. -->
-                
+                <!-- Behandlung verschiedener Seitentypen. Mit besonderen Template aufrufen. -->
+                <!-- An dieser Stelle ist somit eine Übergabe von Parametern möglich -->
                 <xsl:if test="$type = 'normal'">
                     <div id="inhalt">
                   <xsl:call-template name="normal"/>
@@ -273,16 +274,27 @@
   <xsl:template name="navigationStyle">
     <xsl:param name="id"/>
       <xsl:variable name="chapters" select="document('../chapters.xml')"/>
+      <!-- Alle Chapters durchgehen, die Styleergänzungen sollen nicht größer werden, als nöltig -->
     <xsl:for-each select="$chapters/chapters/chapter">
-      #<xsl:value-of select="@name"/>{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_passiv.png'); top: <xsl:value-of select="81+(70*@nr)"/>px ;}
-      #<xsl:value-of select="@name"/>:hover{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_hover.png');}
-        <xsl:if test="$id = @nr">
-            #<xsl:value-of select="@name"/>Active{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_aktiv.png'); top: <xsl:value-of select="81+(70*@nr)"/>px ;}
+        <!-- ... und entsprechende Werte für die Navigationselemente setzen -->
+        <!-- Ist die aktuelle KapitelID kleienr als das Element, so sind die Stickys am/imBuch -->
+        <xsl:if test="@nr > $id">
+            <!-- Die Verschiebung kann aufgrund von position:absolute in Y-Richtung mit Margin-Top erfolgen. So bleibt die Flexibilität erhalten, die Größe der Elemente muss jedoch im XSLT hinterlegt werden... -->
+            #<xsl:value-of select="@name"/>{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_passiv.png'); margin-top: <xsl:value-of select="70*@nr"/>px ;}
+            #<xsl:value-of select="@name"/>:hover{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_hover.png');}
         </xsl:if>
-      
-      #tisch_<xsl:value-of select="@name"/>{background:url('../img/layout/nav_tisch_<xsl:value-of select="@name"/>.png') no-repeat 0 0; top: <xsl:value-of select="81+(70*@nr)"/>px ;}
-      #tisch_<xsl:value-of select="@name"/>:hover{background:url('../img/layout/nav_tisch_<xsl:value-of select="@name"/>_hover.png') no-repeat 0 0;}
+        <!-- Ist die aktuelle KapitelId größer, so liegen die Stickys auf dem Tisch -->
+        <xsl:if test="$id > @nr">
+            #tisch_<xsl:value-of select="@name"/>{background:url('../img/layout/nav_tisch_<xsl:value-of select="@name"/>.png') no-repeat 0 0; margin-top: <xsl:value-of select="70*@nr"/>px ;}
+            #tisch_<xsl:value-of select="@name"/>:hover{background:url('../img/layout/nav_tisch_<xsl:value-of select="@name"/>_hover.png') no-repeat 0 0;}
+        </xsl:if>
+        <!-- Sind die IDs gleich, ist das Element aktiv -->
+        <xsl:if test="$id = @nr">
+            #<xsl:value-of select="@name"/>Active{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_aktiv.png'); margin-top: <xsl:value-of select="70*@nr"/>px ;}
+        </xsl:if>
+        
     </xsl:for-each>
+      <!-- Für das Mehr- und Wenigerwerden der Seiten wird nur die Hintergrundgrafik ausgetauscht -->
       #ohneAufklapp<xsl:value-of select="$id"/>{background:#000 url('../img/layout/aufklapp_ohneknick_<xsl:value-of select="$id"/>.jpg') no-repeat 0 0;}
       #aufklapp<xsl:value-of select="$id"/>{background:#000 url('../img/layout/aufklapp_klein_<xsl:value-of select="$id"/>.jpg') no-repeat 0 0;}
       #aufklapp<xsl:value-of select="$id"/>:hover{background:#000 url('../img/layout/aufklapp_gross_<xsl:value-of select="$id"/>.jpg') no-repeat 0 0;}
@@ -293,7 +305,7 @@
         <div id="alleinselnaufderkarte">
             <xsl:apply-templates select="overviewPictureArea"/>
         </div>
-        <!-- Workaround für <xsl:call-template select="..." -->
+        <!-- Workaround für <xsl:call-template select="..." mit Parameterübergabe -->
         <xsl:for-each select="table">
             <xsl:call-template name="table">
                 <xsl:with-param name="idTable" select="'statische_steckbrieftabelle'"/>
@@ -327,7 +339,7 @@
                       </xsl:call-template>
                   </xsl:for-each>
               <div class="infobox">
-                  <!-- Dieses Konstrukt ist ein Workaround für <xsl:apply-templates><xsl:with-param ... -->
+                  <!-- Dieses Konstrukt ist ein Workaround für <xsl:apply-templates select=... ><xsl:with-param ...> ... imperativ gelöst -->
                   <xsl:for-each select ="descriptionBox/*">
                       <xsl:if test="name() = 'table'">
                           <xsl:call-template name="table">
@@ -435,7 +447,7 @@
     <!-- Tabellen-Template  -->
     
     <xsl:template name="table" match="table">
-        <!-- IDs für die Tabelle, erste Reihe, erste Spalte -->
+        <!-- IDs für die Tabelle, erste Reihe, erste Spalte als mögliche Parameterwerte -->
         <xsl:param name="idTable"/>
         <xsl:param name="classTable"/>
         <xsl:param name="idFirstRow"/>
@@ -462,6 +474,8 @@
             <xsl:element name="tbody">
                 <xsl:for-each select="./row">
                     <xsl:element name="tr">
+                        <!-- Die Parameterwerte werden angezogen, wenn die jeweilige Bedingung erfüllt und diese auch tatsächlich gesetzt wurden. -->
+                        <!-- Diese können jedoch noch über besondere Benutzereingaben überschrieben werden. -->
                         <xsl:if test="$idFirstRow != '' and (position() = 1)">
                             <xsl:attribute name="id">
                                 <xsl:value-of select="$idFirstRow"/>

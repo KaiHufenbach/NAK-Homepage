@@ -1,6 +1,9 @@
 ﻿/* <![CDATA[ */
+//Globales Array für die selektierten Fragen
 var questions;
+//Zählervariable für die Korrekten Antworten
 var correct;
+//Bietet Zugriff auf das Formular
 var form;
 
 //Array für das Alphabet, um eine Nummerierung der einzelnen Frageoptionen zu realisieren
@@ -8,6 +11,10 @@ var alphabet = new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", 
 
 
 
+//Initialisiert das Quiz:
+//  Fragen auswählen
+//  Formular erzeugen
+//  HTML generieren
 function initialize() {
     //Einfügen erfolgt hier via XSLT, der Rest ist generisch
     questions = new Array();
@@ -17,16 +24,8 @@ function initialize() {
     generateHTML();
 }
 
-function createElement(name) {
-    //Um im richtigen Namespace zu agieren, sonst werden die CSS Regeln nicht angezogen, ist folgendes notwendig:
-    //Der IE interpretiert dies jedoch anders:
-    if (navigator.appName == "Microsoft Internet Explorer") {
-        return document.createElement(name);
-    } else {
-        return document.createElementNS("http://www.w3.org/1999/xhtml", name);
-    }
-}
-
+//Erzeugt prozedual den HTML Quellcode aus den vorhandenen FrageElementen.
+//Die Struktur des Aufbaus ist festgelegt.
 function generateHTML() {
 
     //Der IE schießt hier den Bock: Kommt ein Table Tag rein, so interpretiert der IE ein tbody hinein
@@ -87,11 +86,6 @@ function generateHTML() {
 
            
         }
-
-
-        //elem.setAttribute("class", "question");
-        //MD5 wird an dieser Stelle verwendet, um den Fragetext ohne Sonderzeichen einzufügen
-        //elem.setAttribute("id", hash(questions[i].question));
     }
 
     var inhalt = createElement("div");
@@ -189,11 +183,13 @@ function handIn() {
         
             //Führt die Korrektur der Fragen aus, dabei wird ein question Objekt erzeugt, dass die Frage und die angekreuzte Antwort enthält. Zusätzlich wird übergeben, ob diese Antwort richtig ist.
             resetResult(i);
-            correctQuestion(new question(questions[i].question, form.get(i)), form.get(i) == questions[i].answer);
+            addCorrectionResult(new question(questions[i].question, form.get(i)), form.get(i) == questions[i].answer);
 
         }
 
-    for (var i = 0; i < ranks.length; i++) {
+    //Bereitet die die Ausgabe des Ranges vor
+        for (var i = 0; i < ranks.length; i++) {
+        //Prüft, op der Wert zwischen der in der XML konfigurierten Spanne liegt
         if (ranks[i].from <= correct && correct <= ranks[i].to) {
             //Ist schon ein Bild vorhanden?
             var pic = document.getElementById("resultPicture");
@@ -221,9 +217,10 @@ function searchSelectedOption(radios) {
     return null;
 }
 
-//Um die Symbole richtig setzen zu können, wird die Frage und die angekreuzte Antwort, sowie deren Richtigkeit übergeben
+//Um die Symbole richtig setzen zu können, wird die Frage und die angekreuzte Antwort (q), sowie deren Richtigkeit übergeben
 //Frage + Antwort wird für den Zugriff auf die ID der Tabelle benötigt
-function correctQuestion(q, answerCorrect) {
+//Diese Funktion setzt das Ergebnis auf sichtbar auf Haken (richtig) oder Kreuz (falsch)
+function addCorrectionResult(q, answerCorrect) {
     var img = createElement( "img");
     var elem = document.getElementById(hash(q.question + q.answer));
     if (answerCorrect) {
@@ -247,10 +244,12 @@ function Form(size) {
     this.get = get;
     this.getTicks = getTicks;
 
+    //Initialisierung des Formulars mit leeren Formularelementen
     for (var i = 0; i < size; i++) {
         this.radios.push(new FormularElement());
     }
 
+    //Gesamtes Formular zurücksetzen
     function reset() {
         for (var i = 0; i < this.radios.length; i++) {
             this.radios[i].reset();
@@ -270,11 +269,12 @@ function Form(size) {
         //geklickten button setzen:
         document.getElementById(hashValue + (value + '')).setAttribute("class", "radiobutton_active");
 
-        //Ggf. abschicken auf aktiv setzen
+        //Ggf. abschicken auf aktiv setzen und die Javascript Funktion hand(in) verfügbar machen
         if (this.getTicks() == questions.length) {
             document.getElementById("abschicken").setAttribute("class", "aktiv");
             document.getElementById("abschicken").setAttribute("onclick", "handIn()");
         } else {
+            //... ansonsten auf passiv setzen und onclick entfernen (wenn vorhanden).
             document.getElementById("abschicken").setAttribute("class", "passiv");
             document.getElementById("abschicken").removeAttribute("onclick");
         }
@@ -294,13 +294,14 @@ function Form(size) {
         return ticks;
     }
 
+    //Zugriff auf den Wert einer Frage
     function get(i) {
         return this.radios[i].value;
     }
 
 }
 
-//Setzt die Haken zur übergebenen Fragennummer zurück.
+//Setzt die Kreuze zur übergebenen Fragennummer zurück.
 function resetQuestionTicks(questionNr) {
     var j = 0;
     var hashValue = hash(questions[questionNr].question);
@@ -310,9 +311,10 @@ function resetQuestionTicks(questionNr) {
     }
 }
 
-//Setzt das Ergebnis einer angegebenen Frage zurück
+//Setzt das Ergebnis einer angegebenen Frage in der Entsprechenden Frageoption zurück
 function resetResult(questionNr) {
     for (var j = 0; j < questions[questionNr].options.length; j++) {
+        //Zugriff auf die HTML Repräsentation des Ergebnisses
         var elem = document.getElementById(hash(questions[questionNr].question + questions[questionNr].options[j]));
         if (elem.firstChild != null) {
             document.getElementById(hash(questions[questionNr].question + questions[questionNr].options[j])).removeChild(elem.firstChild);
@@ -326,10 +328,12 @@ function FormularElement() {
     this.setValue = setValue;
     this.reset = reset;
 
+    //Setzt den Wert des FormularElements auf einen bestimmten Wert
     function setValue(value) {
         this.value = value;
     }
 
+    //Setzt das FormularElement zurück
     function reset() {
         this.value = null;
     }
@@ -350,9 +354,11 @@ function resetContent() {
     }
     //AbschickenButton deaktivieren
     document.getElementById("abschicken").setAttribute("class", "passiv");
+    //Es kann auch nicht mehr draufgeklickt werden
     document.getElementById("abschicken").removeAttribute("onclick");
     var resultPic = document.getElementById("resultPicture");
     if (resultPic != null) {
+        //Ergebnisse werden auch nicht mehr angezeigt
         document.getElementById("ergebnis").removeChild(resultPic);
     }
     
@@ -362,5 +368,17 @@ function resetContent() {
 function newQuestions() {
     document.location = document.location;
 }
+
+//Komfortfunktion zum Erstellen eines Elements
+function createElement(name) {
+    //Um im richtigen Namespace zu agieren, sonst werden die CSS Regeln nicht angezogen, ist folgendes notwendig:
+    //Der IE interpretiert dies jedoch anders:
+    if (navigator.appName == "Microsoft Internet Explorer") {
+        return document.createElement(name);
+    } else {
+        return document.createElementNS("http://www.w3.org/1999/xhtml", name);
+    }
+}
+
 
 /* ]]> */

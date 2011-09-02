@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Kai -->
+<!-- Beschreibung einer Seite. Eine "XML-Seite" stellt eine Buchseite dar.  -->
 <xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="page">
     <xs:complexType>  
       <xs:sequence>
+          <!-- Das pageInfo Element enthält Metadaten zu einer Seite und ordnet diese einem Kapitel zu -->
         <xs:element name="pageInfo" minOccurs="1" maxOccurs="1">
           <xs:complexType>
             <xs:attribute name="nr" type="xs:int" use="required" />
@@ -21,6 +24,7 @@
               </xs:attribute>
           </xs:complexType>
         </xs:element>
+          <!-- Eine Seite kann nur eine der folgenden Gruppierungen enthalten: -->
           <xs:choice>
               <xs:group ref="normal"/>
               <xs:group ref="quiz"/>
@@ -31,6 +35,7 @@
   </xs:element>
 
 
+    <!-- Steckbriefgruppe -->
     <xs:group name="overview">
         <xs:sequence>
             <!-- Bildbereich oberhalb des Steckbriefes -->
@@ -40,6 +45,7 @@
         </xs:sequence>
     </xs:group>
 
+    <!-- Beschreibung des oberen, "Bildteil" des Steckbriefes -->
     <xs:element name="overviewPictureArea">
         <xs:complexType>
             <xs:sequence>
@@ -57,6 +63,7 @@
                             <xs:element ref="picture" minOccurs="1" maxOccurs="1"/>
                             <xs:element ref="hoverPart" minOccurs="1" maxOccurs="unbounded"/>
                         </xs:sequence>
+                        <!-- Angabe des Hover Targets, hier wird sowohl das StandardPicture, als auch ggf. die DescriptionBox des Elements angezegit, auf dem der Hover vorliegt. -->
                         <xs:attribute name="targetx" type="xs:int" use="required"/>
                         <xs:attribute name="targety" type="xs:int" use="required"/>
                     </xs:complexType>
@@ -65,18 +72,24 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- Schemadefinition eines Bereiches mit Hover-Eigenschaften -->
     <xs:element name="hoverPart">
         <xs:complexType>
             <xs:sequence>
+                <!-- Muss ein Bild sein, über das man hovern kann -->
                 <xs:element ref="picture" maxOccurs="1" minOccurs="1"/>
+                <!-- Es kann an der Position des "targets" eine Description box erscheinen -->
                 <xs:element name="descriptionBox" minOccurs="0" maxOccurs="1">
                     <xs:complexType>
+                        <!-- Eine DescriptionBox kann normalen Seiteninhalt beinhalten -->
                         <xs:sequence>
                             <xs:group ref="normalPageContent"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
+            <!-- Wo liegt der HoverPart, wie groß ist er? -->
+            <!-- Diese Infos sind für die Fillerboxen Relevant -->
             <xs:attribute name="posx" type="xs:int" use="required"/>
             <xs:attribute name="posy" type="xs:int" use="required"/>
             <xs:attribute name="sizex" type="xs:int" use="required"/>
@@ -84,11 +97,14 @@
         </xs:complexType>
     </xs:element>
     
+    <!-- Schemadefinition des Quizes -->
     <xs:group name="quiz">
         <xs:sequence>
+            <!-- Beschreibung des Quiz -->
             <xs:element minOccurs="1" maxOccurs="1" name="quizOptions">
                 <xs:complexType>
                     <xs:sequence>
+                        <!-- Es können Ränge konfiguriert werden -->
                         <xs:element minOccurs="2" maxOccurs="unbounded" name="rank">
                             <xs:complexType>
                                 <xs:sequence>
@@ -99,14 +115,17 @@
                             </xs:complexType>
                         </xs:element>
                     </xs:sequence>
+                    <!-- Maximale Anzahl von Fragen pro Quizu -->
                     <xs:attribute name="questions" type="xs:int" use="required" />
                 </xs:complexType>
-                
             </xs:element>
+            <!-- Schemabeschreibung einer Frage: So wird ein Fragenkatalog angelegt -->
             <xs:element minOccurs="0" maxOccurs="unbounded" name="question">
                 <xs:complexType>
                     <xs:sequence>
+                        <!-- Der Frage kann ein Bild zugeordnet werden. -->
                         <xs:element ref="picture" minOccurs="0" maxOccurs="1"/>
+                        <!-- Antwortmöglichkeiten der Frage, diese werden in zufälliger Reihenfolge dargestellt -->
                         <xs:element name="option" minOccurs="2" maxOccurs="3">
                             <xs:complexType>
                                 <xs:simpleContent>
@@ -117,12 +136,14 @@
                             </xs:complexType>
                         </xs:element>
                     </xs:sequence>
+                    <!-- Der eigentliche Fragentext -->
                     <xs:attribute name="question" type="xs:string" use="required" />
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
     </xs:group>
 
+    <!-- Zusammenfassung eines zweispalten Layouts -->
     <xs:group name="normal">
         <xs:sequence>
             <xs:element minOccurs="0" maxOccurs="1" name="left">
@@ -138,6 +159,7 @@
         </xs:sequence>
     </xs:group>
     
+    <!-- Zusammenfassung des Seiteninhaltes -->
     <xs:group name="normalPageContent">
         <xs:sequence>
             <xs:choice maxOccurs="unbounded">
@@ -148,9 +170,12 @@
         </xs:sequence>
     </xs:group>
 
+    <!-- Allgemeines Tabellenelement -->
     <xs:element name="table">
         <xs:complexType>
             <xs:sequence>
+                <!-- Jede Spalte, sowie Zeile kann separat mit einer eigenen ID o. Klasse versehen werden. -->
+                <!-- Diese so vergebenen Attribute haben die höchste Priorität -->
                 <xs:element name="row" minOccurs="1" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
@@ -175,7 +200,9 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- Allgemeines Textelement -->
     <xs:element name ="paragraph">
+        <!-- Kann sowohl Text, als auch weitere Element (br) enthalten -->
         <xs:complexType mixed="true">
             <xs:sequence>
                 <xs:element name="br" minOccurs="0" maxOccurs="unbounded"/>
@@ -184,6 +211,7 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- Allgemeines Bildelement -->
     <xs:element name="picture">
         <xs:complexType>
                     <xs:attribute name="name" type="xs:string" use="required" />
