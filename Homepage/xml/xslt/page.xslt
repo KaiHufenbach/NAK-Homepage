@@ -20,6 +20,7 @@
                 <title>
                     Bahamas - <xsl:value-of select="$chapter"/>
                 </title>
+                
                 <style type="text/css" media="screen">
                   @import"../css/standardStyle.css";
                   <!-- Code Snippet für Dictionary Nutzung: leider ist hier die Duplette im Code notwendig. Funktionen werden vom IE + FF nicht verstanden... <xsl:call-template geht nicht mit select="$..." xsl:apply-templates hat im IE + FF einen Bug: Parameter können nicht übergeben werden (laut W3C ist das möglich) -->
