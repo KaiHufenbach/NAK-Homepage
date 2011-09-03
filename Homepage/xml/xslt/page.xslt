@@ -29,6 +29,7 @@
                       <xsl:variable name="chapterNr" select="@nr"/>
                       <xsl:call-template name="navigationStyle">
                         <xsl:with-param select="$chapterNr" name="id"/>
+                        <xsl:with-param select="$pagenr" name="pageNr"/>
                       </xsl:call-template>
                         <!-- Verschiebung des Inhaltes, je nachdem, auf welcher Seite man sich befindet. -->
                         <!-- Da in diesem Falle mit absoluten Angaben gearbeitet wird, kann über margin der Inhalt problemlos relativ verschoben werden -->
@@ -286,6 +287,7 @@
   <!-- Template für CSS-Style Ergänzungen, die das Menü betreffen. -->
   <xsl:template name="navigationStyle">
     <xsl:param name="id"/>
+    <xsl:param name="pageNr"/>
       <xsl:variable name="chapters" select="document('../chapters.xml')"/>
       <!-- Alle Chapters durchgehen, die Styleergänzungen sollen nicht größer werden, als nöltig -->
     <xsl:for-each select="$chapters/chapters/chapter">
@@ -304,6 +306,10 @@
         <!-- Sind die IDs gleich, ist das Element aktiv -->
         <xsl:if test="$id = @nr">
             #<xsl:value-of select="@name"/>Active{background-image:url('../img/layout/nav_<xsl:value-of select="@name"/>_aktiv.png'); margin-top: <xsl:value-of select="70*@nr"/>px ;}
+            <xsl:if test="$pageNr > 1">
+                #tisch_<xsl:value-of select="@name"/>{background:url('../img/layout/nav_tisch_<xsl:value-of select="@name"/>.png') no-repeat 0 0; margin-top: <xsl:value-of select="70*@nr"/>px ;}
+                #tisch_<xsl:value-of select="@name"/>:hover{background:url('../img/layout/nav_tisch_<xsl:value-of select="@name"/>_hover.png') no-repeat 0 0;}
+            </xsl:if>
         </xsl:if>
         
     </xsl:for-each>
