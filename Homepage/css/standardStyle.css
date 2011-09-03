@@ -12,7 +12,7 @@
         padding: 0;
     }
       
-        /* |Kai| Muss Höhe und Breite 100% haben, sonst nicht über ganze Seite (FF 5)*/
+        /* |Kai| Muss Höhe und Breite 100% haben, sonst geht der Inhalt nicht über ganze Seite (FF 5)*/
     html, body
     {
         height: 100%;
@@ -25,6 +25,18 @@
     {
         background:#000 url('../img/layout/bg.jpg') no-repeat 0 0;
     }
+    
+    /*|Kai| Möglichkeit, ein Element unsichtbar zu machen*/
+    .visible
+    {
+        visibility:visible;
+    }
+    
+    .invisible
+    {
+        visibility:hidden;
+    }
+    
 
     /*------------------------------------------------------------------------------------------------------------------------------------*/
         /* |Kai| IE Workaround: Text nach außen schieben und die Outline (punkte darunter) entfernen. Stellt zusätzlich barrierefreiheit her.

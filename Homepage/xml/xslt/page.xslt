@@ -52,6 +52,7 @@
                 </style>
 
                 <xsl:if test="$type = 'quiz'">
+                    
                     <script type="text/javascript">
                         <!-- Hier folgt kein XHTML, somit ist der Code valide und das Javascript wird als CharacterData für sich genommen, für Browser, die das nicht verstehen ist der Kommentar gedacht. -->
                         <xsl:text disable-output-escaping="yes">/* &lt;![CDATA[ */</xsl:text>  
@@ -241,6 +242,17 @@
                     </div>
                 </xsl:if>
 
+
+                <xsl:if test="$type = 'quiz'">
+                    <div id="inhalt">
+                        <div id="noScript" class="visible">
+                            <p>
+                                <span class="h1">Bitte Javascript einschalten</span>
+                                Um das Quiz nutzen zu können, schalten Sie bitte Javascript ein.
+                            </p>
+                        </div>
+                    </div>
+                </xsl:if>
 
 
             </xsl:element>

@@ -22,6 +22,8 @@ function initialize() {
     correct = 0;
     form = new Form(amountOfQuestions);
     generateHTML();
+    //NoScript Warnung ausblenden
+    document.getElementById("noScript").setAttribute("class", "invisible");
 }
 
 //Erzeugt prozedual den HTML Quellcode aus den vorhandenen FrageElementen.
