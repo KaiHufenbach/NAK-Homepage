@@ -1,5 +1,5 @@
-﻿<!-- Kai -->
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Kai -->
 <!-- Schemabeschreibung über die Kapitel. Diese wird genutzt, um einzelnen Kapiteln allgemeine Eigenschaften und eine Reihenfolge zu geben -->
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:element name="chapters">
