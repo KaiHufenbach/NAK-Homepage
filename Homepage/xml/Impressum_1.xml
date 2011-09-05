@@ -3,13 +3,14 @@
 <page xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="./xsd/page.xsd">
     <pageInfo nr="1" lastPage="true" chapter="Impressum" typ="normal" />
     <left>
-      <paragraph headline="LLorem FH">
+      <paragraph headline="Nordakademie">
 
           gemäß § 5 TMG:<br></br>
           <br></br>
-      Ipsumstraße 111<br></br>
-      Hotel Alte Banane 77<br></br>
-      90210 Gotham City<br></br>
+          Nordakademie FH
+          <br></br>
+          Köllner Chaussee 11<br></br>
+          25337 Elmshorn <br></br>
           <br></br>
       Vertreten durch:
           <br></br>
