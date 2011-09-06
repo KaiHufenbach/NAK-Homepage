@@ -27,11 +27,11 @@
         <option >Hotel Alte Banane</option>
     </question>
 
-    <question question="Warum gehören die Bahamas nicht zu Kuba?">
+    <question question="Welche Sprache spricht man auf den Bahamas?">
         <picture name="Fragezeichen" file="quiz_bild_uni.png"/>
-        <option >Wegen Fidel</option>
-        <option >Aus Bock</option>
-        <option rightAnswer="true">Weil sie's können</option>
+        <option >Kubanisch</option>
+        <option >Klingonisch</option>
+        <option rightAnswer="true">Englisch</option>
     </question>
   
   <question question="Was ist dein Lieblingsessen?">
