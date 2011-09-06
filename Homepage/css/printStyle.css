@@ -241,6 +241,13 @@
 
 
 /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX--------QUIZ--------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+    
+    /*Schaltet das noScript Tag beim Drucken aus*/
+    #noScript
+    {
+        visibility:hidden;
+    }
+
 
     /*|Oliver| Diese ID definiert die Eigenschaften des Inhaltsbereichs der QUIZ-Seite*/
     #quizinhalt
@@ -392,9 +399,9 @@
     #alleinselnaufderkarte 
     {
         position: absolute;
-        display:none;
+        visibility:visible;
         top:-93px;
-        left:-37px;
+        left:0px;
         width: 322px;
         height: 347px;
     }
